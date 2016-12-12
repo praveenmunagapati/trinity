@@ -1,0 +1,99 @@
+syntax = "proto3";
+
+package trinity;
+
+
+message RootConfig {
+ string NodeRole = 1;
+ FIndexConfig FIndex = 2;
+ IIndexConfig IIndex = 3;
+ string APIPort = 4;
+}
+
+
+message FIndexConfig {
+  uint32 max_size = 1;
+  string store_path = 2;
+}
+
+message IIndexConfig {
+  uint32 max_size = 1;
+  string store_path = 2;
+}
+
+message ConfigRequest {
+  string type = 1;
+}
+
+message SetResult {
+  string result = 1;
+}
+
+message FMValue {
+  repeated uint32 locations = 1;
+}
+
+message ForwardMap {
+  uint32 findex_api_version = 1;
+  map<string, FMValue> the_map = 2;
+}
+
+message DocStat {
+  string docname = 1;
+  uint32 count = 2;
+}
+
+message IMValue {
+  repeated DocStat docs = 1;
+}
+
+message InvertedMap {
+  uint32 iindex_api_version = 1;
+  map<string, IMValue> the_map = 2;
+}
+
+
+service FMapper {
+  rpc GetDocMap (DocMapRequest) returns (ForwardMap) {}
+  rpc SetDocMap (ForwardMap) returns (SetResult) {}
+}
+
+message DocMapRequest {
+  string docname = 1;
+}
+
+service Trinity {
+  rpc GetRootConfig(ConfigRequest) returns (RootConfig) {}
+  rpc SetRootConfig(RootConfig) returns (SetResult) {}
+}
+
+message StartSubsystemRequest {
+  string subsystem_name = 1;
+}
+
+message StartSubsystemResponse {
+  string response_code = 1;
+}
+
+service Subsystem {
+  rpc StartMainLoop(StartSubsystemRequest) returns (StartSubsystemResponse) {}
+}
+
+
+service Gateway {
+  rpc GetSearchQuery(SearchQuery) returns (SearchResponse) {}
+}
+
+message SearchQuery {
+  string query = 1;
+}
+
+message SearchResponse {
+  repeated SearchResult results = 1;
+}
+
+message SearchResult {
+  string title = 1;
+  string hash = 2;
+  string description = 3;
+}
