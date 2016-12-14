@@ -25,6 +25,8 @@ A lot of the dependencies will be handled by the build.py script, but you need t
 - **Python** (2.7, for build.py and other scripts)
 - **protoc** (the standard protobuf compiler)
 
+After you have everything listed above, build/install with:
+
 ```
 $: git clone https://github.com/clownpriest/trinity.git
 $: cd trinity

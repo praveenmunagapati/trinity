@@ -15,6 +15,12 @@ func LoadConfigs() (config.Config, error) {
 		return rootConfig, rootConfigErr
 	}
 
+	gatewayConfig, gatewayConfigErr := config.LoadGatewayConfig(system.FIndexConfigPath())
+	if gatewayConfigErr != nil {
+		return rootConfig, gatewayConfigErr
+	}
+	rootConfig.Gateway = gatewayConfig
+
 	findexConfig, findexConfigErr := config.LoadFIndexConfig(system.FIndexConfigPath())
 	if findexConfigErr != nil {
 		return rootConfig, findexConfigErr

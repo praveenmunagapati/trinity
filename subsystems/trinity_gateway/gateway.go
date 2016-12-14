@@ -46,7 +46,7 @@ func NewGatewayState(staticPath string) (*GatewayState, error) {
 
 func setupGRPCConn(conn *grpc.ClientConn, client *trinity.GatewayClient) {
 	var dialErr error
-	conn, dialErr = grpc.Dial("localhost:12345", grpc.WithInsecure())
+	conn, dialErr = grpc.Dial("localhost:50051", grpc.WithInsecure())
 	if dialErr != nil {
 		log.Fatalf("did not connect: %v", dialErr)
 	}

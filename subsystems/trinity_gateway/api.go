@@ -4,14 +4,22 @@ import (
 	"context"
 	"fmt"
 	"net/http"
+	"sync"
 
 	"github.com/clownpriest/trinity/api/trinity"
 )
 
-type Result struct {
-	Title       string
-	Hash        string
-	Description string
+/*
+RunGatewayServer starts the http server for the gateway
+subprocess.
+*/
+func RunGatewayServer(staticPath string, wg *sync.WaitGroup) {
+	defer wg.Done()
+	fs := http.FileServer(http.Dir(staticPath))
+	http.HandleFunc("/", rootHandler)
+	http.HandleFunc("/search", searchHandler)
+	http.Handle("/static/", http.StripPrefix("/static/", fs))
+	http.ListenAndServe(":8080", nil)
 }
 
 // SearchResult is the type carrying the response from the main trinity node

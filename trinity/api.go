@@ -2,27 +2,42 @@ package main
 
 import (
 	"fmt"
-	"net/http"
-	"time"
+	"net"
+	"sync"
+
+	"golang.org/x/net/context"
+
+	"github.com/clownpriest/trinity/api/trinity"
+	"github.com/clownpriest/trinity/core/system/subsystem"
+	"google.golang.org/grpc"
+	"google.golang.org/grpc/grpclog"
 )
 
-func NewGatewayServer() *http.Server {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/get-doc/", getDocHandler)
-	s := &http.Server{
-		Addr:         ":8080",
-		Handler:      nil,
-		ReadTimeout:  10 * time.Second,
-		WriteTimeout: 10 * time.Second,
+func startTrinityCoreServer(port int, wg *sync.WaitGroup) {
+	defer wg.Done()
+	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
+	if err != nil {
+		grpclog.Fatalf("failed to listen: %v", err)
 	}
-	s.Handler = mux
+
+	var opts []grpc.ServerOption
+	grpcServer := grpc.NewServer(opts...)
+	trinity.RegisterGatewayServer(grpcServer, newGatewayServer())
+	grpcServer.Serve(lis)
+}
+
+type gatewayServer struct {
+}
+
+func (gs *gatewayServer) GetSearchQuery(ctx context.Context, query *trinity.SearchQuery) (*trinity.SearchResponse, error) {
+	fmt.Printf("got a search request: %s\n", query.Query)
+
+	response := subsystem.Search(query)
+
+	return response, nil
+}
+
+func newGatewayServer() *gatewayServer {
+	s := new(gatewayServer)
 	return s
-}
-
-func StartMainLoop() {
-
-}
-
-func getDocHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("hello there")
 }

@@ -56,7 +56,7 @@ type Config struct {
 	IIndex IIndexConfig `json:"iindex_config"`
 
 	// APIPort is the port used for the gateway's gRPC
-	APIPort string `json:"api_port"`
+	CoreServerPort int `json:"core_server_port"`
 
 	// SubscribedChannels is a list of data channels that this node
 	// is subscribed to
@@ -71,8 +71,8 @@ be loaded from the file.
 */
 func NewDefaultConfig() Config {
 	return Config{
-		NodeRole: Gateway,
-		APIPort:  ":50051",
+		NodeRole:       Gateway,
+		CoreServerPort: 50051,
 		SubscribedChannels: []string{
 			"YwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
 			"YwAPJzv6CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
