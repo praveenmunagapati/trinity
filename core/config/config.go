@@ -13,6 +13,10 @@ var (
 	ErrConfigDoesntExist = errors.New("config: config file doesn't exist")
 )
 
+const (
+	DefaultCoreServerPort = 50051
+)
+
 /*
 NodeRole describes the function of the node. trinity
 nodes can be standalone full nodes, or be dedicated
@@ -72,7 +76,7 @@ be loaded from the file.
 func NewDefaultConfig() Config {
 	return Config{
 		NodeRole:       Gateway,
-		CoreServerPort: 50051,
+		CoreServerPort: DefaultCoreServerPort,
 		SubscribedChannels: []string{
 			"YwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
 			"YwAPJzv6CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG",
@@ -120,7 +124,8 @@ values set to their default
 */
 func NewDefaultGatewayConfig() GatewayConfig {
 	return GatewayConfig{
-		BinName: "trinity_gateway",
+		BinName:    "trinity_gateway",
+		ClientPort: DefaultCoreServerPort,
 	}
 }
 
@@ -154,6 +159,7 @@ type FIndexConfig struct {
 	MaxIndexSize uint   `json:"max_findex_size"`
 	StorePath    string `json:"store_path"`
 	BinName      string `json:"bin_name"`
+	ClientPort   int    `json:"client_port"`
 }
 
 /*
@@ -164,6 +170,7 @@ func NewDefaultFIndexConfig() FIndexConfig {
 	return FIndexConfig{
 		MaxIndexSize: 1000000000,
 		BinName:      "trinity_findex",
+		ClientPort:   DefaultCoreServerPort,
 	}
 }
 
@@ -197,6 +204,7 @@ type IIndexConfig struct {
 	MaxIndexSize uint   `json:"max_iindex_size"`
 	StorePath    string `json:"store_path"`
 	BinName      string `json:"bin_name"`
+	ClientPort   int    `json:"client_port"`
 }
 
 /*
@@ -207,6 +215,7 @@ func NewDefaultIIndexConfig() IIndexConfig {
 	return IIndexConfig{
 		MaxIndexSize: 1000000000,
 		BinName:      "trinity_iindex",
+		ClientPort:   DefaultCoreServerPort,
 	}
 }
 
