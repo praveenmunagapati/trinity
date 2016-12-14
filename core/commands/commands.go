@@ -24,15 +24,30 @@ details about that command's usage/options
 `
 
 /*
+GatewayHelp is the help message displayed for the
+gateway server subsystem.
+*/
+const GatewayHelp = `
+trinity_gateway - trinity gateway server subsystem
+
+usage:
+
+$: trinity_gateway [path/to/config]
+
+The path to a configuration file is optional. Providing
+one will override the default config file from being loaded
+`
+
+/*
 FIndexHelp is the help message displayed for the
 forward index subsystem.
 */
 const FIndexHelp = `
-tfindex - trinity forward index subsystem
+trinity_findex - trinity forward index subsystem
 
 usage:
 
-$: tfindex [path/to/config]
+$: trinity_findex [path/to/config]
 
 The path to a configuration file is optional. Providing
 one will override the default config file from being loaded
@@ -43,11 +58,11 @@ IIndexHelp is the help message displayed for the
 inverted index subsystem.
 */
 const IIndexHelp = `
-tiindex - trinity inverted index subsystem
+trinity_iindex - trinity inverted index subsystem
 
 usage:
 
-$: tiindex [path/to/config]
+$: trinity_iindex [path/to/config]
 
 The path to a configuration file is optional. Providing
 one will override the default config file from being loaded

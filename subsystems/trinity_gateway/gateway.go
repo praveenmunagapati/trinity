@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"io/ioutil"
 	"log"
@@ -44,9 +45,10 @@ func NewGatewayState(staticPath string) (*GatewayState, error) {
 	return state, nil
 }
 
-func setupGRPCConn(conn *grpc.ClientConn, client *trinity.GatewayClient) {
+func setupGRPCConn(conn *grpc.ClientConn, client *trinity.GatewayClient, port int) {
 	var dialErr error
-	conn, dialErr = grpc.Dial("localhost:50051", grpc.WithInsecure())
+	address := fmt.Sprintf("localhost:%d", port)
+	conn, dialErr = grpc.Dial(address, grpc.WithInsecure())
 	if dialErr != nil {
 		log.Fatalf("did not connect: %v", dialErr)
 	}

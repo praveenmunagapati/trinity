@@ -110,7 +110,8 @@ GatewayConfig is the configuration struct for the gateway
 server subsystem
 */
 type GatewayConfig struct {
-	BinName string `json:"bin_name"`
+	BinName    string `json:"bin_name"`
+	ClientPort int    `json:"client_port"`
 }
 
 /*
