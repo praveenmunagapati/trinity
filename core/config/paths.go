@@ -40,6 +40,11 @@ func StaticDir() string {
 	return staticDir
 }
 
+// GatewayConfigPath returns the path to the gateway server config file
+func GatewayConfigPath() string {
+	return gatewayConfigPath
+}
+
 // FIndexConfigPath returns the path to the forward index config file
 func FIndexConfigPath() string {
 	return tfindexConfigPath

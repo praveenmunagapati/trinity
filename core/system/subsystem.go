@@ -40,6 +40,7 @@ SubsystemType describes the type of the subsystem.
 type SubsystemType string
 
 const (
+	// Gateway exposes an HTTP server interface to the core process
 	Gateway = "gateway"
 
 	// Crawler handles crawling the network and queing data for ingestion

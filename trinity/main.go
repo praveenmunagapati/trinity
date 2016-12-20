@@ -47,7 +47,12 @@ func main() {
 
 	mainWaitGroup.Add(1)
 
-	startTrinityCoreServer(mainConfig.CoreServerPort, &mainWaitGroup)
+	go startTrinityCoreServer(mainConfig.CoreServerPort, &mainWaitGroup)
+
+	err = node.InitSubsystems()
+	if err != nil {
+		panic(err)
+	}
 
 	mainWaitGroup.Wait()
 

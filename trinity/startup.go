@@ -24,10 +24,7 @@ func LoadNode(config *config.Config) (*core.TrinityNode, error) {
 	if err != nil {
 		return node, err
 	}
-	err = InitSubsystems(systems)
-	if err != nil {
-		return node, err
-	}
+
 	node.Subsystems = systems
 	return node, nil
 }
@@ -50,8 +47,10 @@ func DetermineSubsystems(config *config.Config) (system.Subsystems, error) {
 		iindex := system.NewSubsystem(system.InvertedIndex)
 		systems.Add(&iindex)
 	case "full":
+		gateway := system.NewSubsystem(system.Gateway)
 		findex := system.NewSubsystem(system.ForwardIndex)
 		iindex := system.NewSubsystem(system.InvertedIndex)
+		systems.Add(&gateway)
 		systems.Add(&findex)
 		systems.Add(&iindex)
 	default:
@@ -61,9 +60,24 @@ func DetermineSubsystems(config *config.Config) (system.Subsystems, error) {
 	return systems, nil
 }
 
-func InitSubsystems(systems system.Subsystems) error {
-	return nil
-}
+// func InitSubsystems(systems system.Subsystems, config *config.Config) error {
+// 	for _, system := range systems {
+// 		switch system.Role {
+// 		case "gateway":
+// 			LoadGateway(config)
+// 		}
+// 	}
+// 	return nil
+// }
+//
+// func LoadGateway(config *config.Config) error {
+// 	cmd := exec.Command(config.Gateway.BinName)
+// 	err := cmd.Run()
+// 	if err != nil {
+// 		return err
+// 	}
+// 	return nil
+// }
 
 // func LoadSubsystems(node *core.TrinityNode) *core.TrinityNode {
 // 	return node

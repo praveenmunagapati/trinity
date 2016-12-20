@@ -116,6 +116,7 @@ server subsystem
 type GatewayConfig struct {
 	BinName    string `json:"bin_name"`
 	ClientPort int    `json:"client_port"`
+	ConfigPath string `json:"config_path"`
 }
 
 /*
@@ -126,6 +127,7 @@ func NewDefaultGatewayConfig() GatewayConfig {
 	return GatewayConfig{
 		BinName:    "trinity_gateway",
 		ClientPort: DefaultCoreServerPort,
+		ConfigPath: gatewayConfigPath,
 	}
 }
 
@@ -160,6 +162,7 @@ type FIndexConfig struct {
 	StorePath    string `json:"store_path"`
 	BinName      string `json:"bin_name"`
 	ClientPort   int    `json:"client_port"`
+	ConfigPath   string `json:"config_path"`
 }
 
 /*
@@ -171,6 +174,7 @@ func NewDefaultFIndexConfig() FIndexConfig {
 		MaxIndexSize: 1000000000,
 		BinName:      "trinity_findex",
 		ClientPort:   DefaultCoreServerPort,
+		ConfigPath:   tfindexConfigPath,
 	}
 }
 
@@ -205,6 +209,7 @@ type IIndexConfig struct {
 	StorePath    string `json:"store_path"`
 	BinName      string `json:"bin_name"`
 	ClientPort   int    `json:"client_port"`
+	ConfigPath   string `json:"config_path"`
 }
 
 /*
@@ -216,6 +221,7 @@ func NewDefaultIIndexConfig() IIndexConfig {
 		MaxIndexSize: 1000000000,
 		BinName:      "trinity_iindex",
 		ClientPort:   DefaultCoreServerPort,
+		ConfigPath:   tiindexConfigPath,
 	}
 }
 

@@ -437,6 +437,7 @@ void protobuf_InitDefaults_trinity_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   ForwardMap_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
+  ::google::protobuf::internal::GetEmptyString();
   DocStat_default_instance_.DefaultConstruct();
   IMValue_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();

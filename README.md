@@ -18,7 +18,7 @@ A lot of the dependencies will be handled by the build.py script, but you need t
  - ```go get github.com/gogo/protobuf/protoc-gen-gogo```
  - ```go get github.com/gogo/protobuf/gogoproto```
 - **requests** (python library)
- - `$: pip2 install -U requests`
+ - `$: pip install -U requests`
 
 ##### compilers
 - **Go** (at least 1.8)
