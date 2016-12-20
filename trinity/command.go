@@ -17,12 +17,6 @@ func handleCommand(com cli.CommandType) error {
 		}
 		os.Exit(0)
 
-
-
-
-
-		
-
 	} else if com == cli.Version {
 		printVersion()
 		os.Exit(0)

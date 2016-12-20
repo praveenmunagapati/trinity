@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"os/exec"
 
 	"google.golang.org/grpc"
 )
@@ -14,9 +15,10 @@ Subsystem is a meta info struct for subsystems
 that are loaded into the core daemon
 */
 type Subsystem struct {
-	Role   SubsystemType
-	Loaded bool
-	Active bool
+	Role    SubsystemType
+	Loaded  bool
+	Active  bool
+	Process *exec.Cmd
 }
 
 // NewSubsystem returns default initialized Subsystem
@@ -24,14 +26,14 @@ func NewSubsystem(role SubsystemType) Subsystem {
 	return Subsystem{Role: role}
 }
 
-// Subsystems is a list of Subsystem
-type Subsystems []*Subsystem
+// Subsystems is a map of SubsystemType to pointers to Subsystem
+type Subsystems map[SubsystemType]*Subsystem
 
 /*
-Add subsystem to a list
+Add subsystem to the map
 */
-func (systems *Subsystems) Add(system *Subsystem) {
-	*systems = append(*systems, system)
+func (systems Subsystems) Add(system *Subsystem) {
+	systems[system.Role] = system
 }
 
 /*

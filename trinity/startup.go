@@ -18,7 +18,10 @@ TrinityNode struct. This stuct holds the global state
 of the engine node.
 */
 func LoadNode(config *config.Config) (*core.TrinityNode, error) {
-	node := &core.TrinityNode{}
+
+	node := &core.TrinityNode{
+		Subsystems: make(system.Subsystems),
+	}
 	node.Config = config
 	systems, err := DetermineSubsystems(config)
 	if err != nil {
@@ -35,7 +38,7 @@ structs given the NodeRole supplied in the main
 config
 */
 func DetermineSubsystems(config *config.Config) (system.Subsystems, error) {
-	var systems system.Subsystems
+	systems := make(system.Subsystems)
 	switch config.NodeRole {
 	case "gateway":
 		gateway := system.NewSubsystem(system.Gateway)
@@ -59,26 +62,3 @@ func DetermineSubsystems(config *config.Config) (system.Subsystems, error) {
 
 	return systems, nil
 }
-
-// func InitSubsystems(systems system.Subsystems, config *config.Config) error {
-// 	for _, system := range systems {
-// 		switch system.Role {
-// 		case "gateway":
-// 			LoadGateway(config)
-// 		}
-// 	}
-// 	return nil
-// }
-//
-// func LoadGateway(config *config.Config) error {
-// 	cmd := exec.Command(config.Gateway.BinName)
-// 	err := cmd.Run()
-// 	if err != nil {
-// 		return err
-// 	}
-// 	return nil
-// }
-
-// func LoadSubsystems(node *core.TrinityNode) *core.TrinityNode {
-// 	return node
-// }

@@ -46,13 +46,17 @@ func main() {
 	var mainWaitGroup sync.WaitGroup
 
 	mainWaitGroup.Add(1)
-
 	go startTrinityCoreServer(mainConfig.CoreServerPort, &mainWaitGroup)
 
 	err = node.InitSubsystems()
 	if err != nil {
 		panic(err)
 	}
+
+	mainWaitGroup.Add(1)
+
+	sigChan := make(chan os.Signal, 1)
+	go startInterruptHandler(sigChan, &mainWaitGroup)
 
 	mainWaitGroup.Wait()
 
