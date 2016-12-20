@@ -12,9 +12,8 @@ import (
 A TrinityNode struct maintains the global state of a single engine instance
 */
 type TrinityNode struct {
-	Config         *config.Config
-	Subsystems     system.Subsystems
-	GatewayCommand *exec.Cmd
+	Config     *config.Config
+	Subsystems system.Subsystems
 }
 
 /*
