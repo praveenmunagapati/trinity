@@ -15,62 +15,62 @@
 #include <grpc++/impl/codegen/sync_stream.h>
 namespace trinity {
 
-static const char* FMapper_method_names[] = {
-  "/trinity.FMapper/GetDocMap",
-  "/trinity.FMapper/SetDocMap",
+static const char* FIndex_method_names[] = {
+  "/trinity.FIndex/GetDocMap",
+  "/trinity.FIndex/SetDocMap",
 };
 
-std::unique_ptr< FMapper::Stub> FMapper::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
-  std::unique_ptr< FMapper::Stub> stub(new FMapper::Stub(channel));
+std::unique_ptr< FIndex::Stub> FIndex::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< FIndex::Stub> stub(new FIndex::Stub(channel));
   return stub;
 }
 
-FMapper::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetDocMap_(FMapper_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetDocMap_(FMapper_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+FIndex::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_GetDocMap_(FIndex_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetDocMap_(FIndex_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status FMapper::Stub::GetDocMap(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::trinity::ForwardMap* response) {
+::grpc::Status FIndex::Stub::GetDocMap(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::trinity::ForwardMap* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetDocMap_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>* FMapper::Stub::AsyncGetDocMapRaw(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>* FIndex::Stub::AsyncGetDocMapRaw(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>(channel_.get(), cq, rpcmethod_GetDocMap_, context, request);
 }
 
-::grpc::Status FMapper::Stub::SetDocMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) {
+::grpc::Status FIndex::Stub::SetDocMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) {
   return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SetDocMap_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* FMapper::Stub::AsyncSetDocMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
+::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* FIndex::Stub::AsyncSetDocMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
   return new ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>(channel_.get(), cq, rpcmethod_SetDocMap_, context, request);
 }
 
-FMapper::Service::Service() {
-  (void)FMapper_method_names;
+FIndex::Service::Service() {
+  (void)FIndex_method_names;
   AddMethod(new ::grpc::RpcServiceMethod(
-      FMapper_method_names[0],
+      FIndex_method_names[0],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< FMapper::Service, ::trinity::DocMapRequest, ::trinity::ForwardMap>(
-          std::mem_fn(&FMapper::Service::GetDocMap), this)));
+      new ::grpc::RpcMethodHandler< FIndex::Service, ::trinity::DocMapRequest, ::trinity::ForwardMap>(
+          std::mem_fn(&FIndex::Service::GetDocMap), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
-      FMapper_method_names[1],
+      FIndex_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< FMapper::Service, ::trinity::ForwardMap, ::trinity::SetResult>(
-          std::mem_fn(&FMapper::Service::SetDocMap), this)));
+      new ::grpc::RpcMethodHandler< FIndex::Service, ::trinity::ForwardMap, ::trinity::SetResult>(
+          std::mem_fn(&FIndex::Service::SetDocMap), this)));
 }
 
-FMapper::Service::~Service() {
+FIndex::Service::~Service() {
 }
 
-::grpc::Status FMapper::Service::GetDocMap(::grpc::ServerContext* context, const ::trinity::DocMapRequest* request, ::trinity::ForwardMap* response) {
+::grpc::Status FIndex::Service::GetDocMap(::grpc::ServerContext* context, const ::trinity::DocMapRequest* request, ::trinity::ForwardMap* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status FMapper::Service::SetDocMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) {
+::grpc::Status FIndex::Service::SetDocMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) {
   (void) context;
   (void) request;
   (void) response;

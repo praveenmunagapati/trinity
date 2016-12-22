@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/clownpriest/trinity/api/trinity"
+	"github.com/clownpriest/trinity/core/commands"
 	"github.com/clownpriest/trinity/core/config"
 )
 
@@ -12,6 +13,7 @@ var findex FIndex
 
 func main() {
 	if len(os.Args) != 2 {
+		fmt.Println(commands.FIndexHelp)
 		os.Exit(1)
 	}
 
@@ -24,6 +26,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
+
 	findex = NewFIndex(store)
 
 	fmap1 := trinity.NewForwardMap()
@@ -36,7 +39,7 @@ func main() {
 	fmap1.Put("bus", 99)
 	fmap1.Put("shoes", 99)
 
-	findex.store.PutFMap("key1", fmap1)
+	findex.store.PutFMap("key1", &fmap1)
 
 	getResult, getErr := findex.store.GetFMap("key1")
 	if getErr != nil {
@@ -58,7 +61,7 @@ func main() {
 	fmap2.Put("special", 99)
 	fmap2.Put("humble", 19)
 
-	findex.store.PutFMap("key2", fmap2)
+	findex.store.PutFMap("key2", &fmap2)
 
 	getResult2, getErr2 := findex.store.GetFMap("key2")
 	if getErr2 != nil {

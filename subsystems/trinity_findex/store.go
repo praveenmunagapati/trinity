@@ -40,7 +40,7 @@ PutFMap puts a ForwardMap proto struct into the forward index
 data store, assigning it to the document ID key. The ForwardMap
 data is compressed before being serialized to disk.
 */
-func (fis *FIndexStore) PutFMap(key string, fmap trinity.ForwardMap) error {
+func (fis *FIndexStore) PutFMap(key string, fmap *trinity.ForwardMap) error {
 	data, err := fmap.Marshal()
 	if err != nil {
 		return err

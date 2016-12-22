@@ -26,7 +26,7 @@ class ServerContext;
 
 namespace trinity {
 
-class FMapper GRPC_FINAL {
+class FIndex GRPC_FINAL {
  public:
   class StubInterface {
    public:

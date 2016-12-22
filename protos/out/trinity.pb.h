@@ -531,22 +531,17 @@ class SetResult : public ::google::protobuf::Message /* @@protoc_insertion_point
 
   // accessors -------------------------------------------------------
 
-  // optional string result = 1;
-  void clear_result();
-  static const int kResultFieldNumber = 1;
-  const ::std::string& result() const;
-  void set_result(const ::std::string& value);
-  void set_result(const char* value);
-  void set_result(const char* value, size_t size);
-  ::std::string* mutable_result();
-  ::std::string* release_result();
-  void set_allocated_result(::std::string* result);
+  // optional bool success = 1;
+  void clear_success();
+  static const int kSuccessFieldNumber = 1;
+  bool success() const;
+  void set_success(bool value);
 
   // @@protoc_insertion_point(class_scope:trinity.SetResult)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr result_;
+  bool success_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trinity_2eproto_impl();
   friend void  protobuf_AddDesc_trinity_2eproto_impl();
@@ -722,10 +717,21 @@ class ForwardMap : public ::google::protobuf::Message /* @@protoc_insertion_poin
   ::google::protobuf::uint32 findex_api_version() const;
   void set_findex_api_version(::google::protobuf::uint32 value);
 
-  // map<string, .trinity.FMValue> the_map = 2;
+  // optional string key = 2;
+  void clear_key();
+  static const int kKeyFieldNumber = 2;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // map<string, .trinity.FMValue> the_map = 3;
   int the_map_size() const;
   void clear_the_map();
-  static const int kTheMapFieldNumber = 2;
+  static const int kTheMapFieldNumber = 3;
   const ::google::protobuf::Map< ::std::string, ::trinity::FMValue >&
       the_map() const;
   ::google::protobuf::Map< ::std::string, ::trinity::FMValue >*
@@ -746,6 +752,7 @@ class ForwardMap : public ::google::protobuf::Message /* @@protoc_insertion_poin
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
       0 > the_map_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
   ::google::protobuf::uint32 findex_api_version_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trinity_2eproto_impl();
@@ -1987,48 +1994,18 @@ inline const ConfigRequest* ConfigRequest::internal_default_instance() {
 
 // SetResult
 
-// optional string result = 1;
-inline void SetResult::clear_result() {
-  result_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional bool success = 1;
+inline void SetResult::clear_success() {
+  success_ = false;
 }
-inline const ::std::string& SetResult::result() const {
-  // @@protoc_insertion_point(field_get:trinity.SetResult.result)
-  return result_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline bool SetResult::success() const {
+  // @@protoc_insertion_point(field_get:trinity.SetResult.success)
+  return success_;
 }
-inline void SetResult::set_result(const ::std::string& value) {
+inline void SetResult::set_success(bool value) {
   
-  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:trinity.SetResult.result)
-}
-inline void SetResult::set_result(const char* value) {
-  
-  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:trinity.SetResult.result)
-}
-inline void SetResult::set_result(const char* value, size_t size) {
-  
-  result_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
-      ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:trinity.SetResult.result)
-}
-inline ::std::string* SetResult::mutable_result() {
-  
-  // @@protoc_insertion_point(field_mutable:trinity.SetResult.result)
-  return result_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline ::std::string* SetResult::release_result() {
-  // @@protoc_insertion_point(field_release:trinity.SetResult.result)
-  
-  return result_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
-}
-inline void SetResult::set_allocated_result(::std::string* result) {
-  if (result != NULL) {
-    
-  } else {
-    
-  }
-  result_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), result);
-  // @@protoc_insertion_point(field_set_allocated:trinity.SetResult.result)
+  success_ = value;
+  // @@protoc_insertion_point(field_set:trinity.SetResult.success)
 }
 
 inline const SetResult* SetResult::internal_default_instance() {
@@ -2089,7 +2066,51 @@ inline void ForwardMap::set_findex_api_version(::google::protobuf::uint32 value)
   // @@protoc_insertion_point(field_set:trinity.ForwardMap.findex_api_version)
 }
 
-// map<string, .trinity.FMValue> the_map = 2;
+// optional string key = 2;
+inline void ForwardMap::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& ForwardMap::key() const {
+  // @@protoc_insertion_point(field_get:trinity.ForwardMap.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ForwardMap::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trinity.ForwardMap.key)
+}
+inline void ForwardMap::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trinity.ForwardMap.key)
+}
+inline void ForwardMap::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trinity.ForwardMap.key)
+}
+inline ::std::string* ForwardMap::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:trinity.ForwardMap.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* ForwardMap::release_key() {
+  // @@protoc_insertion_point(field_release:trinity.ForwardMap.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void ForwardMap::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:trinity.ForwardMap.key)
+}
+
+// map<string, .trinity.FMValue> the_map = 3;
 inline int ForwardMap::the_map_size() const {
   return the_map_.size();
 }

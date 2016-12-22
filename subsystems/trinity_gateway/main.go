@@ -20,10 +20,9 @@ var gatewayClient trinity.GatewayClient
 var mainConfig config.GatewayConfig
 
 func main() {
-	fmt.Println(os.Args)
 	if len(os.Args) < 2 {
 		fmt.Println(commands.GatewayHelp)
-		os.Exit(0)
+		os.Exit(1)
 	}
 
 	var err error

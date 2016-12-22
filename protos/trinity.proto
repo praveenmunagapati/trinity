@@ -26,7 +26,7 @@ message ConfigRequest {
 }
 
 message SetResult {
-  string result = 1;
+  bool success = 1;
 }
 
 message FMValue {
@@ -35,7 +35,8 @@ message FMValue {
 
 message ForwardMap {
   uint32 findex_api_version = 1;
-  map<string, FMValue> the_map = 2;
+  string key = 2;
+  map<string, FMValue> the_map = 3;
 }
 
 message DocStat {
@@ -53,7 +54,7 @@ message InvertedMap {
 }
 
 
-service FMapper {
+service FIndex {
   rpc GetDocMap (DocMapRequest) returns (ForwardMap) {}
   rpc SetDocMap (ForwardMap) returns (SetResult) {}
 }
