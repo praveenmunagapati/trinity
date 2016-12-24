@@ -1,8 +1,8 @@
 import os
 import subprocess as sp
 
-import colors
-from build_commands import *
+from . import  colors
+from .build_commands import *
 
 class Script(object):
     def __init__(self, name="", script_path="", lang="",
@@ -22,7 +22,7 @@ class Script(object):
             self.run_py_script()
 
     def run_py_script(self):
-        print "{}  {}".format(colors.running_msg, self.name)
+        print("{}  {}".format(colors.running_msg, self.name))
         self.root_func(*self.args)
 
 
@@ -46,7 +46,7 @@ class Package(object):
 
     def build(self):
 
-        print "{}  {}".format(colors.building_msg, self.name)
+        print("{}  {}".format(colors.building_msg, self.name))
         if self.language == "go":
             if self.type == "lib":
                 if self.name_override:
@@ -69,7 +69,7 @@ class Package(object):
 
 
     def install(self):
-        print "{}  {}".format(colors.install_msg, self.name)
+        print("{}  {}".format(colors.install_msg, self.name))
         if self.language == "go":
             if self.type == "plugin":
                 go_command(command="build -buildmode=plugin", wd=self.root_path,
@@ -81,7 +81,7 @@ class Package(object):
                     go_command(command="install", wd=self.root_path)
 
     def clean(self):
-        print "{}  {}".format(colors.cleaning_msg, self.name)
+        print("{}  {}".format(colors.cleaning_msg, self.name))
         if self.language == "go":
             if self.clean_func:
                 self.clean_func(self.name)

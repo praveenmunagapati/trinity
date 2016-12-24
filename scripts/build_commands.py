@@ -57,7 +57,9 @@ def protoc_cpp(proto_dir, proto_file, wd):
     grpc_cpp_plugin = grpc_cpp_plugin.strip()
 
     command = ["protoc", "-I", proto_dir, "--grpc_out="+wd,
-              "--plugin=protoc-gen-grpc={}".format(grpc_cpp_plugin),  proto_file]
+               "--plugin=protoc-gen-grpc={}".format(grpc_cpp_plugin.decode('utf-8')),
+               proto_file]
+
     p = sp.Popen(command, cwd=wd)
     p.communicate()
 

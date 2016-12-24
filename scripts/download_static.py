@@ -38,7 +38,7 @@ def get_bootstrap(css_path, final_path):
 
     r = requests.get(bootstrap_downl_link, allow_redirects=True)
     if not r.ok:
-        print "get_bootstrap() failed"
+        print("get_bootstrap() failed")
     else:
         with open(bootstrap_downl, 'wb') as fd:
             for chunk in r.iter_content(chunk_size=128):
@@ -66,7 +66,7 @@ def get_font_awesome(css_path, final_path):
 
     r = requests.get(fa_downl_link, allow_redirects=True)
     if not r.ok:
-        print "get_font_awesome() failed"
+        print("get_font_awesome() failed")
     else:
         with open(fontawesome_downl, 'wb') as fd:
             for chunk in r.iter_content(chunk_size=128):
@@ -84,7 +84,7 @@ def get_fantasque_sans(fonts_path, final_path):
 
     r = requests.get(fantasque_sans_downl_link, allow_redirects=True)
     if not r.ok:
-        print "get_fantasque_sans() failed"
+        print("get_fantasque_sans() failed")
     else:
         with open(fantasque_downl, 'wb') as fd:
             for chunk in r.iter_content(chunk_size=128):

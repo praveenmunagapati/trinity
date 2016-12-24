@@ -1,12 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 import sys
 import shutil
 import subprocess as sp
 
-from scripts import colors
-from scripts import build_cli
+from scripts.colors import *
+from scripts.build_cli import *
 from scripts.build_elements import *
 from scripts.builder import *
 from scripts.clean_commands import *
@@ -19,7 +19,7 @@ system_root = os.path.join(os.path.expanduser("~"), ".trinity")
 
 if __name__ == "__main__":
 
-    command = build_cli.handle_cli(sys.argv)
+    command = handle_cli(sys.argv)
 
     version_info   = Script(name="version_generate",
                             lang="python", root_func=version_root,

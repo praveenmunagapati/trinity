@@ -1,5 +1,5 @@
-from build_elements import *
-from build_cli import *
+from .build_elements import *
+from .build_cli import *
 
 class Builder(object):
     def __init__(self, packages=[], command="", system_root=""):

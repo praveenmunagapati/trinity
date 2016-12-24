@@ -14,7 +14,9 @@ var (
 )
 
 const (
-	DefaultCoreServerPort = 50051
+	DefaultCoreServerPort   = 50051
+	DefaultFIndexServerPort = 50052
+	DefaultIIndexServerPort = 50053
 )
 
 /*
