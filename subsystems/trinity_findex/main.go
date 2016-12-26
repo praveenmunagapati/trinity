@@ -27,7 +27,7 @@ func main() {
 		panic(err)
 	}
 
-	findex = NewFIndex(store)
+	findex = NewFIndex(store, config)
 
 	fmap1 := trinity.NewForwardMap()
 

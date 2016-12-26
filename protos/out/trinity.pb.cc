@@ -53,9 +53,12 @@ const ::google::protobuf::Descriptor* InvertedMap_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   InvertedMap_reflection_ = NULL;
 const ::google::protobuf::Descriptor* InvertedMap_TheMapEntry_descriptor_ = NULL;
-const ::google::protobuf::Descriptor* DocMapRequest_descriptor_ = NULL;
+const ::google::protobuf::Descriptor* FMapRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
-  DocMapRequest_reflection_ = NULL;
+  FMapRequest_reflection_ = NULL;
+const ::google::protobuf::Descriptor* IMapRequest_descriptor_ = NULL;
+const ::google::protobuf::internal::GeneratedMessageReflection*
+  IMapRequest_reflection_ = NULL;
 const ::google::protobuf::Descriptor* StartSubsystemRequest_descriptor_ = NULL;
 const ::google::protobuf::internal::GeneratedMessageReflection*
   StartSubsystemRequest_reflection_ = NULL;
@@ -218,8 +221,9 @@ void protobuf_AssignDesc_trinity_2eproto() {
       sizeof(IMValue),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IMValue, _internal_metadata_));
   InvertedMap_descriptor_ = file->message_type(9);
-  static const int InvertedMap_offsets_[2] = {
+  static const int InvertedMap_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InvertedMap, iindex_api_version_),
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InvertedMap, key_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InvertedMap, the_map_),
   };
   InvertedMap_reflection_ =
@@ -233,21 +237,35 @@ void protobuf_AssignDesc_trinity_2eproto() {
       sizeof(InvertedMap),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(InvertedMap, _internal_metadata_));
   InvertedMap_TheMapEntry_descriptor_ = InvertedMap_descriptor_->nested_type(0);
-  DocMapRequest_descriptor_ = file->message_type(10);
-  static const int DocMapRequest_offsets_[1] = {
-    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DocMapRequest, docname_),
+  FMapRequest_descriptor_ = file->message_type(10);
+  static const int FMapRequest_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMapRequest, dockey_),
   };
-  DocMapRequest_reflection_ =
+  FMapRequest_reflection_ =
     ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
-      DocMapRequest_descriptor_,
-      DocMapRequest::internal_default_instance(),
-      DocMapRequest_offsets_,
+      FMapRequest_descriptor_,
+      FMapRequest::internal_default_instance(),
+      FMapRequest_offsets_,
       -1,
       -1,
       -1,
-      sizeof(DocMapRequest),
-      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(DocMapRequest, _internal_metadata_));
-  StartSubsystemRequest_descriptor_ = file->message_type(11);
+      sizeof(FMapRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(FMapRequest, _internal_metadata_));
+  IMapRequest_descriptor_ = file->message_type(11);
+  static const int IMapRequest_offsets_[1] = {
+    GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IMapRequest, termkey_),
+  };
+  IMapRequest_reflection_ =
+    ::google::protobuf::internal::GeneratedMessageReflection::NewGeneratedMessageReflection(
+      IMapRequest_descriptor_,
+      IMapRequest::internal_default_instance(),
+      IMapRequest_offsets_,
+      -1,
+      -1,
+      -1,
+      sizeof(IMapRequest),
+      GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(IMapRequest, _internal_metadata_));
+  StartSubsystemRequest_descriptor_ = file->message_type(12);
   static const int StartSubsystemRequest_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StartSubsystemRequest, subsystem_name_),
   };
@@ -261,7 +279,7 @@ void protobuf_AssignDesc_trinity_2eproto() {
       -1,
       sizeof(StartSubsystemRequest),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StartSubsystemRequest, _internal_metadata_));
-  StartSubsystemResponse_descriptor_ = file->message_type(12);
+  StartSubsystemResponse_descriptor_ = file->message_type(13);
   static const int StartSubsystemResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StartSubsystemResponse, response_code_),
   };
@@ -275,7 +293,7 @@ void protobuf_AssignDesc_trinity_2eproto() {
       -1,
       sizeof(StartSubsystemResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(StartSubsystemResponse, _internal_metadata_));
-  SearchQuery_descriptor_ = file->message_type(13);
+  SearchQuery_descriptor_ = file->message_type(14);
   static const int SearchQuery_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchQuery, query_),
   };
@@ -289,7 +307,7 @@ void protobuf_AssignDesc_trinity_2eproto() {
       -1,
       sizeof(SearchQuery),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchQuery, _internal_metadata_));
-  SearchResponse_descriptor_ = file->message_type(14);
+  SearchResponse_descriptor_ = file->message_type(15);
   static const int SearchResponse_offsets_[1] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchResponse, results_),
   };
@@ -303,7 +321,7 @@ void protobuf_AssignDesc_trinity_2eproto() {
       -1,
       sizeof(SearchResponse),
       GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchResponse, _internal_metadata_));
-  SearchResult_descriptor_ = file->message_type(15);
+  SearchResult_descriptor_ = file->message_type(16);
   static const int SearchResult_offsets_[3] = {
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchResult, title_),
     GOOGLE_PROTOBUF_GENERATED_MESSAGE_FIELD_OFFSET(SearchResult, hash_),
@@ -371,7 +389,9 @@ void protobuf_RegisterTypes(const ::std::string&) {
             0>::CreateDefaultInstance(
                 InvertedMap_TheMapEntry_descriptor_));
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
-      DocMapRequest_descriptor_, DocMapRequest::internal_default_instance());
+      FMapRequest_descriptor_, FMapRequest::internal_default_instance());
+  ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
+      IMapRequest_descriptor_, IMapRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
       StartSubsystemRequest_descriptor_, StartSubsystemRequest::internal_default_instance());
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedMessage(
@@ -407,8 +427,10 @@ void protobuf_ShutdownFile_trinity_2eproto() {
   delete IMValue_reflection_;
   InvertedMap_default_instance_.Shutdown();
   delete InvertedMap_reflection_;
-  DocMapRequest_default_instance_.Shutdown();
-  delete DocMapRequest_reflection_;
+  FMapRequest_default_instance_.Shutdown();
+  delete FMapRequest_reflection_;
+  IMapRequest_default_instance_.Shutdown();
+  delete IMapRequest_reflection_;
   StartSubsystemRequest_default_instance_.Shutdown();
   delete StartSubsystemRequest_reflection_;
   StartSubsystemResponse_default_instance_.Shutdown();
@@ -437,14 +459,14 @@ void protobuf_InitDefaults_trinity_2eproto_impl() {
   ::google::protobuf::internal::GetEmptyString();
   ForwardMap_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
-  ::google::protobuf::internal::GetEmptyString();
   DocStat_default_instance_.DefaultConstruct();
   IMValue_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   InvertedMap_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
+  FMapRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
-  DocMapRequest_default_instance_.DefaultConstruct();
+  IMapRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
   StartSubsystemRequest_default_instance_.DefaultConstruct();
   ::google::protobuf::internal::GetEmptyString();
@@ -464,7 +486,8 @@ void protobuf_InitDefaults_trinity_2eproto_impl() {
   DocStat_default_instance_.get_mutable()->InitAsDefaultInstance();
   IMValue_default_instance_.get_mutable()->InitAsDefaultInstance();
   InvertedMap_default_instance_.get_mutable()->InitAsDefaultInstance();
-  DocMapRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  FMapRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
+  IMapRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   StartSubsystemRequest_default_instance_.get_mutable()->InitAsDefaultInstance();
   StartSubsystemResponse_default_instance_.get_mutable()->InitAsDefaultInstance();
   SearchQuery_default_instance_.get_mutable()->InitAsDefaultInstance();
@@ -497,29 +520,33 @@ void protobuf_AddDesc_trinity_2eproto_impl() {
     " \001(\t\022\037\n\005value\030\002 \001(\0132\020.trinity.FMValue:\0028"
     "\001\")\n\007DocStat\022\017\n\007docname\030\001 \001(\t\022\r\n\005count\030\002"
     " \001(\r\")\n\007IMValue\022\036\n\004docs\030\001 \003(\0132\020.trinity."
-    "DocStat\"\235\001\n\013InvertedMap\022\032\n\022iindex_api_ve"
-    "rsion\030\001 \001(\r\0221\n\007the_map\030\002 \003(\0132 .trinity.I"
-    "nvertedMap.TheMapEntry\032\?\n\013TheMapEntry\022\013\n"
-    "\003key\030\001 \001(\t\022\037\n\005value\030\002 \001(\0132\020.trinity.IMVa"
-    "lue:\0028\001\" \n\rDocMapRequest\022\017\n\007docname\030\001 \001("
-    "\t\"/\n\025StartSubsystemRequest\022\026\n\016subsystem_"
-    "name\030\001 \001(\t\"/\n\026StartSubsystemResponse\022\025\n\r"
-    "response_code\030\001 \001(\t\"\034\n\013SearchQuery\022\r\n\005qu"
-    "ery\030\001 \001(\t\"8\n\016SearchResponse\022&\n\007results\030\001"
-    " \003(\0132\025.trinity.SearchResult\"@\n\014SearchRes"
-    "ult\022\r\n\005title\030\001 \001(\t\022\014\n\004hash\030\002 \001(\t\022\023\n\013desc"
-    "ription\030\003 \001(\t2|\n\006FIndex\022:\n\tGetDocMap\022\026.t"
-    "rinity.DocMapRequest\032\023.trinity.ForwardMa"
-    "p\"\000\0226\n\tSetDocMap\022\023.trinity.ForwardMap\032\022."
-    "trinity.SetResult\"\0002\205\001\n\007Trinity\022>\n\rGetRo"
-    "otConfig\022\026.trinity.ConfigRequest\032\023.trini"
-    "ty.RootConfig\"\000\022:\n\rSetRootConfig\022\023.trini"
-    "ty.RootConfig\032\022.trinity.SetResult\"\0002_\n\tS"
-    "ubsystem\022R\n\rStartMainLoop\022\036.trinity.Star"
-    "tSubsystemRequest\032\037.trinity.StartSubsyst"
-    "emResponse\"\0002L\n\007Gateway\022A\n\016GetSearchQuer"
-    "y\022\024.trinity.SearchQuery\032\027.trinity.Search"
-    "Response\"\000b\006proto3", 1498);
+    "DocStat\"\252\001\n\013InvertedMap\022\032\n\022iindex_api_ve"
+    "rsion\030\001 \001(\r\022\013\n\003key\030\002 \001(\t\0221\n\007the_map\030\003 \003("
+    "\0132 .trinity.InvertedMap.TheMapEntry\032\?\n\013T"
+    "heMapEntry\022\013\n\003key\030\001 \001(\t\022\037\n\005value\030\002 \001(\0132\020"
+    ".trinity.IMValue:\0028\001\"\035\n\013FMapRequest\022\016\n\006d"
+    "ockey\030\001 \001(\t\"\036\n\013IMapRequest\022\017\n\007termkey\030\001 "
+    "\001(\t\"/\n\025StartSubsystemRequest\022\026\n\016subsyste"
+    "m_name\030\001 \001(\t\"/\n\026StartSubsystemResponse\022\025"
+    "\n\rresponse_code\030\001 \001(\t\"\034\n\013SearchQuery\022\r\n\005"
+    "query\030\001 \001(\t\"8\n\016SearchResponse\022&\n\007results"
+    "\030\001 \003(\0132\025.trinity.SearchResult\"@\n\014SearchR"
+    "esult\022\r\n\005title\030\001 \001(\t\022\014\n\004hash\030\002 \001(\t\022\023\n\013de"
+    "scription\030\003 \001(\t2v\n\006FIndex\0226\n\007GetFMap\022\024.t"
+    "rinity.FMapRequest\032\023.trinity.ForwardMap\""
+    "\000\0224\n\007SetFMap\022\023.trinity.ForwardMap\032\022.trin"
+    "ity.SetResult\"\0002x\n\006IIndex\0227\n\007GetIMap\022\024.t"
+    "rinity.IMapRequest\032\024.trinity.InvertedMap"
+    "\"\000\0225\n\007SetIMap\022\024.trinity.InvertedMap\032\022.tr"
+    "inity.SetResult\"\0002\205\001\n\007Trinity\022>\n\rGetRoot"
+    "Config\022\026.trinity.ConfigRequest\032\023.trinity"
+    ".RootConfig\"\000\022:\n\rSetRootConfig\022\023.trinity"
+    ".RootConfig\032\022.trinity.SetResult\"\0002_\n\tSub"
+    "system\022R\n\rStartMainLoop\022\036.trinity.StartS"
+    "ubsystemRequest\032\037.trinity.StartSubsystem"
+    "Response\"\0002L\n\007Gateway\022A\n\016GetSearchQuery\022"
+    "\024.trinity.SearchQuery\032\027.trinity.SearchRe"
+    "sponse\"\000b\006proto3", 1656);
   ::google::protobuf::MessageFactory::InternalRegisterGeneratedFile(
     "trinity.proto", &protobuf_RegisterTypes);
   ::google::protobuf::internal::OnShutdown(&protobuf_ShutdownFile_trinity_2eproto);
@@ -3726,6 +3753,7 @@ inline const IMValue* IMValue::internal_default_instance() {
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
 const int InvertedMap::kIindexApiVersionFieldNumber;
+const int InvertedMap::kKeyFieldNumber;
 const int InvertedMap::kTheMapFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
@@ -3752,6 +3780,7 @@ void InvertedMap::SharedCtor() {
       protobuf_AssignDescriptorsOnce);
   the_map_.SetEntryDescriptor(
       &::trinity::InvertedMap_TheMapEntry_descriptor_);
+  key_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   iindex_api_version_ = 0u;
   _cached_size_ = 0;
 }
@@ -3762,6 +3791,7 @@ InvertedMap::~InvertedMap() {
 }
 
 void InvertedMap::SharedDtor() {
+  key_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
 void InvertedMap::SetCachedSize(int size) const {
@@ -3792,6 +3822,7 @@ InvertedMap* InvertedMap::New(::google::protobuf::Arena* arena) const {
 void InvertedMap::Clear() {
 // @@protoc_insertion_point(message_clear_start:trinity.InvertedMap)
   iindex_api_version_ = 0u;
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   the_map_.Clear();
 }
 
@@ -3815,13 +3846,30 @@ bool InvertedMap::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_the_map;
+        if (input->ExpectTag(18)) goto parse_key;
         break;
       }
 
-      // map<string, .trinity.IMValue> the_map = 2;
+      // optional string key = 2;
       case 2: {
         if (tag == 18) {
+         parse_key:
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_key()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->key().data(), this->key().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "trinity.InvertedMap.key"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectTag(26)) goto parse_the_map;
+        break;
+      }
+
+      // map<string, .trinity.IMValue> the_map = 3;
+      case 3: {
+        if (tag == 26) {
          parse_the_map:
           DO_(input->IncrementRecursionDepth());
          parse_loop_the_map:
@@ -3840,7 +3888,7 @@ bool InvertedMap::MergePartialFromCodedStream(
         } else {
           goto handle_unusual;
         }
-        if (input->ExpectTag(18)) goto parse_loop_the_map;
+        if (input->ExpectTag(26)) goto parse_loop_the_map;
         input->UnsafeDecrementRecursionDepth();
         if (input->ExpectAtEnd()) goto success;
         break;
@@ -3875,7 +3923,17 @@ void InvertedMap::SerializeWithCachedSizes(
     ::google::protobuf::internal::WireFormatLite::WriteUInt32(1, this->iindex_api_version(), output);
   }
 
-  // map<string, .trinity.IMValue> the_map = 2;
+  // optional string key = 2;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trinity.InvertedMap.key");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      2, this->key(), output);
+  }
+
+  // map<string, .trinity.IMValue> the_map = 3;
   if (!this->the_map().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::trinity::IMValue >::const_pointer
         ConstPtr;
@@ -3907,7 +3965,7 @@ void InvertedMap::SerializeWithCachedSizes(
         entry.reset(the_map_.NewEntryWrapper(
             items[i]->first, items[i]->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            2, *entry, output);
+            3, *entry, output);
         Utf8Check::Check(items[i]);
       }
     } else {
@@ -3918,7 +3976,7 @@ void InvertedMap::SerializeWithCachedSizes(
         entry.reset(the_map_.NewEntryWrapper(
             it->first, it->second));
         ::google::protobuf::internal::WireFormatLite::WriteMessageMaybeToArray(
-            2, *entry, output);
+            3, *entry, output);
         Utf8Check::Check(&*it);
       }
     }
@@ -3936,7 +3994,18 @@ void InvertedMap::SerializeWithCachedSizes(
     target = ::google::protobuf::internal::WireFormatLite::WriteUInt32ToArray(1, this->iindex_api_version(), target);
   }
 
-  // map<string, .trinity.IMValue> the_map = 2;
+  // optional string key = 2;
+  if (this->key().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->key().data(), this->key().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trinity.InvertedMap.key");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        2, this->key(), target);
+  }
+
+  // map<string, .trinity.IMValue> the_map = 3;
   if (!this->the_map().empty()) {
     typedef ::google::protobuf::Map< ::std::string, ::trinity::IMValue >::const_pointer
         ConstPtr;
@@ -3969,7 +4038,7 @@ void InvertedMap::SerializeWithCachedSizes(
             items[i]->first, items[i]->second));
         target = ::google::protobuf::internal::WireFormatLite::
                    InternalWriteMessageNoVirtualToArray(
-                       2, *entry, deterministic, target);
+                       3, *entry, deterministic, target);
 ;
         Utf8Check::Check(items[i]);
       }
@@ -3982,7 +4051,7 @@ void InvertedMap::SerializeWithCachedSizes(
             it->first, it->second));
         target = ::google::protobuf::internal::WireFormatLite::
                    InternalWriteMessageNoVirtualToArray(
-                       2, *entry, deterministic, target);
+                       3, *entry, deterministic, target);
 ;
         Utf8Check::Check(&*it);
       }
@@ -4004,7 +4073,14 @@ size_t InvertedMap::ByteSizeLong() const {
         this->iindex_api_version());
   }
 
-  // map<string, .trinity.IMValue> the_map = 2;
+  // optional string key = 2;
+  if (this->key().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->key());
+  }
+
+  // map<string, .trinity.IMValue> the_map = 3;
   total_size += 1 *
       ::google::protobuf::internal::FromIntSize(this->the_map_size());
   {
@@ -4055,6 +4131,10 @@ void InvertedMap::UnsafeMergeFrom(const InvertedMap& from) {
   if (from.iindex_api_version() != 0) {
     set_iindex_api_version(from.iindex_api_version());
   }
+  if (from.key().size() > 0) {
+
+    key_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.key_);
+  }
 }
 
 void InvertedMap::CopyFrom(const ::google::protobuf::Message& from) {
@@ -4082,6 +4162,7 @@ void InvertedMap::Swap(InvertedMap* other) {
 }
 void InvertedMap::InternalSwap(InvertedMap* other) {
   std::swap(iindex_api_version_, other->iindex_api_version_);
+  key_.Swap(&other->key_);
   the_map_.Swap(&other->the_map_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
@@ -4112,7 +4193,51 @@ void InvertedMap::set_iindex_api_version(::google::protobuf::uint32 value) {
   // @@protoc_insertion_point(field_set:trinity.InvertedMap.iindex_api_version)
 }
 
-// map<string, .trinity.IMValue> the_map = 2;
+// optional string key = 2;
+void InvertedMap::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& InvertedMap::key() const {
+  // @@protoc_insertion_point(field_get:trinity.InvertedMap.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void InvertedMap::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trinity.InvertedMap.key)
+}
+void InvertedMap::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trinity.InvertedMap.key)
+}
+void InvertedMap::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trinity.InvertedMap.key)
+}
+::std::string* InvertedMap::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:trinity.InvertedMap.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* InvertedMap::release_key() {
+  // @@protoc_insertion_point(field_release:trinity.InvertedMap.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void InvertedMap::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:trinity.InvertedMap.key)
+}
+
+// map<string, .trinity.IMValue> the_map = 3;
 int InvertedMap::the_map_size() const {
   return the_map_.size();
 }
@@ -4138,90 +4263,90 @@ inline const InvertedMap* InvertedMap::internal_default_instance() {
 // ===================================================================
 
 #if !defined(_MSC_VER) || _MSC_VER >= 1900
-const int DocMapRequest::kDocnameFieldNumber;
+const int FMapRequest::kDockeyFieldNumber;
 #endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
 
-DocMapRequest::DocMapRequest()
+FMapRequest::FMapRequest()
   : ::google::protobuf::Message(), _internal_metadata_(NULL) {
   if (this != internal_default_instance()) protobuf_InitDefaults_trinity_2eproto();
   SharedCtor();
-  // @@protoc_insertion_point(constructor:trinity.DocMapRequest)
+  // @@protoc_insertion_point(constructor:trinity.FMapRequest)
 }
 
-void DocMapRequest::InitAsDefaultInstance() {
+void FMapRequest::InitAsDefaultInstance() {
 }
 
-DocMapRequest::DocMapRequest(const DocMapRequest& from)
+FMapRequest::FMapRequest(const FMapRequest& from)
   : ::google::protobuf::Message(),
     _internal_metadata_(NULL) {
   SharedCtor();
   UnsafeMergeFrom(from);
-  // @@protoc_insertion_point(copy_constructor:trinity.DocMapRequest)
+  // @@protoc_insertion_point(copy_constructor:trinity.FMapRequest)
 }
 
-void DocMapRequest::SharedCtor() {
-  docname_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void FMapRequest::SharedCtor() {
+  dockey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
   _cached_size_ = 0;
 }
 
-DocMapRequest::~DocMapRequest() {
-  // @@protoc_insertion_point(destructor:trinity.DocMapRequest)
+FMapRequest::~FMapRequest() {
+  // @@protoc_insertion_point(destructor:trinity.FMapRequest)
   SharedDtor();
 }
 
-void DocMapRequest::SharedDtor() {
-  docname_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void FMapRequest::SharedDtor() {
+  dockey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-void DocMapRequest::SetCachedSize(int size) const {
+void FMapRequest::SetCachedSize(int size) const {
   GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
   _cached_size_ = size;
   GOOGLE_SAFE_CONCURRENT_WRITES_END();
 }
-const ::google::protobuf::Descriptor* DocMapRequest::descriptor() {
+const ::google::protobuf::Descriptor* FMapRequest::descriptor() {
   protobuf_AssignDescriptorsOnce();
-  return DocMapRequest_descriptor_;
+  return FMapRequest_descriptor_;
 }
 
-const DocMapRequest& DocMapRequest::default_instance() {
+const FMapRequest& FMapRequest::default_instance() {
   protobuf_InitDefaults_trinity_2eproto();
   return *internal_default_instance();
 }
 
-::google::protobuf::internal::ExplicitlyConstructed<DocMapRequest> DocMapRequest_default_instance_;
+::google::protobuf::internal::ExplicitlyConstructed<FMapRequest> FMapRequest_default_instance_;
 
-DocMapRequest* DocMapRequest::New(::google::protobuf::Arena* arena) const {
-  DocMapRequest* n = new DocMapRequest;
+FMapRequest* FMapRequest::New(::google::protobuf::Arena* arena) const {
+  FMapRequest* n = new FMapRequest;
   if (arena != NULL) {
     arena->Own(n);
   }
   return n;
 }
 
-void DocMapRequest::Clear() {
-// @@protoc_insertion_point(message_clear_start:trinity.DocMapRequest)
-  docname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+void FMapRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:trinity.FMapRequest)
+  dockey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
 
-bool DocMapRequest::MergePartialFromCodedStream(
+bool FMapRequest::MergePartialFromCodedStream(
     ::google::protobuf::io::CodedInputStream* input) {
 #define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
   ::google::protobuf::uint32 tag;
-  // @@protoc_insertion_point(parse_start:trinity.DocMapRequest)
+  // @@protoc_insertion_point(parse_start:trinity.FMapRequest)
   for (;;) {
     ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
     tag = p.first;
     if (!p.second) goto handle_unusual;
     switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
-      // optional string docname = 1;
+      // optional string dockey = 1;
       case 1: {
         if (tag == 10) {
           DO_(::google::protobuf::internal::WireFormatLite::ReadString(
-                input, this->mutable_docname()));
+                input, this->mutable_dockey()));
           DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-            this->docname().data(), this->docname().length(),
+            this->dockey().data(), this->dockey().length(),
             ::google::protobuf::internal::WireFormatLite::PARSE,
-            "trinity.DocMapRequest.docname"));
+            "trinity.FMapRequest.dockey"));
         } else {
           goto handle_unusual;
         }
@@ -4242,58 +4367,58 @@ bool DocMapRequest::MergePartialFromCodedStream(
     }
   }
 success:
-  // @@protoc_insertion_point(parse_success:trinity.DocMapRequest)
+  // @@protoc_insertion_point(parse_success:trinity.FMapRequest)
   return true;
 failure:
-  // @@protoc_insertion_point(parse_failure:trinity.DocMapRequest)
+  // @@protoc_insertion_point(parse_failure:trinity.FMapRequest)
   return false;
 #undef DO_
 }
 
-void DocMapRequest::SerializeWithCachedSizes(
+void FMapRequest::SerializeWithCachedSizes(
     ::google::protobuf::io::CodedOutputStream* output) const {
-  // @@protoc_insertion_point(serialize_start:trinity.DocMapRequest)
-  // optional string docname = 1;
-  if (this->docname().size() > 0) {
+  // @@protoc_insertion_point(serialize_start:trinity.FMapRequest)
+  // optional string dockey = 1;
+  if (this->dockey().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->docname().data(), this->docname().length(),
+      this->dockey().data(), this->dockey().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "trinity.DocMapRequest.docname");
+      "trinity.FMapRequest.dockey");
     ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
-      1, this->docname(), output);
+      1, this->dockey(), output);
   }
 
-  // @@protoc_insertion_point(serialize_end:trinity.DocMapRequest)
+  // @@protoc_insertion_point(serialize_end:trinity.FMapRequest)
 }
 
-::google::protobuf::uint8* DocMapRequest::InternalSerializeWithCachedSizesToArray(
+::google::protobuf::uint8* FMapRequest::InternalSerializeWithCachedSizesToArray(
     bool deterministic, ::google::protobuf::uint8* target) const {
   (void)deterministic; // Unused
-  // @@protoc_insertion_point(serialize_to_array_start:trinity.DocMapRequest)
-  // optional string docname = 1;
-  if (this->docname().size() > 0) {
+  // @@protoc_insertion_point(serialize_to_array_start:trinity.FMapRequest)
+  // optional string dockey = 1;
+  if (this->dockey().size() > 0) {
     ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
-      this->docname().data(), this->docname().length(),
+      this->dockey().data(), this->dockey().length(),
       ::google::protobuf::internal::WireFormatLite::SERIALIZE,
-      "trinity.DocMapRequest.docname");
+      "trinity.FMapRequest.dockey");
     target =
       ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
-        1, this->docname(), target);
+        1, this->dockey(), target);
   }
 
-  // @@protoc_insertion_point(serialize_to_array_end:trinity.DocMapRequest)
+  // @@protoc_insertion_point(serialize_to_array_end:trinity.FMapRequest)
   return target;
 }
 
-size_t DocMapRequest::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:trinity.DocMapRequest)
+size_t FMapRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:trinity.FMapRequest)
   size_t total_size = 0;
 
-  // optional string docname = 1;
-  if (this->docname().size() > 0) {
+  // optional string dockey = 1;
+  if (this->dockey().size() > 0) {
     total_size += 1 +
       ::google::protobuf::internal::WireFormatLite::StringSize(
-        this->docname());
+        this->dockey());
   }
 
   int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
@@ -4303,23 +4428,23 @@ size_t DocMapRequest::ByteSizeLong() const {
   return total_size;
 }
 
-void DocMapRequest::MergeFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_merge_from_start:trinity.DocMapRequest)
+void FMapRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:trinity.FMapRequest)
   if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
-  const DocMapRequest* source =
-      ::google::protobuf::internal::DynamicCastToGenerated<const DocMapRequest>(
+  const FMapRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const FMapRequest>(
           &from);
   if (source == NULL) {
-  // @@protoc_insertion_point(generalized_merge_from_cast_fail:trinity.DocMapRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:trinity.FMapRequest)
     ::google::protobuf::internal::ReflectionOps::Merge(from, this);
   } else {
-  // @@protoc_insertion_point(generalized_merge_from_cast_success:trinity.DocMapRequest)
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:trinity.FMapRequest)
     UnsafeMergeFrom(*source);
   }
 }
 
-void DocMapRequest::MergeFrom(const DocMapRequest& from) {
-// @@protoc_insertion_point(class_specific_merge_from_start:trinity.DocMapRequest)
+void FMapRequest::MergeFrom(const FMapRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:trinity.FMapRequest)
   if (GOOGLE_PREDICT_TRUE(&from != this)) {
     UnsafeMergeFrom(from);
   } else {
@@ -4327,100 +4452,389 @@ void DocMapRequest::MergeFrom(const DocMapRequest& from) {
   }
 }
 
-void DocMapRequest::UnsafeMergeFrom(const DocMapRequest& from) {
+void FMapRequest::UnsafeMergeFrom(const FMapRequest& from) {
   GOOGLE_DCHECK(&from != this);
-  if (from.docname().size() > 0) {
+  if (from.dockey().size() > 0) {
 
-    docname_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.docname_);
+    dockey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.dockey_);
   }
 }
 
-void DocMapRequest::CopyFrom(const ::google::protobuf::Message& from) {
-// @@protoc_insertion_point(generalized_copy_from_start:trinity.DocMapRequest)
+void FMapRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:trinity.FMapRequest)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-void DocMapRequest::CopyFrom(const DocMapRequest& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:trinity.DocMapRequest)
+void FMapRequest::CopyFrom(const FMapRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:trinity.FMapRequest)
   if (&from == this) return;
   Clear();
   UnsafeMergeFrom(from);
 }
 
-bool DocMapRequest::IsInitialized() const {
+bool FMapRequest::IsInitialized() const {
 
   return true;
 }
 
-void DocMapRequest::Swap(DocMapRequest* other) {
+void FMapRequest::Swap(FMapRequest* other) {
   if (other == this) return;
   InternalSwap(other);
 }
-void DocMapRequest::InternalSwap(DocMapRequest* other) {
-  docname_.Swap(&other->docname_);
+void FMapRequest::InternalSwap(FMapRequest* other) {
+  dockey_.Swap(&other->dockey_);
   _internal_metadata_.Swap(&other->_internal_metadata_);
   std::swap(_cached_size_, other->_cached_size_);
 }
 
-::google::protobuf::Metadata DocMapRequest::GetMetadata() const {
+::google::protobuf::Metadata FMapRequest::GetMetadata() const {
   protobuf_AssignDescriptorsOnce();
   ::google::protobuf::Metadata metadata;
-  metadata.descriptor = DocMapRequest_descriptor_;
-  metadata.reflection = DocMapRequest_reflection_;
+  metadata.descriptor = FMapRequest_descriptor_;
+  metadata.reflection = FMapRequest_reflection_;
   return metadata;
 }
 
 #if PROTOBUF_INLINE_NOT_IN_HEADERS
-// DocMapRequest
+// FMapRequest
 
-// optional string docname = 1;
-void DocMapRequest::clear_docname() {
-  docname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string dockey = 1;
+void FMapRequest::clear_dockey() {
+  dockey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-const ::std::string& DocMapRequest::docname() const {
-  // @@protoc_insertion_point(field_get:trinity.DocMapRequest.docname)
-  return docname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+const ::std::string& FMapRequest::dockey() const {
+  // @@protoc_insertion_point(field_get:trinity.FMapRequest.dockey)
+  return dockey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void DocMapRequest::set_docname(const ::std::string& value) {
+void FMapRequest::set_dockey(const ::std::string& value) {
   
-  docname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:trinity.DocMapRequest.docname)
+  dockey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trinity.FMapRequest.dockey)
 }
-void DocMapRequest::set_docname(const char* value) {
+void FMapRequest::set_dockey(const char* value) {
   
-  docname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:trinity.DocMapRequest.docname)
+  dockey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trinity.FMapRequest.dockey)
 }
-void DocMapRequest::set_docname(const char* value, size_t size) {
+void FMapRequest::set_dockey(const char* value, size_t size) {
   
-  docname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  dockey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:trinity.DocMapRequest.docname)
+  // @@protoc_insertion_point(field_set_pointer:trinity.FMapRequest.dockey)
 }
-::std::string* DocMapRequest::mutable_docname() {
+::std::string* FMapRequest::mutable_dockey() {
   
-  // @@protoc_insertion_point(field_mutable:trinity.DocMapRequest.docname)
-  return docname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:trinity.FMapRequest.dockey)
+  return dockey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-::std::string* DocMapRequest::release_docname() {
-  // @@protoc_insertion_point(field_release:trinity.DocMapRequest.docname)
+::std::string* FMapRequest::release_dockey() {
+  // @@protoc_insertion_point(field_release:trinity.FMapRequest.dockey)
   
-  return docname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return dockey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-void DocMapRequest::set_allocated_docname(::std::string* docname) {
-  if (docname != NULL) {
+void FMapRequest::set_allocated_dockey(::std::string* dockey) {
+  if (dockey != NULL) {
     
   } else {
     
   }
-  docname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), docname);
-  // @@protoc_insertion_point(field_set_allocated:trinity.DocMapRequest.docname)
+  dockey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dockey);
+  // @@protoc_insertion_point(field_set_allocated:trinity.FMapRequest.dockey)
 }
 
-inline const DocMapRequest* DocMapRequest::internal_default_instance() {
-  return &DocMapRequest_default_instance_.get();
+inline const FMapRequest* FMapRequest::internal_default_instance() {
+  return &FMapRequest_default_instance_.get();
+}
+#endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
+
+// ===================================================================
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1900
+const int IMapRequest::kTermkeyFieldNumber;
+#endif  // !defined(_MSC_VER) || _MSC_VER >= 1900
+
+IMapRequest::IMapRequest()
+  : ::google::protobuf::Message(), _internal_metadata_(NULL) {
+  if (this != internal_default_instance()) protobuf_InitDefaults_trinity_2eproto();
+  SharedCtor();
+  // @@protoc_insertion_point(constructor:trinity.IMapRequest)
+}
+
+void IMapRequest::InitAsDefaultInstance() {
+}
+
+IMapRequest::IMapRequest(const IMapRequest& from)
+  : ::google::protobuf::Message(),
+    _internal_metadata_(NULL) {
+  SharedCtor();
+  UnsafeMergeFrom(from);
+  // @@protoc_insertion_point(copy_constructor:trinity.IMapRequest)
+}
+
+void IMapRequest::SharedCtor() {
+  termkey_.UnsafeSetDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  _cached_size_ = 0;
+}
+
+IMapRequest::~IMapRequest() {
+  // @@protoc_insertion_point(destructor:trinity.IMapRequest)
+  SharedDtor();
+}
+
+void IMapRequest::SharedDtor() {
+  termkey_.DestroyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+void IMapRequest::SetCachedSize(int size) const {
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+}
+const ::google::protobuf::Descriptor* IMapRequest::descriptor() {
+  protobuf_AssignDescriptorsOnce();
+  return IMapRequest_descriptor_;
+}
+
+const IMapRequest& IMapRequest::default_instance() {
+  protobuf_InitDefaults_trinity_2eproto();
+  return *internal_default_instance();
+}
+
+::google::protobuf::internal::ExplicitlyConstructed<IMapRequest> IMapRequest_default_instance_;
+
+IMapRequest* IMapRequest::New(::google::protobuf::Arena* arena) const {
+  IMapRequest* n = new IMapRequest;
+  if (arena != NULL) {
+    arena->Own(n);
+  }
+  return n;
+}
+
+void IMapRequest::Clear() {
+// @@protoc_insertion_point(message_clear_start:trinity.IMapRequest)
+  termkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+
+bool IMapRequest::MergePartialFromCodedStream(
+    ::google::protobuf::io::CodedInputStream* input) {
+#define DO_(EXPRESSION) if (!GOOGLE_PREDICT_TRUE(EXPRESSION)) goto failure
+  ::google::protobuf::uint32 tag;
+  // @@protoc_insertion_point(parse_start:trinity.IMapRequest)
+  for (;;) {
+    ::std::pair< ::google::protobuf::uint32, bool> p = input->ReadTagWithCutoff(127);
+    tag = p.first;
+    if (!p.second) goto handle_unusual;
+    switch (::google::protobuf::internal::WireFormatLite::GetTagFieldNumber(tag)) {
+      // optional string termkey = 1;
+      case 1: {
+        if (tag == 10) {
+          DO_(::google::protobuf::internal::WireFormatLite::ReadString(
+                input, this->mutable_termkey()));
+          DO_(::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+            this->termkey().data(), this->termkey().length(),
+            ::google::protobuf::internal::WireFormatLite::PARSE,
+            "trinity.IMapRequest.termkey"));
+        } else {
+          goto handle_unusual;
+        }
+        if (input->ExpectAtEnd()) goto success;
+        break;
+      }
+
+      default: {
+      handle_unusual:
+        if (tag == 0 ||
+            ::google::protobuf::internal::WireFormatLite::GetTagWireType(tag) ==
+            ::google::protobuf::internal::WireFormatLite::WIRETYPE_END_GROUP) {
+          goto success;
+        }
+        DO_(::google::protobuf::internal::WireFormatLite::SkipField(input, tag));
+        break;
+      }
+    }
+  }
+success:
+  // @@protoc_insertion_point(parse_success:trinity.IMapRequest)
+  return true;
+failure:
+  // @@protoc_insertion_point(parse_failure:trinity.IMapRequest)
+  return false;
+#undef DO_
+}
+
+void IMapRequest::SerializeWithCachedSizes(
+    ::google::protobuf::io::CodedOutputStream* output) const {
+  // @@protoc_insertion_point(serialize_start:trinity.IMapRequest)
+  // optional string termkey = 1;
+  if (this->termkey().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->termkey().data(), this->termkey().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trinity.IMapRequest.termkey");
+    ::google::protobuf::internal::WireFormatLite::WriteStringMaybeAliased(
+      1, this->termkey(), output);
+  }
+
+  // @@protoc_insertion_point(serialize_end:trinity.IMapRequest)
+}
+
+::google::protobuf::uint8* IMapRequest::InternalSerializeWithCachedSizesToArray(
+    bool deterministic, ::google::protobuf::uint8* target) const {
+  (void)deterministic; // Unused
+  // @@protoc_insertion_point(serialize_to_array_start:trinity.IMapRequest)
+  // optional string termkey = 1;
+  if (this->termkey().size() > 0) {
+    ::google::protobuf::internal::WireFormatLite::VerifyUtf8String(
+      this->termkey().data(), this->termkey().length(),
+      ::google::protobuf::internal::WireFormatLite::SERIALIZE,
+      "trinity.IMapRequest.termkey");
+    target =
+      ::google::protobuf::internal::WireFormatLite::WriteStringToArray(
+        1, this->termkey(), target);
+  }
+
+  // @@protoc_insertion_point(serialize_to_array_end:trinity.IMapRequest)
+  return target;
+}
+
+size_t IMapRequest::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:trinity.IMapRequest)
+  size_t total_size = 0;
+
+  // optional string termkey = 1;
+  if (this->termkey().size() > 0) {
+    total_size += 1 +
+      ::google::protobuf::internal::WireFormatLite::StringSize(
+        this->termkey());
+  }
+
+  int cached_size = ::google::protobuf::internal::ToCachedSize(total_size);
+  GOOGLE_SAFE_CONCURRENT_WRITES_BEGIN();
+  _cached_size_ = cached_size;
+  GOOGLE_SAFE_CONCURRENT_WRITES_END();
+  return total_size;
+}
+
+void IMapRequest::MergeFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_merge_from_start:trinity.IMapRequest)
+  if (GOOGLE_PREDICT_FALSE(&from == this)) MergeFromFail(__LINE__);
+  const IMapRequest* source =
+      ::google::protobuf::internal::DynamicCastToGenerated<const IMapRequest>(
+          &from);
+  if (source == NULL) {
+  // @@protoc_insertion_point(generalized_merge_from_cast_fail:trinity.IMapRequest)
+    ::google::protobuf::internal::ReflectionOps::Merge(from, this);
+  } else {
+  // @@protoc_insertion_point(generalized_merge_from_cast_success:trinity.IMapRequest)
+    UnsafeMergeFrom(*source);
+  }
+}
+
+void IMapRequest::MergeFrom(const IMapRequest& from) {
+// @@protoc_insertion_point(class_specific_merge_from_start:trinity.IMapRequest)
+  if (GOOGLE_PREDICT_TRUE(&from != this)) {
+    UnsafeMergeFrom(from);
+  } else {
+    MergeFromFail(__LINE__);
+  }
+}
+
+void IMapRequest::UnsafeMergeFrom(const IMapRequest& from) {
+  GOOGLE_DCHECK(&from != this);
+  if (from.termkey().size() > 0) {
+
+    termkey_.AssignWithDefault(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), from.termkey_);
+  }
+}
+
+void IMapRequest::CopyFrom(const ::google::protobuf::Message& from) {
+// @@protoc_insertion_point(generalized_copy_from_start:trinity.IMapRequest)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+void IMapRequest::CopyFrom(const IMapRequest& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:trinity.IMapRequest)
+  if (&from == this) return;
+  Clear();
+  UnsafeMergeFrom(from);
+}
+
+bool IMapRequest::IsInitialized() const {
+
+  return true;
+}
+
+void IMapRequest::Swap(IMapRequest* other) {
+  if (other == this) return;
+  InternalSwap(other);
+}
+void IMapRequest::InternalSwap(IMapRequest* other) {
+  termkey_.Swap(&other->termkey_);
+  _internal_metadata_.Swap(&other->_internal_metadata_);
+  std::swap(_cached_size_, other->_cached_size_);
+}
+
+::google::protobuf::Metadata IMapRequest::GetMetadata() const {
+  protobuf_AssignDescriptorsOnce();
+  ::google::protobuf::Metadata metadata;
+  metadata.descriptor = IMapRequest_descriptor_;
+  metadata.reflection = IMapRequest_reflection_;
+  return metadata;
+}
+
+#if PROTOBUF_INLINE_NOT_IN_HEADERS
+// IMapRequest
+
+// optional string termkey = 1;
+void IMapRequest::clear_termkey() {
+  termkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+const ::std::string& IMapRequest::termkey() const {
+  // @@protoc_insertion_point(field_get:trinity.IMapRequest.termkey)
+  return termkey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void IMapRequest::set_termkey(const ::std::string& value) {
+  
+  termkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trinity.IMapRequest.termkey)
+}
+void IMapRequest::set_termkey(const char* value) {
+  
+  termkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trinity.IMapRequest.termkey)
+}
+void IMapRequest::set_termkey(const char* value, size_t size) {
+  
+  termkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trinity.IMapRequest.termkey)
+}
+::std::string* IMapRequest::mutable_termkey() {
+  
+  // @@protoc_insertion_point(field_mutable:trinity.IMapRequest.termkey)
+  return termkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+::std::string* IMapRequest::release_termkey() {
+  // @@protoc_insertion_point(field_release:trinity.IMapRequest.termkey)
+  
+  return termkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+void IMapRequest::set_allocated_termkey(::std::string* termkey) {
+  if (termkey != NULL) {
+    
+  } else {
+    
+  }
+  termkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), termkey);
+  // @@protoc_insertion_point(field_set_allocated:trinity.IMapRequest.termkey)
+}
+
+inline const IMapRequest* IMapRequest::internal_default_instance() {
+  return &IMapRequest_default_instance_.get();
 }
 #endif  // PROTOBUF_INLINE_NOT_IN_HEADERS
 

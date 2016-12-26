@@ -81,7 +81,7 @@ if __name__ == "__main__":
 
     proto_api = [core_proto_api]
     core_libs = [core_config, core_system, core_token, core_store]
-    subsystems = [gateway, tfindex, thtml]
+    subsystems = [gateway, tfindex, tiindex, thtml]
 
 
     packages = [trinity_core]  + core_libs + subsystems + proto_api + scripts

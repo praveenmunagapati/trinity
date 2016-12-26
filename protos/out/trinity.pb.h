@@ -40,13 +40,14 @@ void protobuf_AssignDesc_trinity_2eproto();
 void protobuf_ShutdownFile_trinity_2eproto();
 
 class ConfigRequest;
-class DocMapRequest;
 class DocStat;
 class FIndexConfig;
 class FMValue;
+class FMapRequest;
 class ForwardMap;
 class IIndexConfig;
 class IMValue;
+class IMapRequest;
 class InvertedMap;
 class RootConfig;
 class SearchQuery;
@@ -1026,10 +1027,21 @@ class InvertedMap : public ::google::protobuf::Message /* @@protoc_insertion_poi
   ::google::protobuf::uint32 iindex_api_version() const;
   void set_iindex_api_version(::google::protobuf::uint32 value);
 
-  // map<string, .trinity.IMValue> the_map = 2;
+  // optional string key = 2;
+  void clear_key();
+  static const int kKeyFieldNumber = 2;
+  const ::std::string& key() const;
+  void set_key(const ::std::string& value);
+  void set_key(const char* value);
+  void set_key(const char* value, size_t size);
+  ::std::string* mutable_key();
+  ::std::string* release_key();
+  void set_allocated_key(::std::string* key);
+
+  // map<string, .trinity.IMValue> the_map = 3;
   int the_map_size() const;
   void clear_the_map();
-  static const int kTheMapFieldNumber = 2;
+  static const int kTheMapFieldNumber = 3;
   const ::google::protobuf::Map< ::std::string, ::trinity::IMValue >&
       the_map() const;
   ::google::protobuf::Map< ::std::string, ::trinity::IMValue >*
@@ -1050,6 +1062,7 @@ class InvertedMap : public ::google::protobuf::Message /* @@protoc_insertion_poi
       ::google::protobuf::internal::WireFormatLite::TYPE_STRING,
       ::google::protobuf::internal::WireFormatLite::TYPE_MESSAGE,
       0 > the_map_;
+  ::google::protobuf::internal::ArenaStringPtr key_;
   ::google::protobuf::uint32 iindex_api_version_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trinity_2eproto_impl();
@@ -1063,34 +1076,34 @@ extern ::google::protobuf::internal::ExplicitlyConstructed<InvertedMap> Inverted
 
 // -------------------------------------------------------------------
 
-class DocMapRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trinity.DocMapRequest) */ {
+class FMapRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trinity.FMapRequest) */ {
  public:
-  DocMapRequest();
-  virtual ~DocMapRequest();
+  FMapRequest();
+  virtual ~FMapRequest();
 
-  DocMapRequest(const DocMapRequest& from);
+  FMapRequest(const FMapRequest& from);
 
-  inline DocMapRequest& operator=(const DocMapRequest& from) {
+  inline FMapRequest& operator=(const FMapRequest& from) {
     CopyFrom(from);
     return *this;
   }
 
   static const ::google::protobuf::Descriptor* descriptor();
-  static const DocMapRequest& default_instance();
+  static const FMapRequest& default_instance();
 
-  static const DocMapRequest* internal_default_instance();
+  static const FMapRequest* internal_default_instance();
 
-  void Swap(DocMapRequest* other);
+  void Swap(FMapRequest* other);
 
   // implements Message ----------------------------------------------
 
-  inline DocMapRequest* New() const { return New(NULL); }
+  inline FMapRequest* New() const { return New(NULL); }
 
-  DocMapRequest* New(::google::protobuf::Arena* arena) const;
+  FMapRequest* New(::google::protobuf::Arena* arena) const;
   void CopyFrom(const ::google::protobuf::Message& from);
   void MergeFrom(const ::google::protobuf::Message& from);
-  void CopyFrom(const DocMapRequest& from);
-  void MergeFrom(const DocMapRequest& from);
+  void CopyFrom(const FMapRequest& from);
+  void MergeFrom(const FMapRequest& from);
   void Clear();
   bool IsInitialized() const;
 
@@ -1109,8 +1122,8 @@ class DocMapRequest : public ::google::protobuf::Message /* @@protoc_insertion_p
   void SharedCtor();
   void SharedDtor();
   void SetCachedSize(int size) const;
-  void InternalSwap(DocMapRequest* other);
-  void UnsafeMergeFrom(const DocMapRequest& from);
+  void InternalSwap(FMapRequest* other);
+  void UnsafeMergeFrom(const FMapRequest& from);
   private:
   inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
     return _internal_metadata_.arena();
@@ -1126,22 +1139,22 @@ class DocMapRequest : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   // accessors -------------------------------------------------------
 
-  // optional string docname = 1;
-  void clear_docname();
-  static const int kDocnameFieldNumber = 1;
-  const ::std::string& docname() const;
-  void set_docname(const ::std::string& value);
-  void set_docname(const char* value);
-  void set_docname(const char* value, size_t size);
-  ::std::string* mutable_docname();
-  ::std::string* release_docname();
-  void set_allocated_docname(::std::string* docname);
+  // optional string dockey = 1;
+  void clear_dockey();
+  static const int kDockeyFieldNumber = 1;
+  const ::std::string& dockey() const;
+  void set_dockey(const ::std::string& value);
+  void set_dockey(const char* value);
+  void set_dockey(const char* value, size_t size);
+  ::std::string* mutable_dockey();
+  ::std::string* release_dockey();
+  void set_allocated_dockey(::std::string* dockey);
 
-  // @@protoc_insertion_point(class_scope:trinity.DocMapRequest)
+  // @@protoc_insertion_point(class_scope:trinity.FMapRequest)
  private:
 
   ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
-  ::google::protobuf::internal::ArenaStringPtr docname_;
+  ::google::protobuf::internal::ArenaStringPtr dockey_;
   mutable int _cached_size_;
   friend void  protobuf_InitDefaults_trinity_2eproto_impl();
   friend void  protobuf_AddDesc_trinity_2eproto_impl();
@@ -1150,7 +1163,98 @@ class DocMapRequest : public ::google::protobuf::Message /* @@protoc_insertion_p
 
   void InitAsDefaultInstance();
 };
-extern ::google::protobuf::internal::ExplicitlyConstructed<DocMapRequest> DocMapRequest_default_instance_;
+extern ::google::protobuf::internal::ExplicitlyConstructed<FMapRequest> FMapRequest_default_instance_;
+
+// -------------------------------------------------------------------
+
+class IMapRequest : public ::google::protobuf::Message /* @@protoc_insertion_point(class_definition:trinity.IMapRequest) */ {
+ public:
+  IMapRequest();
+  virtual ~IMapRequest();
+
+  IMapRequest(const IMapRequest& from);
+
+  inline IMapRequest& operator=(const IMapRequest& from) {
+    CopyFrom(from);
+    return *this;
+  }
+
+  static const ::google::protobuf::Descriptor* descriptor();
+  static const IMapRequest& default_instance();
+
+  static const IMapRequest* internal_default_instance();
+
+  void Swap(IMapRequest* other);
+
+  // implements Message ----------------------------------------------
+
+  inline IMapRequest* New() const { return New(NULL); }
+
+  IMapRequest* New(::google::protobuf::Arena* arena) const;
+  void CopyFrom(const ::google::protobuf::Message& from);
+  void MergeFrom(const ::google::protobuf::Message& from);
+  void CopyFrom(const IMapRequest& from);
+  void MergeFrom(const IMapRequest& from);
+  void Clear();
+  bool IsInitialized() const;
+
+  size_t ByteSizeLong() const;
+  bool MergePartialFromCodedStream(
+      ::google::protobuf::io::CodedInputStream* input);
+  void SerializeWithCachedSizes(
+      ::google::protobuf::io::CodedOutputStream* output) const;
+  ::google::protobuf::uint8* InternalSerializeWithCachedSizesToArray(
+      bool deterministic, ::google::protobuf::uint8* output) const;
+  ::google::protobuf::uint8* SerializeWithCachedSizesToArray(::google::protobuf::uint8* output) const {
+    return InternalSerializeWithCachedSizesToArray(false, output);
+  }
+  int GetCachedSize() const { return _cached_size_; }
+  private:
+  void SharedCtor();
+  void SharedDtor();
+  void SetCachedSize(int size) const;
+  void InternalSwap(IMapRequest* other);
+  void UnsafeMergeFrom(const IMapRequest& from);
+  private:
+  inline ::google::protobuf::Arena* GetArenaNoVirtual() const {
+    return _internal_metadata_.arena();
+  }
+  inline void* MaybeArenaPtr() const {
+    return _internal_metadata_.raw_arena_ptr();
+  }
+  public:
+
+  ::google::protobuf::Metadata GetMetadata() const;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  // optional string termkey = 1;
+  void clear_termkey();
+  static const int kTermkeyFieldNumber = 1;
+  const ::std::string& termkey() const;
+  void set_termkey(const ::std::string& value);
+  void set_termkey(const char* value);
+  void set_termkey(const char* value, size_t size);
+  ::std::string* mutable_termkey();
+  ::std::string* release_termkey();
+  void set_allocated_termkey(::std::string* termkey);
+
+  // @@protoc_insertion_point(class_scope:trinity.IMapRequest)
+ private:
+
+  ::google::protobuf::internal::InternalMetadataWithArena _internal_metadata_;
+  ::google::protobuf::internal::ArenaStringPtr termkey_;
+  mutable int _cached_size_;
+  friend void  protobuf_InitDefaults_trinity_2eproto_impl();
+  friend void  protobuf_AddDesc_trinity_2eproto_impl();
+  friend void protobuf_AssignDesc_trinity_2eproto();
+  friend void protobuf_ShutdownFile_trinity_2eproto();
+
+  void InitAsDefaultInstance();
+};
+extern ::google::protobuf::internal::ExplicitlyConstructed<IMapRequest> IMapRequest_default_instance_;
 
 // -------------------------------------------------------------------
 
@@ -2251,7 +2355,51 @@ inline void InvertedMap::set_iindex_api_version(::google::protobuf::uint32 value
   // @@protoc_insertion_point(field_set:trinity.InvertedMap.iindex_api_version)
 }
 
-// map<string, .trinity.IMValue> the_map = 2;
+// optional string key = 2;
+inline void InvertedMap::clear_key() {
+  key_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& InvertedMap::key() const {
+  // @@protoc_insertion_point(field_get:trinity.InvertedMap.key)
+  return key_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InvertedMap::set_key(const ::std::string& value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trinity.InvertedMap.key)
+}
+inline void InvertedMap::set_key(const char* value) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trinity.InvertedMap.key)
+}
+inline void InvertedMap::set_key(const char* value, size_t size) {
+  
+  key_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trinity.InvertedMap.key)
+}
+inline ::std::string* InvertedMap::mutable_key() {
+  
+  // @@protoc_insertion_point(field_mutable:trinity.InvertedMap.key)
+  return key_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* InvertedMap::release_key() {
+  // @@protoc_insertion_point(field_release:trinity.InvertedMap.key)
+  
+  return key_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void InvertedMap::set_allocated_key(::std::string* key) {
+  if (key != NULL) {
+    
+  } else {
+    
+  }
+  key_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), key);
+  // @@protoc_insertion_point(field_set_allocated:trinity.InvertedMap.key)
+}
+
+// map<string, .trinity.IMValue> the_map = 3;
 inline int InvertedMap::the_map_size() const {
   return the_map_.size();
 }
@@ -2274,54 +2422,105 @@ inline const InvertedMap* InvertedMap::internal_default_instance() {
 }
 // -------------------------------------------------------------------
 
-// DocMapRequest
+// FMapRequest
 
-// optional string docname = 1;
-inline void DocMapRequest::clear_docname() {
-  docname_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+// optional string dockey = 1;
+inline void FMapRequest::clear_dockey() {
+  dockey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline const ::std::string& DocMapRequest::docname() const {
-  // @@protoc_insertion_point(field_get:trinity.DocMapRequest.docname)
-  return docname_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+inline const ::std::string& FMapRequest::dockey() const {
+  // @@protoc_insertion_point(field_get:trinity.FMapRequest.dockey)
+  return dockey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void DocMapRequest::set_docname(const ::std::string& value) {
+inline void FMapRequest::set_dockey(const ::std::string& value) {
   
-  docname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
-  // @@protoc_insertion_point(field_set:trinity.DocMapRequest.docname)
+  dockey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trinity.FMapRequest.dockey)
 }
-inline void DocMapRequest::set_docname(const char* value) {
+inline void FMapRequest::set_dockey(const char* value) {
   
-  docname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
-  // @@protoc_insertion_point(field_set_char:trinity.DocMapRequest.docname)
+  dockey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trinity.FMapRequest.dockey)
 }
-inline void DocMapRequest::set_docname(const char* value, size_t size) {
+inline void FMapRequest::set_dockey(const char* value, size_t size) {
   
-  docname_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+  dockey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
       ::std::string(reinterpret_cast<const char*>(value), size));
-  // @@protoc_insertion_point(field_set_pointer:trinity.DocMapRequest.docname)
+  // @@protoc_insertion_point(field_set_pointer:trinity.FMapRequest.dockey)
 }
-inline ::std::string* DocMapRequest::mutable_docname() {
+inline ::std::string* FMapRequest::mutable_dockey() {
   
-  // @@protoc_insertion_point(field_mutable:trinity.DocMapRequest.docname)
-  return docname_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  // @@protoc_insertion_point(field_mutable:trinity.FMapRequest.dockey)
+  return dockey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline ::std::string* DocMapRequest::release_docname() {
-  // @@protoc_insertion_point(field_release:trinity.DocMapRequest.docname)
+inline ::std::string* FMapRequest::release_dockey() {
+  // @@protoc_insertion_point(field_release:trinity.FMapRequest.dockey)
   
-  return docname_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+  return dockey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
 }
-inline void DocMapRequest::set_allocated_docname(::std::string* docname) {
-  if (docname != NULL) {
+inline void FMapRequest::set_allocated_dockey(::std::string* dockey) {
+  if (dockey != NULL) {
     
   } else {
     
   }
-  docname_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), docname);
-  // @@protoc_insertion_point(field_set_allocated:trinity.DocMapRequest.docname)
+  dockey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), dockey);
+  // @@protoc_insertion_point(field_set_allocated:trinity.FMapRequest.dockey)
 }
 
-inline const DocMapRequest* DocMapRequest::internal_default_instance() {
-  return &DocMapRequest_default_instance_.get();
+inline const FMapRequest* FMapRequest::internal_default_instance() {
+  return &FMapRequest_default_instance_.get();
+}
+// -------------------------------------------------------------------
+
+// IMapRequest
+
+// optional string termkey = 1;
+inline void IMapRequest::clear_termkey() {
+  termkey_.ClearToEmptyNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline const ::std::string& IMapRequest::termkey() const {
+  // @@protoc_insertion_point(field_get:trinity.IMapRequest.termkey)
+  return termkey_.GetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void IMapRequest::set_termkey(const ::std::string& value) {
+  
+  termkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), value);
+  // @@protoc_insertion_point(field_set:trinity.IMapRequest.termkey)
+}
+inline void IMapRequest::set_termkey(const char* value) {
+  
+  termkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), ::std::string(value));
+  // @@protoc_insertion_point(field_set_char:trinity.IMapRequest.termkey)
+}
+inline void IMapRequest::set_termkey(const char* value, size_t size) {
+  
+  termkey_.SetNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(),
+      ::std::string(reinterpret_cast<const char*>(value), size));
+  // @@protoc_insertion_point(field_set_pointer:trinity.IMapRequest.termkey)
+}
+inline ::std::string* IMapRequest::mutable_termkey() {
+  
+  // @@protoc_insertion_point(field_mutable:trinity.IMapRequest.termkey)
+  return termkey_.MutableNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline ::std::string* IMapRequest::release_termkey() {
+  // @@protoc_insertion_point(field_release:trinity.IMapRequest.termkey)
+  
+  return termkey_.ReleaseNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited());
+}
+inline void IMapRequest::set_allocated_termkey(::std::string* termkey) {
+  if (termkey != NULL) {
+    
+  } else {
+    
+  }
+  termkey_.SetAllocatedNoArena(&::google::protobuf::internal::GetEmptyStringAlreadyInited(), termkey);
+  // @@protoc_insertion_point(field_set_allocated:trinity.IMapRequest.termkey)
+}
+
+inline const IMapRequest* IMapRequest::internal_default_instance() {
+  return &IMapRequest_default_instance_.get();
 }
 // -------------------------------------------------------------------
 
@@ -2653,6 +2852,8 @@ inline const SearchResult* SearchResult::internal_default_instance() {
   return &SearchResult_default_instance_.get();
 }
 #endif  // !PROTOBUF_INLINE_NOT_IN_HEADERS
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -42,7 +42,7 @@ func main() {
 	mainWaitGroup.Add(1)
 
 	go RunGatewayServer(staticPath, &mainWaitGroup)
-	setupGRPCConn(conn, &gatewayClient, mainConfig.ClientPort)
+	setupGRPCConn(conn, &gatewayClient, mainConfig.GRPCPort)
 
 	mainWaitGroup.Wait()
 	defer conn.Close()

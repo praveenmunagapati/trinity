@@ -50,17 +50,27 @@ message IMValue {
 
 message InvertedMap {
   uint32 iindex_api_version = 1;
-  map<string, IMValue> the_map = 2;
+  string key = 2;
+  map<string, IMValue> the_map = 3;
 }
 
 
 service FIndex {
-  rpc GetDocMap (DocMapRequest) returns (ForwardMap) {}
-  rpc SetDocMap (ForwardMap) returns (SetResult) {}
+  rpc GetFMap (FMapRequest) returns (ForwardMap) {}
+  rpc SetFMap (ForwardMap) returns (SetResult) {}
 }
 
-message DocMapRequest {
-  string docname = 1;
+service IIndex {
+  rpc GetIMap (IMapRequest) returns (InvertedMap) {}
+  rpc SetIMap (InvertedMap) returns (SetResult) {}
+}
+
+message FMapRequest {
+  string dockey = 1;
+}
+
+message IMapRequest {
+  string termkey = 1;
 }
 
 service Trinity {

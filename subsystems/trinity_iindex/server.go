@@ -12,7 +12,7 @@ import (
 	"github.com/clownpriest/trinity/api/trinity"
 )
 
-func startFIndexServer(port int, wg *sync.WaitGroup) {
+func startIIndexServer(port int, wg *sync.WaitGroup) {
 	defer wg.Done()
 	lis, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
@@ -21,25 +21,25 @@ func startFIndexServer(port int, wg *sync.WaitGroup) {
 
 	var opts []grpc.ServerOption
 	grpcServer := grpc.NewServer(opts...)
-	trinity.RegisterFIndexServer(grpcServer, newFIndexServer())
+	trinity.RegisterIIndexServer(grpcServer, newIIndexServer())
 	grpcServer.Serve(lis)
 }
 
-type findexServer struct {
+type iindexServer struct {
 }
 
-func newFIndexServer() *findexServer {
-	s := new(findexServer)
+func newIIndexServer() *iindexServer {
+	s := new(iindexServer)
 	return s
 }
 
-func (fis *findexServer) GetFMap(ctx context.Context, req *trinity.FMapRequest) (*trinity.ForwardMap, error) {
-	resultMap, err := findex.store.GetFMap(req.Dockey)
+func (iis *iindexServer) GetIMap(ctx context.Context, req *trinity.IMapRequest) (*trinity.InvertedMap, error) {
+	resultMap, err := iindex.store.GetIMap(req.Termkey)
 	return &resultMap, err
 }
 
-func (fis *findexServer) SetFMap(ctx context.Context, req *trinity.ForwardMap) (*trinity.SetResult, error) {
-	err := findex.store.PutFMap(req.Key, req)
+func (iis *iindexServer) SetIMap(ctx context.Context, req *trinity.InvertedMap) (*trinity.SetResult, error) {
+	err := iindex.store.PutIMap(req.Key, req)
 	if err != nil {
 		return &trinity.SetResult{Success: false}, err
 	}

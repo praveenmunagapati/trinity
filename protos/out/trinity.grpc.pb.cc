@@ -16,8 +16,8 @@
 namespace trinity {
 
 static const char* FIndex_method_names[] = {
-  "/trinity.FIndex/GetDocMap",
-  "/trinity.FIndex/SetDocMap",
+  "/trinity.FIndex/GetFMap",
+  "/trinity.FIndex/SetFMap",
 };
 
 std::unique_ptr< FIndex::Stub> FIndex::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
@@ -26,24 +26,24 @@ std::unique_ptr< FIndex::Stub> FIndex::NewStub(const std::shared_ptr< ::grpc::Ch
 }
 
 FIndex::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
-  : channel_(channel), rpcmethod_GetDocMap_(FIndex_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
-  , rpcmethod_SetDocMap_(FIndex_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  : channel_(channel), rpcmethod_GetFMap_(FIndex_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetFMap_(FIndex_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
   {}
 
-::grpc::Status FIndex::Stub::GetDocMap(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::trinity::ForwardMap* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetDocMap_, context, request, response);
+::grpc::Status FIndex::Stub::GetFMap(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::trinity::ForwardMap* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetFMap_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>* FIndex::Stub::AsyncGetDocMapRaw(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>(channel_.get(), cq, rpcmethod_GetDocMap_, context, request);
+::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>* FIndex::Stub::AsyncGetFMapRaw(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>(channel_.get(), cq, rpcmethod_GetFMap_, context, request);
 }
 
-::grpc::Status FIndex::Stub::SetDocMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) {
-  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SetDocMap_, context, request, response);
+::grpc::Status FIndex::Stub::SetFMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SetFMap_, context, request, response);
 }
 
-::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* FIndex::Stub::AsyncSetDocMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
-  return new ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>(channel_.get(), cq, rpcmethod_SetDocMap_, context, request);
+::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* FIndex::Stub::AsyncSetFMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>(channel_.get(), cq, rpcmethod_SetFMap_, context, request);
 }
 
 FIndex::Service::Service() {
@@ -51,26 +51,89 @@ FIndex::Service::Service() {
   AddMethod(new ::grpc::RpcServiceMethod(
       FIndex_method_names[0],
       ::grpc::RpcMethod::NORMAL_RPC,
-      new ::grpc::RpcMethodHandler< FIndex::Service, ::trinity::DocMapRequest, ::trinity::ForwardMap>(
-          std::mem_fn(&FIndex::Service::GetDocMap), this)));
+      new ::grpc::RpcMethodHandler< FIndex::Service, ::trinity::FMapRequest, ::trinity::ForwardMap>(
+          std::mem_fn(&FIndex::Service::GetFMap), this)));
   AddMethod(new ::grpc::RpcServiceMethod(
       FIndex_method_names[1],
       ::grpc::RpcMethod::NORMAL_RPC,
       new ::grpc::RpcMethodHandler< FIndex::Service, ::trinity::ForwardMap, ::trinity::SetResult>(
-          std::mem_fn(&FIndex::Service::SetDocMap), this)));
+          std::mem_fn(&FIndex::Service::SetFMap), this)));
 }
 
 FIndex::Service::~Service() {
 }
 
-::grpc::Status FIndex::Service::GetDocMap(::grpc::ServerContext* context, const ::trinity::DocMapRequest* request, ::trinity::ForwardMap* response) {
+::grpc::Status FIndex::Service::GetFMap(::grpc::ServerContext* context, const ::trinity::FMapRequest* request, ::trinity::ForwardMap* response) {
   (void) context;
   (void) request;
   (void) response;
   return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
 }
 
-::grpc::Status FIndex::Service::SetDocMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) {
+::grpc::Status FIndex::Service::SetFMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+
+static const char* IIndex_method_names[] = {
+  "/trinity.IIndex/GetIMap",
+  "/trinity.IIndex/SetIMap",
+};
+
+std::unique_ptr< IIndex::Stub> IIndex::NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options) {
+  std::unique_ptr< IIndex::Stub> stub(new IIndex::Stub(channel));
+  return stub;
+}
+
+IIndex::Stub::Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel)
+  : channel_(channel), rpcmethod_GetIMap_(IIndex_method_names[0], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  , rpcmethod_SetIMap_(IIndex_method_names[1], ::grpc::RpcMethod::NORMAL_RPC, channel)
+  {}
+
+::grpc::Status IIndex::Stub::GetIMap(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::trinity::InvertedMap* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_GetIMap_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::trinity::InvertedMap>* IIndex::Stub::AsyncGetIMapRaw(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::trinity::InvertedMap>(channel_.get(), cq, rpcmethod_GetIMap_, context, request);
+}
+
+::grpc::Status IIndex::Stub::SetIMap(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::trinity::SetResult* response) {
+  return ::grpc::BlockingUnaryCall(channel_.get(), rpcmethod_SetIMap_, context, request, response);
+}
+
+::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* IIndex::Stub::AsyncSetIMapRaw(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::grpc::CompletionQueue* cq) {
+  return new ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>(channel_.get(), cq, rpcmethod_SetIMap_, context, request);
+}
+
+IIndex::Service::Service() {
+  (void)IIndex_method_names;
+  AddMethod(new ::grpc::RpcServiceMethod(
+      IIndex_method_names[0],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< IIndex::Service, ::trinity::IMapRequest, ::trinity::InvertedMap>(
+          std::mem_fn(&IIndex::Service::GetIMap), this)));
+  AddMethod(new ::grpc::RpcServiceMethod(
+      IIndex_method_names[1],
+      ::grpc::RpcMethod::NORMAL_RPC,
+      new ::grpc::RpcMethodHandler< IIndex::Service, ::trinity::InvertedMap, ::trinity::SetResult>(
+          std::mem_fn(&IIndex::Service::SetIMap), this)));
+}
+
+IIndex::Service::~Service() {
+}
+
+::grpc::Status IIndex::Service::GetIMap(::grpc::ServerContext* context, const ::trinity::IMapRequest* request, ::trinity::InvertedMap* response) {
+  (void) context;
+  (void) request;
+  (void) response;
+  return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+}
+
+::grpc::Status IIndex::Service::SetIMap(::grpc::ServerContext* context, const ::trinity::InvertedMap* request, ::trinity::SetResult* response) {
   (void) context;
   (void) request;
   (void) response;

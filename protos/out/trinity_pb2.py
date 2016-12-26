@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='trinity.proto',
   package='trinity',
   syntax='proto3',
-  serialized_pb=_b('\n\rtrinity.proto\x12\x07trinity\"}\n\nRootConfig\x12\x10\n\x08NodeRole\x18\x01 \x01(\t\x12%\n\x06\x46Index\x18\x02 \x01(\x0b\x32\x15.trinity.FIndexConfig\x12%\n\x06IIndex\x18\x03 \x01(\x0b\x32\x15.trinity.IIndexConfig\x12\x0f\n\x07\x41PIPort\x18\x04 \x01(\t\"4\n\x0c\x46IndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"4\n\x0cIIndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"\x1d\n\rConfigRequest\x12\x0c\n\x04type\x18\x01 \x01(\t\"\x1c\n\tSetResult\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x1c\n\x07\x46MValue\x12\x11\n\tlocations\x18\x01 \x03(\r\"\xa8\x01\n\nForwardMap\x12\x1a\n\x12\x66index_api_version\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x30\n\x07the_map\x18\x03 \x03(\x0b\x32\x1f.trinity.ForwardMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.FMValue:\x02\x38\x01\")\n\x07\x44ocStat\x12\x0f\n\x07\x64ocname\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\r\")\n\x07IMValue\x12\x1e\n\x04\x64ocs\x18\x01 \x03(\x0b\x32\x10.trinity.DocStat\"\x9d\x01\n\x0bInvertedMap\x12\x1a\n\x12iindex_api_version\x18\x01 \x01(\r\x12\x31\n\x07the_map\x18\x02 \x03(\x0b\x32 .trinity.InvertedMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.IMValue:\x02\x38\x01\" \n\rDocMapRequest\x12\x0f\n\x07\x64ocname\x18\x01 \x01(\t\"/\n\x15StartSubsystemRequest\x12\x16\n\x0esubsystem_name\x18\x01 \x01(\t\"/\n\x16StartSubsystemResponse\x12\x15\n\rresponse_code\x18\x01 \x01(\t\"\x1c\n\x0bSearchQuery\x12\r\n\x05query\x18\x01 \x01(\t\"8\n\x0eSearchResponse\x12&\n\x07results\x18\x01 \x03(\x0b\x32\x15.trinity.SearchResult\"@\n\x0cSearchResult\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t2|\n\x06\x46Index\x12:\n\tGetDocMap\x12\x16.trinity.DocMapRequest\x1a\x13.trinity.ForwardMap\"\x00\x12\x36\n\tSetDocMap\x12\x13.trinity.ForwardMap\x1a\x12.trinity.SetResult\"\x00\x32\x85\x01\n\x07Trinity\x12>\n\rGetRootConfig\x12\x16.trinity.ConfigRequest\x1a\x13.trinity.RootConfig\"\x00\x12:\n\rSetRootConfig\x12\x13.trinity.RootConfig\x1a\x12.trinity.SetResult\"\x00\x32_\n\tSubsystem\x12R\n\rStartMainLoop\x12\x1e.trinity.StartSubsystemRequest\x1a\x1f.trinity.StartSubsystemResponse\"\x00\x32L\n\x07Gateway\x12\x41\n\x0eGetSearchQuery\x12\x14.trinity.SearchQuery\x1a\x17.trinity.SearchResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\rtrinity.proto\x12\x07trinity\"}\n\nRootConfig\x12\x10\n\x08NodeRole\x18\x01 \x01(\t\x12%\n\x06\x46Index\x18\x02 \x01(\x0b\x32\x15.trinity.FIndexConfig\x12%\n\x06IIndex\x18\x03 \x01(\x0b\x32\x15.trinity.IIndexConfig\x12\x0f\n\x07\x41PIPort\x18\x04 \x01(\t\"4\n\x0c\x46IndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"4\n\x0cIIndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"\x1d\n\rConfigRequest\x12\x0c\n\x04type\x18\x01 \x01(\t\"\x1c\n\tSetResult\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x1c\n\x07\x46MValue\x12\x11\n\tlocations\x18\x01 \x03(\r\"\xa8\x01\n\nForwardMap\x12\x1a\n\x12\x66index_api_version\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x30\n\x07the_map\x18\x03 \x03(\x0b\x32\x1f.trinity.ForwardMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.FMValue:\x02\x38\x01\")\n\x07\x44ocStat\x12\x0f\n\x07\x64ocname\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\r\")\n\x07IMValue\x12\x1e\n\x04\x64ocs\x18\x01 \x03(\x0b\x32\x10.trinity.DocStat\"\xaa\x01\n\x0bInvertedMap\x12\x1a\n\x12iindex_api_version\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x31\n\x07the_map\x18\x03 \x03(\x0b\x32 .trinity.InvertedMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.IMValue:\x02\x38\x01\"\x1d\n\x0b\x46MapRequest\x12\x0e\n\x06\x64ockey\x18\x01 \x01(\t\"\x1e\n\x0bIMapRequest\x12\x0f\n\x07termkey\x18\x01 \x01(\t\"/\n\x15StartSubsystemRequest\x12\x16\n\x0esubsystem_name\x18\x01 \x01(\t\"/\n\x16StartSubsystemResponse\x12\x15\n\rresponse_code\x18\x01 \x01(\t\"\x1c\n\x0bSearchQuery\x12\r\n\x05query\x18\x01 \x01(\t\"8\n\x0eSearchResponse\x12&\n\x07results\x18\x01 \x03(\x0b\x32\x15.trinity.SearchResult\"@\n\x0cSearchResult\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t2v\n\x06\x46Index\x12\x36\n\x07GetFMap\x12\x14.trinity.FMapRequest\x1a\x13.trinity.ForwardMap\"\x00\x12\x34\n\x07SetFMap\x12\x13.trinity.ForwardMap\x1a\x12.trinity.SetResult\"\x00\x32x\n\x06IIndex\x12\x37\n\x07GetIMap\x12\x14.trinity.IMapRequest\x1a\x14.trinity.InvertedMap\"\x00\x12\x35\n\x07SetIMap\x12\x14.trinity.InvertedMap\x1a\x12.trinity.SetResult\"\x00\x32\x85\x01\n\x07Trinity\x12>\n\rGetRootConfig\x12\x16.trinity.ConfigRequest\x1a\x13.trinity.RootConfig\"\x00\x12:\n\rSetRootConfig\x12\x13.trinity.RootConfig\x1a\x12.trinity.SetResult\"\x00\x32_\n\tSubsystem\x12R\n\rStartMainLoop\x12\x1e.trinity.StartSubsystemRequest\x1a\x1f.trinity.StartSubsystemResponse\"\x00\x32L\n\x07Gateway\x12\x41\n\x0eGetSearchQuery\x12\x14.trinity.SearchQuery\x1a\x17.trinity.SearchResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -431,8 +431,8 @@ _INVERTEDMAP_THEMAPENTRY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=704,
-  serialized_end=767,
+  serialized_start=717,
+  serialized_end=780,
 )
 
 _INVERTEDMAP = _descriptor.Descriptor(
@@ -450,8 +450,15 @@ _INVERTEDMAP = _descriptor.Descriptor(
       is_extension=False, extension_scope=None,
       options=None),
     _descriptor.FieldDescriptor(
-      name='the_map', full_name='trinity.InvertedMap.the_map', index=1,
-      number=2, type=11, cpp_type=10, label=3,
+      name='key', full_name='trinity.InvertedMap.key', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='the_map', full_name='trinity.InvertedMap.the_map', index=2,
+      number=3, type=11, cpp_type=10, label=3,
       has_default_value=False, default_value=[],
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
@@ -469,19 +476,19 @@ _INVERTEDMAP = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=610,
-  serialized_end=767,
+  serialized_end=780,
 )
 
 
-_DOCMAPREQUEST = _descriptor.Descriptor(
-  name='DocMapRequest',
-  full_name='trinity.DocMapRequest',
+_FMAPREQUEST = _descriptor.Descriptor(
+  name='FMapRequest',
+  full_name='trinity.FMapRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='docname', full_name='trinity.DocMapRequest.docname', index=0,
+      name='dockey', full_name='trinity.FMapRequest.dockey', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
       message_type=None, enum_type=None, containing_type=None,
@@ -499,8 +506,39 @@ _DOCMAPREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=769,
-  serialized_end=801,
+  serialized_start=782,
+  serialized_end=811,
+)
+
+
+_IMAPREQUEST = _descriptor.Descriptor(
+  name='IMapRequest',
+  full_name='trinity.IMapRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='termkey', full_name='trinity.IMapRequest.termkey', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=813,
+  serialized_end=843,
 )
 
 
@@ -530,8 +568,8 @@ _STARTSUBSYSTEMREQUEST = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=803,
-  serialized_end=850,
+  serialized_start=845,
+  serialized_end=892,
 )
 
 
@@ -561,8 +599,8 @@ _STARTSUBSYSTEMRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=852,
-  serialized_end=899,
+  serialized_start=894,
+  serialized_end=941,
 )
 
 
@@ -592,8 +630,8 @@ _SEARCHQUERY = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=901,
-  serialized_end=929,
+  serialized_start=943,
+  serialized_end=971,
 )
 
 
@@ -623,8 +661,8 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=931,
-  serialized_end=987,
+  serialized_start=973,
+  serialized_end=1029,
 )
 
 
@@ -668,8 +706,8 @@ _SEARCHRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=989,
-  serialized_end=1053,
+  serialized_start=1031,
+  serialized_end=1095,
 )
 
 _ROOTCONFIG.fields_by_name['FIndex'].message_type = _FINDEXCONFIG
@@ -692,7 +730,8 @@ DESCRIPTOR.message_types_by_name['ForwardMap'] = _FORWARDMAP
 DESCRIPTOR.message_types_by_name['DocStat'] = _DOCSTAT
 DESCRIPTOR.message_types_by_name['IMValue'] = _IMVALUE
 DESCRIPTOR.message_types_by_name['InvertedMap'] = _INVERTEDMAP
-DESCRIPTOR.message_types_by_name['DocMapRequest'] = _DOCMAPREQUEST
+DESCRIPTOR.message_types_by_name['FMapRequest'] = _FMAPREQUEST
+DESCRIPTOR.message_types_by_name['IMapRequest'] = _IMAPREQUEST
 DESCRIPTOR.message_types_by_name['StartSubsystemRequest'] = _STARTSUBSYSTEMREQUEST
 DESCRIPTOR.message_types_by_name['StartSubsystemResponse'] = _STARTSUBSYSTEMRESPONSE
 DESCRIPTOR.message_types_by_name['SearchQuery'] = _SEARCHQUERY
@@ -785,12 +824,19 @@ InvertedMap = _reflection.GeneratedProtocolMessageType('InvertedMap', (_message.
 _sym_db.RegisterMessage(InvertedMap)
 _sym_db.RegisterMessage(InvertedMap.TheMapEntry)
 
-DocMapRequest = _reflection.GeneratedProtocolMessageType('DocMapRequest', (_message.Message,), dict(
-  DESCRIPTOR = _DOCMAPREQUEST,
+FMapRequest = _reflection.GeneratedProtocolMessageType('FMapRequest', (_message.Message,), dict(
+  DESCRIPTOR = _FMAPREQUEST,
   __module__ = 'trinity_pb2'
-  # @@protoc_insertion_point(class_scope:trinity.DocMapRequest)
+  # @@protoc_insertion_point(class_scope:trinity.FMapRequest)
   ))
-_sym_db.RegisterMessage(DocMapRequest)
+_sym_db.RegisterMessage(FMapRequest)
+
+IMapRequest = _reflection.GeneratedProtocolMessageType('IMapRequest', (_message.Message,), dict(
+  DESCRIPTOR = _IMAPREQUEST,
+  __module__ = 'trinity_pb2'
+  # @@protoc_insertion_point(class_scope:trinity.IMapRequest)
+  ))
+_sym_db.RegisterMessage(IMapRequest)
 
 StartSubsystemRequest = _reflection.GeneratedProtocolMessageType('StartSubsystemRequest', (_message.Message,), dict(
   DESCRIPTOR = _STARTSUBSYSTEMREQUEST,
@@ -847,13 +893,13 @@ class FIndexStub(object):
     Args:
       channel: A grpc.Channel.
     """
-    self.GetDocMap = channel.unary_unary(
-        '/trinity.FIndex/GetDocMap',
-        request_serializer=DocMapRequest.SerializeToString,
+    self.GetFMap = channel.unary_unary(
+        '/trinity.FIndex/GetFMap',
+        request_serializer=FMapRequest.SerializeToString,
         response_deserializer=ForwardMap.FromString,
         )
-    self.SetDocMap = channel.unary_unary(
-        '/trinity.FIndex/SetDocMap',
+    self.SetFMap = channel.unary_unary(
+        '/trinity.FIndex/SetFMap',
         request_serializer=ForwardMap.SerializeToString,
         response_deserializer=SetResult.FromString,
         )
@@ -861,12 +907,12 @@ class FIndexStub(object):
 
 class FIndexServicer(object):
 
-  def GetDocMap(self, request, context):
+  def GetFMap(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
-  def SetDocMap(self, request, context):
+  def SetFMap(self, request, context):
     context.set_code(grpc.StatusCode.UNIMPLEMENTED)
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
@@ -874,13 +920,13 @@ class FIndexServicer(object):
 
 def add_FIndexServicer_to_server(servicer, server):
   rpc_method_handlers = {
-      'GetDocMap': grpc.unary_unary_rpc_method_handler(
-          servicer.GetDocMap,
-          request_deserializer=DocMapRequest.FromString,
+      'GetFMap': grpc.unary_unary_rpc_method_handler(
+          servicer.GetFMap,
+          request_deserializer=FMapRequest.FromString,
           response_serializer=ForwardMap.SerializeToString,
       ),
-      'SetDocMap': grpc.unary_unary_rpc_method_handler(
-          servicer.SetDocMap,
+      'SetFMap': grpc.unary_unary_rpc_method_handler(
+          servicer.SetFMap,
           request_deserializer=ForwardMap.FromString,
           response_serializer=SetResult.SerializeToString,
       ),
@@ -891,33 +937,33 @@ def add_FIndexServicer_to_server(servicer, server):
 
 
 class BetaFIndexServicer(object):
-  def GetDocMap(self, request, context):
+  def GetFMap(self, request, context):
     context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def SetDocMap(self, request, context):
+  def SetFMap(self, request, context):
     context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
 class BetaFIndexStub(object):
-  def GetDocMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+  def GetFMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
     raise NotImplementedError()
-  GetDocMap.future = None
-  def SetDocMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+  GetFMap.future = None
+  def SetFMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
     raise NotImplementedError()
-  SetDocMap.future = None
+  SetFMap.future = None
 
 
 def beta_create_FIndex_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
   request_deserializers = {
-    ('trinity.FIndex', 'GetDocMap'): DocMapRequest.FromString,
-    ('trinity.FIndex', 'SetDocMap'): ForwardMap.FromString,
+    ('trinity.FIndex', 'GetFMap'): FMapRequest.FromString,
+    ('trinity.FIndex', 'SetFMap'): ForwardMap.FromString,
   }
   response_serializers = {
-    ('trinity.FIndex', 'GetDocMap'): ForwardMap.SerializeToString,
-    ('trinity.FIndex', 'SetDocMap'): SetResult.SerializeToString,
+    ('trinity.FIndex', 'GetFMap'): ForwardMap.SerializeToString,
+    ('trinity.FIndex', 'SetFMap'): SetResult.SerializeToString,
   }
   method_implementations = {
-    ('trinity.FIndex', 'GetDocMap'): face_utilities.unary_unary_inline(servicer.GetDocMap),
-    ('trinity.FIndex', 'SetDocMap'): face_utilities.unary_unary_inline(servicer.SetDocMap),
+    ('trinity.FIndex', 'GetFMap'): face_utilities.unary_unary_inline(servicer.GetFMap),
+    ('trinity.FIndex', 'SetFMap'): face_utilities.unary_unary_inline(servicer.SetFMap),
   }
   server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
   return beta_implementations.server(method_implementations, options=server_options)
@@ -925,19 +971,120 @@ def beta_create_FIndex_server(servicer, pool=None, pool_size=None, default_timeo
 
 def beta_create_FIndex_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
   request_serializers = {
-    ('trinity.FIndex', 'GetDocMap'): DocMapRequest.SerializeToString,
-    ('trinity.FIndex', 'SetDocMap'): ForwardMap.SerializeToString,
+    ('trinity.FIndex', 'GetFMap'): FMapRequest.SerializeToString,
+    ('trinity.FIndex', 'SetFMap'): ForwardMap.SerializeToString,
   }
   response_deserializers = {
-    ('trinity.FIndex', 'GetDocMap'): ForwardMap.FromString,
-    ('trinity.FIndex', 'SetDocMap'): SetResult.FromString,
+    ('trinity.FIndex', 'GetFMap'): ForwardMap.FromString,
+    ('trinity.FIndex', 'SetFMap'): SetResult.FromString,
   }
   cardinalities = {
-    'GetDocMap': cardinality.Cardinality.UNARY_UNARY,
-    'SetDocMap': cardinality.Cardinality.UNARY_UNARY,
+    'GetFMap': cardinality.Cardinality.UNARY_UNARY,
+    'SetFMap': cardinality.Cardinality.UNARY_UNARY,
   }
   stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
   return beta_implementations.dynamic_stub(channel, 'trinity.FIndex', cardinalities, options=stub_options)
+
+
+class IIndexStub(object):
+
+  def __init__(self, channel):
+    """Constructor.
+
+    Args:
+      channel: A grpc.Channel.
+    """
+    self.GetIMap = channel.unary_unary(
+        '/trinity.IIndex/GetIMap',
+        request_serializer=IMapRequest.SerializeToString,
+        response_deserializer=InvertedMap.FromString,
+        )
+    self.SetIMap = channel.unary_unary(
+        '/trinity.IIndex/SetIMap',
+        request_serializer=InvertedMap.SerializeToString,
+        response_deserializer=SetResult.FromString,
+        )
+
+
+class IIndexServicer(object):
+
+  def GetIMap(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def SetIMap(self, request, context):
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+
+def add_IIndexServicer_to_server(servicer, server):
+  rpc_method_handlers = {
+      'GetIMap': grpc.unary_unary_rpc_method_handler(
+          servicer.GetIMap,
+          request_deserializer=IMapRequest.FromString,
+          response_serializer=InvertedMap.SerializeToString,
+      ),
+      'SetIMap': grpc.unary_unary_rpc_method_handler(
+          servicer.SetIMap,
+          request_deserializer=InvertedMap.FromString,
+          response_serializer=SetResult.SerializeToString,
+      ),
+  }
+  generic_handler = grpc.method_handlers_generic_handler(
+      'trinity.IIndex', rpc_method_handlers)
+  server.add_generic_rpc_handlers((generic_handler,))
+
+
+class BetaIIndexServicer(object):
+  def GetIMap(self, request, context):
+    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+  def SetIMap(self, request, context):
+    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+class BetaIIndexStub(object):
+  def GetIMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    raise NotImplementedError()
+  GetIMap.future = None
+  def SetIMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+    raise NotImplementedError()
+  SetIMap.future = None
+
+
+def beta_create_IIndex_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+  request_deserializers = {
+    ('trinity.IIndex', 'GetIMap'): IMapRequest.FromString,
+    ('trinity.IIndex', 'SetIMap'): InvertedMap.FromString,
+  }
+  response_serializers = {
+    ('trinity.IIndex', 'GetIMap'): InvertedMap.SerializeToString,
+    ('trinity.IIndex', 'SetIMap'): SetResult.SerializeToString,
+  }
+  method_implementations = {
+    ('trinity.IIndex', 'GetIMap'): face_utilities.unary_unary_inline(servicer.GetIMap),
+    ('trinity.IIndex', 'SetIMap'): face_utilities.unary_unary_inline(servicer.SetIMap),
+  }
+  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+  return beta_implementations.server(method_implementations, options=server_options)
+
+
+def beta_create_IIndex_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+  request_serializers = {
+    ('trinity.IIndex', 'GetIMap'): IMapRequest.SerializeToString,
+    ('trinity.IIndex', 'SetIMap'): InvertedMap.SerializeToString,
+  }
+  response_deserializers = {
+    ('trinity.IIndex', 'GetIMap'): InvertedMap.FromString,
+    ('trinity.IIndex', 'SetIMap'): SetResult.FromString,
+  }
+  cardinalities = {
+    'GetIMap': cardinality.Cardinality.UNARY_UNARY,
+    'SetIMap': cardinality.Cardinality.UNARY_UNARY,
+  }
+  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+  return beta_implementations.dynamic_stub(channel, 'trinity.IIndex', cardinalities, options=stub_options)
 
 
 class TrinityStub(object):

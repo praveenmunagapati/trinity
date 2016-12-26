@@ -31,36 +31,36 @@ class FIndex GRPC_FINAL {
   class StubInterface {
    public:
     virtual ~StubInterface() {}
-    virtual ::grpc::Status GetDocMap(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::trinity::ForwardMap* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::ForwardMap>> AsyncGetDocMap(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::ForwardMap>>(AsyncGetDocMapRaw(context, request, cq));
+    virtual ::grpc::Status GetFMap(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::trinity::ForwardMap* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::ForwardMap>> AsyncGetFMap(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::ForwardMap>>(AsyncGetFMapRaw(context, request, cq));
     }
-    virtual ::grpc::Status SetDocMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) = 0;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>> AsyncSetDocMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>>(AsyncSetDocMapRaw(context, request, cq));
+    virtual ::grpc::Status SetFMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>> AsyncSetFMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>>(AsyncSetFMapRaw(context, request, cq));
     }
   private:
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::trinity::ForwardMap>* AsyncGetDocMapRaw(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::grpc::CompletionQueue* cq) = 0;
-    virtual ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>* AsyncSetDocMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::trinity::ForwardMap>* AsyncGetFMapRaw(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>* AsyncSetFMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) = 0;
   };
   class Stub GRPC_FINAL : public StubInterface {
    public:
     Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
-    ::grpc::Status GetDocMap(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::trinity::ForwardMap* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>> AsyncGetDocMap(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>>(AsyncGetDocMapRaw(context, request, cq));
+    ::grpc::Status GetFMap(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::trinity::ForwardMap* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>> AsyncGetFMap(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>>(AsyncGetFMapRaw(context, request, cq));
     }
-    ::grpc::Status SetDocMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) GRPC_OVERRIDE;
-    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>> AsyncSetDocMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
-      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>>(AsyncSetDocMapRaw(context, request, cq));
+    ::grpc::Status SetFMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::trinity::SetResult* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>> AsyncSetFMap(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>>(AsyncSetFMapRaw(context, request, cq));
     }
 
    private:
     std::shared_ptr< ::grpc::ChannelInterface> channel_;
-    ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>* AsyncGetDocMapRaw(::grpc::ClientContext* context, const ::trinity::DocMapRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* AsyncSetDocMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
-    const ::grpc::RpcMethod rpcmethod_GetDocMap_;
-    const ::grpc::RpcMethod rpcmethod_SetDocMap_;
+    ::grpc::ClientAsyncResponseReader< ::trinity::ForwardMap>* AsyncGetFMapRaw(::grpc::ClientContext* context, const ::trinity::FMapRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* AsyncSetFMapRaw(::grpc::ClientContext* context, const ::trinity::ForwardMap& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    const ::grpc::RpcMethod rpcmethod_GetFMap_;
+    const ::grpc::RpcMethod rpcmethod_SetFMap_;
   };
   static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
 
@@ -68,125 +68,288 @@ class FIndex GRPC_FINAL {
    public:
     Service();
     virtual ~Service();
-    virtual ::grpc::Status GetDocMap(::grpc::ServerContext* context, const ::trinity::DocMapRequest* request, ::trinity::ForwardMap* response);
-    virtual ::grpc::Status SetDocMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response);
+    virtual ::grpc::Status GetFMap(::grpc::ServerContext* context, const ::trinity::FMapRequest* request, ::trinity::ForwardMap* response);
+    virtual ::grpc::Status SetFMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response);
   };
   template <class BaseClass>
-  class WithAsyncMethod_GetDocMap : public BaseClass {
+  class WithAsyncMethod_GetFMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_GetDocMap() {
+    WithAsyncMethod_GetFMap() {
       ::grpc::Service::MarkMethodAsync(0);
     }
-    ~WithAsyncMethod_GetDocMap() GRPC_OVERRIDE {
+    ~WithAsyncMethod_GetFMap() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetDocMap(::grpc::ServerContext* context, const ::trinity::DocMapRequest* request, ::trinity::ForwardMap* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status GetFMap(::grpc::ServerContext* context, const ::trinity::FMapRequest* request, ::trinity::ForwardMap* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestGetDocMap(::grpc::ServerContext* context, ::trinity::DocMapRequest* request, ::grpc::ServerAsyncResponseWriter< ::trinity::ForwardMap>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestGetFMap(::grpc::ServerContext* context, ::trinity::FMapRequest* request, ::grpc::ServerAsyncResponseWriter< ::trinity::ForwardMap>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
   template <class BaseClass>
-  class WithAsyncMethod_SetDocMap : public BaseClass {
+  class WithAsyncMethod_SetFMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithAsyncMethod_SetDocMap() {
+    WithAsyncMethod_SetFMap() {
       ::grpc::Service::MarkMethodAsync(1);
     }
-    ~WithAsyncMethod_SetDocMap() GRPC_OVERRIDE {
+    ~WithAsyncMethod_SetFMap() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetDocMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status SetFMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
-    void RequestSetDocMap(::grpc::ServerContext* context, ::trinity::ForwardMap* request, ::grpc::ServerAsyncResponseWriter< ::trinity::SetResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+    void RequestSetFMap(::grpc::ServerContext* context, ::trinity::ForwardMap* request, ::grpc::ServerAsyncResponseWriter< ::trinity::SetResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
       ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
     }
   };
-  typedef WithAsyncMethod_GetDocMap<WithAsyncMethod_SetDocMap<Service > > AsyncService;
+  typedef WithAsyncMethod_GetFMap<WithAsyncMethod_SetFMap<Service > > AsyncService;
   template <class BaseClass>
-  class WithGenericMethod_GetDocMap : public BaseClass {
+  class WithGenericMethod_GetFMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_GetDocMap() {
+    WithGenericMethod_GetFMap() {
       ::grpc::Service::MarkMethodGeneric(0);
     }
-    ~WithGenericMethod_GetDocMap() GRPC_OVERRIDE {
+    ~WithGenericMethod_GetFMap() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status GetDocMap(::grpc::ServerContext* context, const ::trinity::DocMapRequest* request, ::trinity::ForwardMap* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status GetFMap(::grpc::ServerContext* context, const ::trinity::FMapRequest* request, ::trinity::ForwardMap* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithGenericMethod_SetDocMap : public BaseClass {
+  class WithGenericMethod_SetFMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithGenericMethod_SetDocMap() {
+    WithGenericMethod_SetFMap() {
       ::grpc::Service::MarkMethodGeneric(1);
     }
-    ~WithGenericMethod_SetDocMap() GRPC_OVERRIDE {
+    ~WithGenericMethod_SetFMap() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable synchronous version of this method
-    ::grpc::Status SetDocMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status SetFMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_GetDocMap : public BaseClass {
+  class WithStreamedUnaryMethod_GetFMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithStreamedUnaryMethod_GetDocMap() {
+    WithStreamedUnaryMethod_GetFMap() {
       ::grpc::Service::MarkMethodStreamedUnary(0,
-        new ::grpc::StreamedUnaryHandler< ::trinity::DocMapRequest, ::trinity::ForwardMap>(std::bind(&WithStreamedUnaryMethod_GetDocMap<BaseClass>::StreamedGetDocMap, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::StreamedUnaryHandler< ::trinity::FMapRequest, ::trinity::ForwardMap>(std::bind(&WithStreamedUnaryMethod_GetFMap<BaseClass>::StreamedGetFMap, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_GetDocMap() GRPC_OVERRIDE {
+    ~WithStreamedUnaryMethod_GetFMap() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status GetDocMap(::grpc::ServerContext* context, const ::trinity::DocMapRequest* request, ::trinity::ForwardMap* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status GetFMap(::grpc::ServerContext* context, const ::trinity::FMapRequest* request, ::trinity::ForwardMap* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedGetDocMap(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::trinity::DocMapRequest,::trinity::ForwardMap>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedGetFMap(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::trinity::FMapRequest,::trinity::ForwardMap>* server_unary_streamer) = 0;
   };
   template <class BaseClass>
-  class WithStreamedUnaryMethod_SetDocMap : public BaseClass {
+  class WithStreamedUnaryMethod_SetFMap : public BaseClass {
    private:
     void BaseClassMustBeDerivedFromService(const Service *service) {}
    public:
-    WithStreamedUnaryMethod_SetDocMap() {
+    WithStreamedUnaryMethod_SetFMap() {
       ::grpc::Service::MarkMethodStreamedUnary(1,
-        new ::grpc::StreamedUnaryHandler< ::trinity::ForwardMap, ::trinity::SetResult>(std::bind(&WithStreamedUnaryMethod_SetDocMap<BaseClass>::StreamedSetDocMap, this, std::placeholders::_1, std::placeholders::_2)));
+        new ::grpc::StreamedUnaryHandler< ::trinity::ForwardMap, ::trinity::SetResult>(std::bind(&WithStreamedUnaryMethod_SetFMap<BaseClass>::StreamedSetFMap, this, std::placeholders::_1, std::placeholders::_2)));
     }
-    ~WithStreamedUnaryMethod_SetDocMap() GRPC_OVERRIDE {
+    ~WithStreamedUnaryMethod_SetFMap() GRPC_OVERRIDE {
       BaseClassMustBeDerivedFromService(this);
     }
     // disable regular version of this method
-    ::grpc::Status SetDocMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
+    ::grpc::Status SetFMap(::grpc::ServerContext* context, const ::trinity::ForwardMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
       abort();
       return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
     }
     // replace default version of method with streamed unary
-    virtual ::grpc::Status StreamedSetDocMap(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::trinity::ForwardMap,::trinity::SetResult>* server_unary_streamer) = 0;
+    virtual ::grpc::Status StreamedSetFMap(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::trinity::ForwardMap,::trinity::SetResult>* server_unary_streamer) = 0;
   };
-  typedef WithStreamedUnaryMethod_GetDocMap<WithStreamedUnaryMethod_SetDocMap<Service > > StreamedUnaryService;
+  typedef WithStreamedUnaryMethod_GetFMap<WithStreamedUnaryMethod_SetFMap<Service > > StreamedUnaryService;
+};
+
+class IIndex GRPC_FINAL {
+ public:
+  class StubInterface {
+   public:
+    virtual ~StubInterface() {}
+    virtual ::grpc::Status GetIMap(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::trinity::InvertedMap* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::InvertedMap>> AsyncGetIMap(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::InvertedMap>>(AsyncGetIMapRaw(context, request, cq));
+    }
+    virtual ::grpc::Status SetIMap(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::trinity::SetResult* response) = 0;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>> AsyncSetIMap(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>>(AsyncSetIMapRaw(context, request, cq));
+    }
+  private:
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::trinity::InvertedMap>* AsyncGetIMapRaw(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::grpc::CompletionQueue* cq) = 0;
+    virtual ::grpc::ClientAsyncResponseReaderInterface< ::trinity::SetResult>* AsyncSetIMapRaw(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::grpc::CompletionQueue* cq) = 0;
+  };
+  class Stub GRPC_FINAL : public StubInterface {
+   public:
+    Stub(const std::shared_ptr< ::grpc::ChannelInterface>& channel);
+    ::grpc::Status GetIMap(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::trinity::InvertedMap* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::InvertedMap>> AsyncGetIMap(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::InvertedMap>>(AsyncGetIMapRaw(context, request, cq));
+    }
+    ::grpc::Status SetIMap(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::trinity::SetResult* response) GRPC_OVERRIDE;
+    std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>> AsyncSetIMap(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::grpc::CompletionQueue* cq) {
+      return std::unique_ptr< ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>>(AsyncSetIMapRaw(context, request, cq));
+    }
+
+   private:
+    std::shared_ptr< ::grpc::ChannelInterface> channel_;
+    ::grpc::ClientAsyncResponseReader< ::trinity::InvertedMap>* AsyncGetIMapRaw(::grpc::ClientContext* context, const ::trinity::IMapRequest& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    ::grpc::ClientAsyncResponseReader< ::trinity::SetResult>* AsyncSetIMapRaw(::grpc::ClientContext* context, const ::trinity::InvertedMap& request, ::grpc::CompletionQueue* cq) GRPC_OVERRIDE;
+    const ::grpc::RpcMethod rpcmethod_GetIMap_;
+    const ::grpc::RpcMethod rpcmethod_SetIMap_;
+  };
+  static std::unique_ptr<Stub> NewStub(const std::shared_ptr< ::grpc::ChannelInterface>& channel, const ::grpc::StubOptions& options = ::grpc::StubOptions());
+
+  class Service : public ::grpc::Service {
+   public:
+    Service();
+    virtual ~Service();
+    virtual ::grpc::Status GetIMap(::grpc::ServerContext* context, const ::trinity::IMapRequest* request, ::trinity::InvertedMap* response);
+    virtual ::grpc::Status SetIMap(::grpc::ServerContext* context, const ::trinity::InvertedMap* request, ::trinity::SetResult* response);
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_GetIMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_GetIMap() {
+      ::grpc::Service::MarkMethodAsync(0);
+    }
+    ~WithAsyncMethod_GetIMap() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetIMap(::grpc::ServerContext* context, const ::trinity::IMapRequest* request, ::trinity::InvertedMap* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestGetIMap(::grpc::ServerContext* context, ::trinity::IMapRequest* request, ::grpc::ServerAsyncResponseWriter< ::trinity::InvertedMap>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(0, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  template <class BaseClass>
+  class WithAsyncMethod_SetIMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithAsyncMethod_SetIMap() {
+      ::grpc::Service::MarkMethodAsync(1);
+    }
+    ~WithAsyncMethod_SetIMap() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetIMap(::grpc::ServerContext* context, const ::trinity::InvertedMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    void RequestSetIMap(::grpc::ServerContext* context, ::trinity::InvertedMap* request, ::grpc::ServerAsyncResponseWriter< ::trinity::SetResult>* response, ::grpc::CompletionQueue* new_call_cq, ::grpc::ServerCompletionQueue* notification_cq, void *tag) {
+      ::grpc::Service::RequestAsyncUnary(1, context, request, response, new_call_cq, notification_cq, tag);
+    }
+  };
+  typedef WithAsyncMethod_GetIMap<WithAsyncMethod_SetIMap<Service > > AsyncService;
+  template <class BaseClass>
+  class WithGenericMethod_GetIMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_GetIMap() {
+      ::grpc::Service::MarkMethodGeneric(0);
+    }
+    ~WithGenericMethod_GetIMap() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status GetIMap(::grpc::ServerContext* context, const ::trinity::IMapRequest* request, ::trinity::InvertedMap* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithGenericMethod_SetIMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithGenericMethod_SetIMap() {
+      ::grpc::Service::MarkMethodGeneric(1);
+    }
+    ~WithGenericMethod_SetIMap() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable synchronous version of this method
+    ::grpc::Status SetIMap(::grpc::ServerContext* context, const ::trinity::InvertedMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_GetIMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_GetIMap() {
+      ::grpc::Service::MarkMethodStreamedUnary(0,
+        new ::grpc::StreamedUnaryHandler< ::trinity::IMapRequest, ::trinity::InvertedMap>(std::bind(&WithStreamedUnaryMethod_GetIMap<BaseClass>::StreamedGetIMap, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_GetIMap() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status GetIMap(::grpc::ServerContext* context, const ::trinity::IMapRequest* request, ::trinity::InvertedMap* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedGetIMap(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::trinity::IMapRequest,::trinity::InvertedMap>* server_unary_streamer) = 0;
+  };
+  template <class BaseClass>
+  class WithStreamedUnaryMethod_SetIMap : public BaseClass {
+   private:
+    void BaseClassMustBeDerivedFromService(const Service *service) {}
+   public:
+    WithStreamedUnaryMethod_SetIMap() {
+      ::grpc::Service::MarkMethodStreamedUnary(1,
+        new ::grpc::StreamedUnaryHandler< ::trinity::InvertedMap, ::trinity::SetResult>(std::bind(&WithStreamedUnaryMethod_SetIMap<BaseClass>::StreamedSetIMap, this, std::placeholders::_1, std::placeholders::_2)));
+    }
+    ~WithStreamedUnaryMethod_SetIMap() GRPC_OVERRIDE {
+      BaseClassMustBeDerivedFromService(this);
+    }
+    // disable regular version of this method
+    ::grpc::Status SetIMap(::grpc::ServerContext* context, const ::trinity::InvertedMap* request, ::trinity::SetResult* response) GRPC_FINAL GRPC_OVERRIDE {
+      abort();
+      return ::grpc::Status(::grpc::StatusCode::UNIMPLEMENTED, "");
+    }
+    // replace default version of method with streamed unary
+    virtual ::grpc::Status StreamedSetIMap(::grpc::ServerContext* context, ::grpc::ServerUnaryStreamer< ::trinity::InvertedMap,::trinity::SetResult>* server_unary_streamer) = 0;
+  };
+  typedef WithStreamedUnaryMethod_GetIMap<WithStreamedUnaryMethod_SetIMap<Service > > StreamedUnaryService;
 };
 
 class Trinity GRPC_FINAL {
