@@ -9,7 +9,7 @@ def version_root(out_path):
 def write_version_file_go(commit_hash, out_path):
     with open(out_path, "w") as output:
         output.write("package system\n"\
-                     "\nvar CommitHead = \"{}\"\n".format(commit_hash))
+                     "\nvar CommitHead = \"{}\"\n".format(commit_hash.decode('utf-8')))
 
 def get_head_commit_hash():
     out =  sp.check_output(["git", "rev-parse", "HEAD"])
