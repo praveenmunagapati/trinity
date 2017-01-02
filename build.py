@@ -75,7 +75,7 @@ if __name__ == "__main__":
     trinity_core   = Package(name="trinity", root="trinity",
                              type="bin", lang="go", precedence=5)
 
-    if command = "travis":
+    if command == "travis":
         scripts = [version_info]
     else:
         scripts = [version_info, download_static, install_static]
