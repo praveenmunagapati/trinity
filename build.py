@@ -28,11 +28,11 @@ if __name__ == "__main__":
                             lang="python", root_func=version_root,
                             args=["core/system/version.go"],
                             precedence=0)
-
-    download_static = Script(name="download_static",
-                            root_func=download_static_root,
-                            lang="python", args=["static"],
-                            precedence=0)
+    if command != "travis":
+        download_static = Script(name="download_static",
+                                root_func=download_static_root,
+                                lang="python", args=["static"],
+                                precedence=0)
 
     install_static = Script(name="install_static",
                             root_func=install_static_root,
