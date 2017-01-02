@@ -16,11 +16,9 @@ before_install:
   - pip3 -V
   - pip3 list
 
-# before_script:
-#   -
-
 install:
   - go get github.com/DataDog/zstd
+  - go get github.com/ipfs/go-datastore
   - go get github.com/clownpriest/trinity/core
   - go get github.com/clownpriest/trinity/core/system
   - go get github.com/clownpriest/trinity/core/config
