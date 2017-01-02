@@ -4,7 +4,8 @@
 <img src="http://i.imgur.com/3S2iUbl.png" width="300">
 </p>
 
-<img src="https://travis-ci.org/clownpriest/trinity.svg?branch=master">
+<img src="https://img.shields.io/travis/clownpriest/trinity.svg">
+<img src="https://img.shields.io/github/license/mashape/apistatus.svg">
 
 ## install
 

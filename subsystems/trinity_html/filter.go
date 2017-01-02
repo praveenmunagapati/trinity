@@ -32,7 +32,7 @@ func FilterPipeline(str string) token.List {
 	// get rid of tokens longer than MaxTokenLength
 	tokens.RemoveLargerThan(MaxTokenLength)
 	// stem all the tokens
-	tokens.Stem()
+	// tokens.Stem()
 
 	return tokens
 }
