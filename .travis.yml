@@ -5,7 +5,7 @@ git:
 
 before_install:
   - sudo apt-get update -qq
-  - sudo apt-get install -qq zstd python3
+  - sudo apt-get install -qq python3
 
 before_script:
   - pip3 install requests
