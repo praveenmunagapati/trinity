@@ -6,15 +6,13 @@ dist: trusty
 git:
   depth: 3
 
+cache:
+  directories:
+  - $HOME/travis/gopath
+
 before_install:
   - sudo apt-get update -qq
   - go get google.golang.org/grpc
-  # - sudo apt-get -y install python3-pip python-dev
-  # - sudo pip3 install -U setuptools
-  # - sudo pip3 install -U virtualenvwrapper
-  # - python3 -V
-  # - pip3 -V
-  # - pip3 list
 
 install:
   - go get github.com/DataDog/zstd
