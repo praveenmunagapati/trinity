@@ -75,9 +75,10 @@ if __name__ == "__main__":
     trinity_core   = Package(name="trinity", root="trinity",
                              type="bin", lang="go", precedence=5)
 
-
-
-    scripts = [version_info, download_static, install_static]
+    if command = "travis":
+        scripts = [version_info]
+    else:
+        scripts = [version_info, download_static, install_static]
 
     proto_api = [core_proto_api]
     core_libs = [core_config, core_system, core_token, core_store]
@@ -95,4 +96,6 @@ if __name__ == "__main__":
     elif command == "clean":
         builder.clean_all()
     elif command == "install":
+        builder.install_all()
+    elif command == "travis":
         builder.install_all()

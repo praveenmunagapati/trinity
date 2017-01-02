@@ -20,9 +20,8 @@ before_install:
 #   -
 
 install:
-  - sudo pip3 install -U requests
   - go get github.com/clownpriest/trinity/core
   - go get github.com/clownpriest/trinity/core/system
   - go get github.com/clownpriest/trinity/core/config
 
-script: python3 build.py install
+script: python3 build.py travis

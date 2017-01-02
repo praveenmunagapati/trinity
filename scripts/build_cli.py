@@ -5,6 +5,7 @@ subcommands = [
 "build",
 "test",
 "format",
+"travis",
 ]
 
 complex_types = [
