@@ -16,7 +16,7 @@ import (
 // was built with
 var GitHash string
 
-var interuptHandler *system.InteruptHandler
+var interruptHandler *system.InterruptHandler
 
 var node *core.TrinityNode
 

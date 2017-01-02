@@ -10,8 +10,6 @@ core/intake/htmlintake/test_out
 core/intake/htmlintake/test_data
 core/intake/htmlintake/single_testdata
 
-core/system/interrupt.go
-
 *.db
 *.json
 *.pyc
