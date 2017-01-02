@@ -11,5 +11,4 @@ before_install:
 before_script:
   - pip3 install requests
 
-script:
-  - python3 build.py install
+script: python3 build.py install
