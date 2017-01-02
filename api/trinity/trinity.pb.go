@@ -63,6 +63,13 @@ func (m *RootConfig) String() string            { return proto.CompactTextString
 func (*RootConfig) ProtoMessage()               {}
 func (*RootConfig) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{0} }
 
+func (m *RootConfig) GetNodeRole() string {
+	if m != nil {
+		return m.NodeRole
+	}
+	return ""
+}
+
 func (m *RootConfig) GetFIndex() *FIndexConfig {
 	if m != nil {
 		return m.FIndex
@@ -77,6 +84,13 @@ func (m *RootConfig) GetIIndex() *IIndexConfig {
 	return nil
 }
 
+func (m *RootConfig) GetAPIPort() string {
+	if m != nil {
+		return m.APIPort
+	}
+	return ""
+}
+
 type FIndexConfig struct {
 	MaxSize   uint32 `protobuf:"varint,1,opt,name=max_size,json=maxSize,proto3" json:"max_size,omitempty"`
 	StorePath string `protobuf:"bytes,2,opt,name=store_path,json=storePath,proto3" json:"store_path,omitempty"`
@@ -86,6 +100,20 @@ func (m *FIndexConfig) Reset()                    { *m = FIndexConfig{} }
 func (m *FIndexConfig) String() string            { return proto.CompactTextString(m) }
 func (*FIndexConfig) ProtoMessage()               {}
 func (*FIndexConfig) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{1} }
+
+func (m *FIndexConfig) GetMaxSize() uint32 {
+	if m != nil {
+		return m.MaxSize
+	}
+	return 0
+}
+
+func (m *FIndexConfig) GetStorePath() string {
+	if m != nil {
+		return m.StorePath
+	}
+	return ""
+}
 
 type IIndexConfig struct {
 	MaxSize   uint32 `protobuf:"varint,1,opt,name=max_size,json=maxSize,proto3" json:"max_size,omitempty"`
@@ -97,6 +125,20 @@ func (m *IIndexConfig) String() string            { return proto.CompactTextStri
 func (*IIndexConfig) ProtoMessage()               {}
 func (*IIndexConfig) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{2} }
 
+func (m *IIndexConfig) GetMaxSize() uint32 {
+	if m != nil {
+		return m.MaxSize
+	}
+	return 0
+}
+
+func (m *IIndexConfig) GetStorePath() string {
+	if m != nil {
+		return m.StorePath
+	}
+	return ""
+}
+
 type ConfigRequest struct {
 	Type string `protobuf:"bytes,1,opt,name=type,proto3" json:"type,omitempty"`
 }
@@ -105,6 +147,13 @@ func (m *ConfigRequest) Reset()                    { *m = ConfigRequest{} }
 func (m *ConfigRequest) String() string            { return proto.CompactTextString(m) }
 func (*ConfigRequest) ProtoMessage()               {}
 func (*ConfigRequest) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{3} }
+
+func (m *ConfigRequest) GetType() string {
+	if m != nil {
+		return m.Type
+	}
+	return ""
+}
 
 type SetResult struct {
 	Success bool `protobuf:"varint,1,opt,name=success,proto3" json:"success,omitempty"`
@@ -115,14 +164,28 @@ func (m *SetResult) String() string            { return proto.CompactTextString(
 func (*SetResult) ProtoMessage()               {}
 func (*SetResult) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{4} }
 
+func (m *SetResult) GetSuccess() bool {
+	if m != nil {
+		return m.Success
+	}
+	return false
+}
+
 type FMValue struct {
-	Locations []uint32 `protobuf:"varint,1,rep,name=locations" json:"locations,omitempty"`
+	Locations []uint32 `protobuf:"varint,1,rep,packed,name=locations" json:"locations,omitempty"`
 }
 
 func (m *FMValue) Reset()                    { *m = FMValue{} }
 func (m *FMValue) String() string            { return proto.CompactTextString(m) }
 func (*FMValue) ProtoMessage()               {}
 func (*FMValue) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{5} }
+
+func (m *FMValue) GetLocations() []uint32 {
+	if m != nil {
+		return m.Locations
+	}
+	return nil
+}
 
 type ForwardMap struct {
 	FindexApiVersion uint32              `protobuf:"varint,1,opt,name=findex_api_version,json=findexApiVersion,proto3" json:"findex_api_version,omitempty"`
@@ -134,6 +197,20 @@ func (m *ForwardMap) Reset()                    { *m = ForwardMap{} }
 func (m *ForwardMap) String() string            { return proto.CompactTextString(m) }
 func (*ForwardMap) ProtoMessage()               {}
 func (*ForwardMap) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{6} }
+
+func (m *ForwardMap) GetFindexApiVersion() uint32 {
+	if m != nil {
+		return m.FindexApiVersion
+	}
+	return 0
+}
+
+func (m *ForwardMap) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
 
 func (m *ForwardMap) GetTheMap() map[string]*FMValue {
 	if m != nil {
@@ -151,6 +228,20 @@ func (m *DocStat) Reset()                    { *m = DocStat{} }
 func (m *DocStat) String() string            { return proto.CompactTextString(m) }
 func (*DocStat) ProtoMessage()               {}
 func (*DocStat) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{7} }
+
+func (m *DocStat) GetDocname() string {
+	if m != nil {
+		return m.Docname
+	}
+	return ""
+}
+
+func (m *DocStat) GetCount() uint32 {
+	if m != nil {
+		return m.Count
+	}
+	return 0
+}
 
 type IMValue struct {
 	Docs []*DocStat `protobuf:"bytes,1,rep,name=docs" json:"docs,omitempty"`
@@ -179,6 +270,20 @@ func (m *InvertedMap) String() string            { return proto.CompactTextStrin
 func (*InvertedMap) ProtoMessage()               {}
 func (*InvertedMap) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{9} }
 
+func (m *InvertedMap) GetIindexApiVersion() uint32 {
+	if m != nil {
+		return m.IindexApiVersion
+	}
+	return 0
+}
+
+func (m *InvertedMap) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
 func (m *InvertedMap) GetTheMap() map[string]*IMValue {
 	if m != nil {
 		return m.TheMap
@@ -195,6 +300,13 @@ func (m *FMapRequest) String() string            { return proto.CompactTextStrin
 func (*FMapRequest) ProtoMessage()               {}
 func (*FMapRequest) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{10} }
 
+func (m *FMapRequest) GetDockey() string {
+	if m != nil {
+		return m.Dockey
+	}
+	return ""
+}
+
 type IMapRequest struct {
 	Termkey string `protobuf:"bytes,1,opt,name=termkey,proto3" json:"termkey,omitempty"`
 }
@@ -203,6 +315,13 @@ func (m *IMapRequest) Reset()                    { *m = IMapRequest{} }
 func (m *IMapRequest) String() string            { return proto.CompactTextString(m) }
 func (*IMapRequest) ProtoMessage()               {}
 func (*IMapRequest) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{11} }
+
+func (m *IMapRequest) GetTermkey() string {
+	if m != nil {
+		return m.Termkey
+	}
+	return ""
+}
 
 type StartSubsystemRequest struct {
 	SubsystemName string `protobuf:"bytes,1,opt,name=subsystem_name,json=subsystemName,proto3" json:"subsystem_name,omitempty"`
@@ -213,6 +332,13 @@ func (m *StartSubsystemRequest) String() string            { return proto.Compac
 func (*StartSubsystemRequest) ProtoMessage()               {}
 func (*StartSubsystemRequest) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{12} }
 
+func (m *StartSubsystemRequest) GetSubsystemName() string {
+	if m != nil {
+		return m.SubsystemName
+	}
+	return ""
+}
+
 type StartSubsystemResponse struct {
 	ResponseCode string `protobuf:"bytes,1,opt,name=response_code,json=responseCode,proto3" json:"response_code,omitempty"`
 }
@@ -222,6 +348,13 @@ func (m *StartSubsystemResponse) String() string            { return proto.Compa
 func (*StartSubsystemResponse) ProtoMessage()               {}
 func (*StartSubsystemResponse) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{13} }
 
+func (m *StartSubsystemResponse) GetResponseCode() string {
+	if m != nil {
+		return m.ResponseCode
+	}
+	return ""
+}
+
 type SearchQuery struct {
 	Query string `protobuf:"bytes,1,opt,name=query,proto3" json:"query,omitempty"`
 }
@@ -230,6 +363,13 @@ func (m *SearchQuery) Reset()                    { *m = SearchQuery{} }
 func (m *SearchQuery) String() string            { return proto.CompactTextString(m) }
 func (*SearchQuery) ProtoMessage()               {}
 func (*SearchQuery) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{14} }
+
+func (m *SearchQuery) GetQuery() string {
+	if m != nil {
+		return m.Query
+	}
+	return ""
+}
 
 type SearchResponse struct {
 	Results []*SearchResult `protobuf:"bytes,1,rep,name=results" json:"results,omitempty"`
@@ -258,6 +398,27 @@ func (m *SearchResult) String() string            { return proto.CompactTextStri
 func (*SearchResult) ProtoMessage()               {}
 func (*SearchResult) Descriptor() ([]byte, []int) { return fileDescriptorTrinity, []int{16} }
 
+func (m *SearchResult) GetTitle() string {
+	if m != nil {
+		return m.Title
+	}
+	return ""
+}
+
+func (m *SearchResult) GetHash() string {
+	if m != nil {
+		return m.Hash
+	}
+	return ""
+}
+
+func (m *SearchResult) GetDescription() string {
+	if m != nil {
+		return m.Description
+	}
+	return ""
+}
+
 func init() {
 	proto.RegisterType((*RootConfig)(nil), "trinity.RootConfig")
 	proto.RegisterType((*FIndexConfig)(nil), "trinity.FIndexConfig")
@@ -284,7 +445,7 @@ var _ grpc.ClientConn
 
 // This is a compile-time assertion to ensure that this generated file
 // is compatible with the grpc package it is being compiled against.
-const _ = grpc.SupportPackageIsVersion3
+const _ = grpc.SupportPackageIsVersion4
 
 // Client API for FIndex service
 
@@ -380,7 +541,7 @@ var _FIndex_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptorTrinity,
+	Metadata: "trinity.proto",
 }
 
 // Client API for IIndex service
@@ -477,7 +638,7 @@ var _IIndex_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptorTrinity,
+	Metadata: "trinity.proto",
 }
 
 // Client API for Trinity service
@@ -574,7 +735,7 @@ var _Trinity_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptorTrinity,
+	Metadata: "trinity.proto",
 }
 
 // Client API for Subsystem service
@@ -638,7 +799,7 @@ var _Subsystem_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptorTrinity,
+	Metadata: "trinity.proto",
 }
 
 // Client API for Gateway service
@@ -702,223 +863,233 @@ var _Gateway_serviceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: fileDescriptorTrinity,
+	Metadata: "trinity.proto",
 }
 
-func (m *RootConfig) Marshal() (data []byte, err error) {
+func (m *RootConfig) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *RootConfig) MarshalTo(data []byte) (int, error) {
+func (m *RootConfig) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.NodeRole) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.NodeRole)))
-		i += copy(data[i:], m.NodeRole)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.NodeRole)))
+		i += copy(dAtA[i:], m.NodeRole)
 	}
 	if m.FIndex != nil {
-		data[i] = 0x12
+		dAtA[i] = 0x12
 		i++
-		i = encodeVarintTrinity(data, i, uint64(m.FIndex.Size()))
-		n1, err := m.FIndex.MarshalTo(data[i:])
+		i = encodeVarintTrinity(dAtA, i, uint64(m.FIndex.Size()))
+		n1, err := m.FIndex.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
 		i += n1
 	}
 	if m.IIndex != nil {
-		data[i] = 0x1a
+		dAtA[i] = 0x1a
 		i++
-		i = encodeVarintTrinity(data, i, uint64(m.IIndex.Size()))
-		n2, err := m.IIndex.MarshalTo(data[i:])
+		i = encodeVarintTrinity(dAtA, i, uint64(m.IIndex.Size()))
+		n2, err := m.IIndex.MarshalTo(dAtA[i:])
 		if err != nil {
 			return 0, err
 		}
 		i += n2
 	}
 	if len(m.APIPort) > 0 {
-		data[i] = 0x22
+		dAtA[i] = 0x22
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.APIPort)))
-		i += copy(data[i:], m.APIPort)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.APIPort)))
+		i += copy(dAtA[i:], m.APIPort)
 	}
 	return i, nil
 }
 
-func (m *FIndexConfig) Marshal() (data []byte, err error) {
+func (m *FIndexConfig) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *FIndexConfig) MarshalTo(data []byte) (int, error) {
+func (m *FIndexConfig) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if m.MaxSize != 0 {
-		data[i] = 0x8
+		dAtA[i] = 0x8
 		i++
-		i = encodeVarintTrinity(data, i, uint64(m.MaxSize))
+		i = encodeVarintTrinity(dAtA, i, uint64(m.MaxSize))
 	}
 	if len(m.StorePath) > 0 {
-		data[i] = 0x12
+		dAtA[i] = 0x12
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.StorePath)))
-		i += copy(data[i:], m.StorePath)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.StorePath)))
+		i += copy(dAtA[i:], m.StorePath)
 	}
 	return i, nil
 }
 
-func (m *IIndexConfig) Marshal() (data []byte, err error) {
+func (m *IIndexConfig) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *IIndexConfig) MarshalTo(data []byte) (int, error) {
+func (m *IIndexConfig) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if m.MaxSize != 0 {
-		data[i] = 0x8
+		dAtA[i] = 0x8
 		i++
-		i = encodeVarintTrinity(data, i, uint64(m.MaxSize))
+		i = encodeVarintTrinity(dAtA, i, uint64(m.MaxSize))
 	}
 	if len(m.StorePath) > 0 {
-		data[i] = 0x12
+		dAtA[i] = 0x12
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.StorePath)))
-		i += copy(data[i:], m.StorePath)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.StorePath)))
+		i += copy(dAtA[i:], m.StorePath)
 	}
 	return i, nil
 }
 
-func (m *ConfigRequest) Marshal() (data []byte, err error) {
+func (m *ConfigRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *ConfigRequest) MarshalTo(data []byte) (int, error) {
+func (m *ConfigRequest) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Type) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Type)))
-		i += copy(data[i:], m.Type)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Type)))
+		i += copy(dAtA[i:], m.Type)
 	}
 	return i, nil
 }
 
-func (m *SetResult) Marshal() (data []byte, err error) {
+func (m *SetResult) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *SetResult) MarshalTo(data []byte) (int, error) {
+func (m *SetResult) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if m.Success {
-		data[i] = 0x8
+		dAtA[i] = 0x8
 		i++
 		if m.Success {
-			data[i] = 1
+			dAtA[i] = 1
 		} else {
-			data[i] = 0
+			dAtA[i] = 0
 		}
 		i++
 	}
 	return i, nil
 }
 
-func (m *FMValue) Marshal() (data []byte, err error) {
+func (m *FMValue) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *FMValue) MarshalTo(data []byte) (int, error) {
+func (m *FMValue) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Locations) > 0 {
+		dAtA4 := make([]byte, len(m.Locations)*10)
+		var j3 int
 		for _, num := range m.Locations {
-			data[i] = 0x8
-			i++
-			i = encodeVarintTrinity(data, i, uint64(num))
+			for num >= 1<<7 {
+				dAtA4[j3] = uint8(uint64(num)&0x7f | 0x80)
+				num >>= 7
+				j3++
+			}
+			dAtA4[j3] = uint8(num)
+			j3++
 		}
+		dAtA[i] = 0xa
+		i++
+		i = encodeVarintTrinity(dAtA, i, uint64(j3))
+		i += copy(dAtA[i:], dAtA4[:j3])
 	}
 	return i, nil
 }
 
-func (m *ForwardMap) Marshal() (data []byte, err error) {
+func (m *ForwardMap) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *ForwardMap) MarshalTo(data []byte) (int, error) {
+func (m *ForwardMap) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if m.FindexApiVersion != 0 {
-		data[i] = 0x8
+		dAtA[i] = 0x8
 		i++
-		i = encodeVarintTrinity(data, i, uint64(m.FindexApiVersion))
+		i = encodeVarintTrinity(dAtA, i, uint64(m.FindexApiVersion))
 	}
 	if len(m.Key) > 0 {
-		data[i] = 0x12
+		dAtA[i] = 0x12
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Key)))
-		i += copy(data[i:], m.Key)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Key)))
+		i += copy(dAtA[i:], m.Key)
 	}
 	if len(m.TheMap) > 0 {
 		for k, _ := range m.TheMap {
-			data[i] = 0x1a
+			dAtA[i] = 0x1a
 			i++
 			v := m.TheMap[k]
 			msgSize := 0
@@ -927,76 +1098,76 @@ func (m *ForwardMap) MarshalTo(data []byte) (int, error) {
 				msgSize += 1 + sovTrinity(uint64(msgSize))
 			}
 			mapSize := 1 + len(k) + sovTrinity(uint64(len(k))) + msgSize
-			i = encodeVarintTrinity(data, i, uint64(mapSize))
-			data[i] = 0xa
+			i = encodeVarintTrinity(dAtA, i, uint64(mapSize))
+			dAtA[i] = 0xa
 			i++
-			i = encodeVarintTrinity(data, i, uint64(len(k)))
-			i += copy(data[i:], k)
+			i = encodeVarintTrinity(dAtA, i, uint64(len(k)))
+			i += copy(dAtA[i:], k)
 			if v != nil {
-				data[i] = 0x12
+				dAtA[i] = 0x12
 				i++
-				i = encodeVarintTrinity(data, i, uint64(v.Size()))
-				n3, err := v.MarshalTo(data[i:])
+				i = encodeVarintTrinity(dAtA, i, uint64(v.Size()))
+				n5, err := v.MarshalTo(dAtA[i:])
 				if err != nil {
 					return 0, err
 				}
-				i += n3
+				i += n5
 			}
 		}
 	}
 	return i, nil
 }
 
-func (m *DocStat) Marshal() (data []byte, err error) {
+func (m *DocStat) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *DocStat) MarshalTo(data []byte) (int, error) {
+func (m *DocStat) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Docname) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Docname)))
-		i += copy(data[i:], m.Docname)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Docname)))
+		i += copy(dAtA[i:], m.Docname)
 	}
 	if m.Count != 0 {
-		data[i] = 0x10
+		dAtA[i] = 0x10
 		i++
-		i = encodeVarintTrinity(data, i, uint64(m.Count))
+		i = encodeVarintTrinity(dAtA, i, uint64(m.Count))
 	}
 	return i, nil
 }
 
-func (m *IMValue) Marshal() (data []byte, err error) {
+func (m *IMValue) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *IMValue) MarshalTo(data []byte) (int, error) {
+func (m *IMValue) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Docs) > 0 {
 		for _, msg := range m.Docs {
-			data[i] = 0xa
+			dAtA[i] = 0xa
 			i++
-			i = encodeVarintTrinity(data, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(data[i:])
+			i = encodeVarintTrinity(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
 			if err != nil {
 				return 0, err
 			}
@@ -1006,35 +1177,35 @@ func (m *IMValue) MarshalTo(data []byte) (int, error) {
 	return i, nil
 }
 
-func (m *InvertedMap) Marshal() (data []byte, err error) {
+func (m *InvertedMap) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *InvertedMap) MarshalTo(data []byte) (int, error) {
+func (m *InvertedMap) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if m.IindexApiVersion != 0 {
-		data[i] = 0x8
+		dAtA[i] = 0x8
 		i++
-		i = encodeVarintTrinity(data, i, uint64(m.IindexApiVersion))
+		i = encodeVarintTrinity(dAtA, i, uint64(m.IindexApiVersion))
 	}
 	if len(m.Key) > 0 {
-		data[i] = 0x12
+		dAtA[i] = 0x12
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Key)))
-		i += copy(data[i:], m.Key)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Key)))
+		i += copy(dAtA[i:], m.Key)
 	}
 	if len(m.TheMap) > 0 {
 		for k, _ := range m.TheMap {
-			data[i] = 0x1a
+			dAtA[i] = 0x1a
 			i++
 			v := m.TheMap[k]
 			msgSize := 0
@@ -1043,167 +1214,167 @@ func (m *InvertedMap) MarshalTo(data []byte) (int, error) {
 				msgSize += 1 + sovTrinity(uint64(msgSize))
 			}
 			mapSize := 1 + len(k) + sovTrinity(uint64(len(k))) + msgSize
-			i = encodeVarintTrinity(data, i, uint64(mapSize))
-			data[i] = 0xa
+			i = encodeVarintTrinity(dAtA, i, uint64(mapSize))
+			dAtA[i] = 0xa
 			i++
-			i = encodeVarintTrinity(data, i, uint64(len(k)))
-			i += copy(data[i:], k)
+			i = encodeVarintTrinity(dAtA, i, uint64(len(k)))
+			i += copy(dAtA[i:], k)
 			if v != nil {
-				data[i] = 0x12
+				dAtA[i] = 0x12
 				i++
-				i = encodeVarintTrinity(data, i, uint64(v.Size()))
-				n4, err := v.MarshalTo(data[i:])
+				i = encodeVarintTrinity(dAtA, i, uint64(v.Size()))
+				n6, err := v.MarshalTo(dAtA[i:])
 				if err != nil {
 					return 0, err
 				}
-				i += n4
+				i += n6
 			}
 		}
 	}
 	return i, nil
 }
 
-func (m *FMapRequest) Marshal() (data []byte, err error) {
+func (m *FMapRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *FMapRequest) MarshalTo(data []byte) (int, error) {
+func (m *FMapRequest) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Dockey) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Dockey)))
-		i += copy(data[i:], m.Dockey)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Dockey)))
+		i += copy(dAtA[i:], m.Dockey)
 	}
 	return i, nil
 }
 
-func (m *IMapRequest) Marshal() (data []byte, err error) {
+func (m *IMapRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *IMapRequest) MarshalTo(data []byte) (int, error) {
+func (m *IMapRequest) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Termkey) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Termkey)))
-		i += copy(data[i:], m.Termkey)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Termkey)))
+		i += copy(dAtA[i:], m.Termkey)
 	}
 	return i, nil
 }
 
-func (m *StartSubsystemRequest) Marshal() (data []byte, err error) {
+func (m *StartSubsystemRequest) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *StartSubsystemRequest) MarshalTo(data []byte) (int, error) {
+func (m *StartSubsystemRequest) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.SubsystemName) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.SubsystemName)))
-		i += copy(data[i:], m.SubsystemName)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.SubsystemName)))
+		i += copy(dAtA[i:], m.SubsystemName)
 	}
 	return i, nil
 }
 
-func (m *StartSubsystemResponse) Marshal() (data []byte, err error) {
+func (m *StartSubsystemResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *StartSubsystemResponse) MarshalTo(data []byte) (int, error) {
+func (m *StartSubsystemResponse) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.ResponseCode) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.ResponseCode)))
-		i += copy(data[i:], m.ResponseCode)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.ResponseCode)))
+		i += copy(dAtA[i:], m.ResponseCode)
 	}
 	return i, nil
 }
 
-func (m *SearchQuery) Marshal() (data []byte, err error) {
+func (m *SearchQuery) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *SearchQuery) MarshalTo(data []byte) (int, error) {
+func (m *SearchQuery) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Query) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Query)))
-		i += copy(data[i:], m.Query)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Query)))
+		i += copy(dAtA[i:], m.Query)
 	}
 	return i, nil
 }
 
-func (m *SearchResponse) Marshal() (data []byte, err error) {
+func (m *SearchResponse) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *SearchResponse) MarshalTo(data []byte) (int, error) {
+func (m *SearchResponse) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Results) > 0 {
 		for _, msg := range m.Results {
-			data[i] = 0xa
+			dAtA[i] = 0xa
 			i++
-			i = encodeVarintTrinity(data, i, uint64(msg.Size()))
-			n, err := msg.MarshalTo(data[i:])
+			i = encodeVarintTrinity(dAtA, i, uint64(msg.Size()))
+			n, err := msg.MarshalTo(dAtA[i:])
 			if err != nil {
 				return 0, err
 			}
@@ -1213,67 +1384,67 @@ func (m *SearchResponse) MarshalTo(data []byte) (int, error) {
 	return i, nil
 }
 
-func (m *SearchResult) Marshal() (data []byte, err error) {
+func (m *SearchResult) Marshal() (dAtA []byte, err error) {
 	size := m.Size()
-	data = make([]byte, size)
-	n, err := m.MarshalTo(data)
+	dAtA = make([]byte, size)
+	n, err := m.MarshalTo(dAtA)
 	if err != nil {
 		return nil, err
 	}
-	return data[:n], nil
+	return dAtA[:n], nil
 }
 
-func (m *SearchResult) MarshalTo(data []byte) (int, error) {
+func (m *SearchResult) MarshalTo(dAtA []byte) (int, error) {
 	var i int
 	_ = i
 	var l int
 	_ = l
 	if len(m.Title) > 0 {
-		data[i] = 0xa
+		dAtA[i] = 0xa
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Title)))
-		i += copy(data[i:], m.Title)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Title)))
+		i += copy(dAtA[i:], m.Title)
 	}
 	if len(m.Hash) > 0 {
-		data[i] = 0x12
+		dAtA[i] = 0x12
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Hash)))
-		i += copy(data[i:], m.Hash)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Hash)))
+		i += copy(dAtA[i:], m.Hash)
 	}
 	if len(m.Description) > 0 {
-		data[i] = 0x1a
+		dAtA[i] = 0x1a
 		i++
-		i = encodeVarintTrinity(data, i, uint64(len(m.Description)))
-		i += copy(data[i:], m.Description)
+		i = encodeVarintTrinity(dAtA, i, uint64(len(m.Description)))
+		i += copy(dAtA[i:], m.Description)
 	}
 	return i, nil
 }
 
-func encodeFixed64Trinity(data []byte, offset int, v uint64) int {
-	data[offset] = uint8(v)
-	data[offset+1] = uint8(v >> 8)
-	data[offset+2] = uint8(v >> 16)
-	data[offset+3] = uint8(v >> 24)
-	data[offset+4] = uint8(v >> 32)
-	data[offset+5] = uint8(v >> 40)
-	data[offset+6] = uint8(v >> 48)
-	data[offset+7] = uint8(v >> 56)
+func encodeFixed64Trinity(dAtA []byte, offset int, v uint64) int {
+	dAtA[offset] = uint8(v)
+	dAtA[offset+1] = uint8(v >> 8)
+	dAtA[offset+2] = uint8(v >> 16)
+	dAtA[offset+3] = uint8(v >> 24)
+	dAtA[offset+4] = uint8(v >> 32)
+	dAtA[offset+5] = uint8(v >> 40)
+	dAtA[offset+6] = uint8(v >> 48)
+	dAtA[offset+7] = uint8(v >> 56)
 	return offset + 8
 }
-func encodeFixed32Trinity(data []byte, offset int, v uint32) int {
-	data[offset] = uint8(v)
-	data[offset+1] = uint8(v >> 8)
-	data[offset+2] = uint8(v >> 16)
-	data[offset+3] = uint8(v >> 24)
+func encodeFixed32Trinity(dAtA []byte, offset int, v uint32) int {
+	dAtA[offset] = uint8(v)
+	dAtA[offset+1] = uint8(v >> 8)
+	dAtA[offset+2] = uint8(v >> 16)
+	dAtA[offset+3] = uint8(v >> 24)
 	return offset + 4
 }
-func encodeVarintTrinity(data []byte, offset int, v uint64) int {
+func encodeVarintTrinity(dAtA []byte, offset int, v uint64) int {
 	for v >= 1<<7 {
-		data[offset] = uint8(v&0x7f | 0x80)
+		dAtA[offset] = uint8(v&0x7f | 0x80)
 		v >>= 7
 		offset++
 	}
-	data[offset] = uint8(v)
+	dAtA[offset] = uint8(v)
 	return offset + 1
 }
 func (m *RootConfig) Size() (n int) {
@@ -1347,9 +1518,11 @@ func (m *FMValue) Size() (n int) {
 	var l int
 	_ = l
 	if len(m.Locations) > 0 {
+		l = 0
 		for _, e := range m.Locations {
-			n += 1 + sovTrinity(uint64(e))
+			l += sovTrinity(uint64(e))
 		}
+		n += 1 + sovTrinity(uint64(l)) + l
 	}
 	return n
 }
@@ -1524,8 +1697,8 @@ func sovTrinity(x uint64) (n int) {
 func sozTrinity(x uint64) (n int) {
 	return sovTrinity(uint64((x << 1) ^ uint64((int64(x) >> 63))))
 }
-func (m *RootConfig) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *RootConfig) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -1537,7 +1710,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -1565,7 +1738,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1580,7 +1753,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.NodeRole = string(data[iNdEx:postIndex])
+			m.NodeRole = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -1594,7 +1767,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1611,7 +1784,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 			if m.FIndex == nil {
 				m.FIndex = &FIndexConfig{}
 			}
-			if err := m.FIndex.Unmarshal(data[iNdEx:postIndex]); err != nil {
+			if err := m.FIndex.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -1627,7 +1800,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1644,7 +1817,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 			if m.IIndex == nil {
 				m.IIndex = &IIndexConfig{}
 			}
-			if err := m.IIndex.Unmarshal(data[iNdEx:postIndex]); err != nil {
+			if err := m.IIndex.Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
@@ -1660,7 +1833,7 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1675,11 +1848,11 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.APIPort = string(data[iNdEx:postIndex])
+			m.APIPort = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -1698,8 +1871,8 @@ func (m *RootConfig) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *FIndexConfig) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *FIndexConfig) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -1711,7 +1884,7 @@ func (m *FIndexConfig) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -1739,7 +1912,7 @@ func (m *FIndexConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				m.MaxSize |= (uint32(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1758,7 +1931,7 @@ func (m *FIndexConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1773,11 +1946,11 @@ func (m *FIndexConfig) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.StorePath = string(data[iNdEx:postIndex])
+			m.StorePath = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -1796,8 +1969,8 @@ func (m *FIndexConfig) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *IIndexConfig) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *IIndexConfig) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -1809,7 +1982,7 @@ func (m *IIndexConfig) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -1837,7 +2010,7 @@ func (m *IIndexConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				m.MaxSize |= (uint32(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1856,7 +2029,7 @@ func (m *IIndexConfig) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1871,11 +2044,11 @@ func (m *IIndexConfig) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.StorePath = string(data[iNdEx:postIndex])
+			m.StorePath = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -1894,8 +2067,8 @@ func (m *IIndexConfig) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *ConfigRequest) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *ConfigRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -1907,7 +2080,7 @@ func (m *ConfigRequest) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -1935,7 +2108,7 @@ func (m *ConfigRequest) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -1950,11 +2123,11 @@ func (m *ConfigRequest) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Type = string(data[iNdEx:postIndex])
+			m.Type = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -1973,8 +2146,8 @@ func (m *ConfigRequest) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *SetResult) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *SetResult) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -1986,7 +2159,7 @@ func (m *SetResult) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2014,7 +2187,7 @@ func (m *SetResult) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				v |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2024,7 +2197,7 @@ func (m *SetResult) Unmarshal(data []byte) error {
 			m.Success = bool(v != 0)
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2043,8 +2216,8 @@ func (m *SetResult) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *FMValue) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *FMValue) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2056,7 +2229,7 @@ func (m *FMValue) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2073,28 +2246,70 @@ func (m *FMValue) Unmarshal(data []byte) error {
 		}
 		switch fieldNum {
 		case 1:
-			if wireType != 0 {
-				return fmt.Errorf("proto: wrong wireType = %d for field Locations", wireType)
-			}
-			var v uint32
-			for shift := uint(0); ; shift += 7 {
-				if shift >= 64 {
-					return ErrIntOverflowTrinity
+			if wireType == 2 {
+				var packedLen int
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowTrinity
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					packedLen |= (int(b) & 0x7F) << shift
+					if b < 0x80 {
+						break
+					}
 				}
-				if iNdEx >= l {
+				if packedLen < 0 {
+					return ErrInvalidLengthTrinity
+				}
+				postIndex := iNdEx + packedLen
+				if postIndex > l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
-				iNdEx++
-				v |= (uint32(b) & 0x7F) << shift
-				if b < 0x80 {
-					break
+				for iNdEx < postIndex {
+					var v uint32
+					for shift := uint(0); ; shift += 7 {
+						if shift >= 64 {
+							return ErrIntOverflowTrinity
+						}
+						if iNdEx >= l {
+							return io.ErrUnexpectedEOF
+						}
+						b := dAtA[iNdEx]
+						iNdEx++
+						v |= (uint32(b) & 0x7F) << shift
+						if b < 0x80 {
+							break
+						}
+					}
+					m.Locations = append(m.Locations, v)
 				}
+			} else if wireType == 0 {
+				var v uint32
+				for shift := uint(0); ; shift += 7 {
+					if shift >= 64 {
+						return ErrIntOverflowTrinity
+					}
+					if iNdEx >= l {
+						return io.ErrUnexpectedEOF
+					}
+					b := dAtA[iNdEx]
+					iNdEx++
+					v |= (uint32(b) & 0x7F) << shift
+					if b < 0x80 {
+						break
+					}
+				}
+				m.Locations = append(m.Locations, v)
+			} else {
+				return fmt.Errorf("proto: wrong wireType = %d for field Locations", wireType)
 			}
-			m.Locations = append(m.Locations, v)
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2113,8 +2328,8 @@ func (m *FMValue) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *ForwardMap) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *ForwardMap) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2126,7 +2341,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2154,7 +2369,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				m.FindexApiVersion |= (uint32(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2173,7 +2388,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2188,7 +2403,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Key = string(data[iNdEx:postIndex])
+			m.Key = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
@@ -2202,7 +2417,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2224,7 +2439,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				keykey |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2239,7 +2454,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLenmapkey |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2254,7 +2469,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 			if postStringIndexmapkey > l {
 				return io.ErrUnexpectedEOF
 			}
-			mapkey := string(data[iNdEx:postStringIndexmapkey])
+			mapkey := string(dAtA[iNdEx:postStringIndexmapkey])
 			iNdEx = postStringIndexmapkey
 			if m.TheMap == nil {
 				m.TheMap = make(map[string]*FMValue)
@@ -2268,7 +2483,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
-					b := data[iNdEx]
+					b := dAtA[iNdEx]
 					iNdEx++
 					valuekey |= (uint64(b) & 0x7F) << shift
 					if b < 0x80 {
@@ -2283,7 +2498,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
-					b := data[iNdEx]
+					b := dAtA[iNdEx]
 					iNdEx++
 					mapmsglen |= (int(b) & 0x7F) << shift
 					if b < 0x80 {
@@ -2301,7 +2516,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 					return io.ErrUnexpectedEOF
 				}
 				mapvalue := &FMValue{}
-				if err := mapvalue.Unmarshal(data[iNdEx:postmsgIndex]); err != nil {
+				if err := mapvalue.Unmarshal(dAtA[iNdEx:postmsgIndex]); err != nil {
 					return err
 				}
 				iNdEx = postmsgIndex
@@ -2313,7 +2528,7 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2332,8 +2547,8 @@ func (m *ForwardMap) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *DocStat) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *DocStat) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2345,7 +2560,7 @@ func (m *DocStat) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2373,7 +2588,7 @@ func (m *DocStat) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2388,7 +2603,7 @@ func (m *DocStat) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Docname = string(data[iNdEx:postIndex])
+			m.Docname = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 0 {
@@ -2402,7 +2617,7 @@ func (m *DocStat) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				m.Count |= (uint32(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2411,7 +2626,7 @@ func (m *DocStat) Unmarshal(data []byte) error {
 			}
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2430,8 +2645,8 @@ func (m *DocStat) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *IMValue) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *IMValue) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2443,7 +2658,7 @@ func (m *IMValue) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2471,7 +2686,7 @@ func (m *IMValue) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2486,13 +2701,13 @@ func (m *IMValue) Unmarshal(data []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Docs = append(m.Docs, &DocStat{})
-			if err := m.Docs[len(m.Docs)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+			if err := m.Docs[len(m.Docs)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2511,8 +2726,8 @@ func (m *IMValue) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *InvertedMap) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *InvertedMap) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2524,7 +2739,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2552,7 +2767,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				m.IindexApiVersion |= (uint32(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2571,7 +2786,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2586,7 +2801,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Key = string(data[iNdEx:postIndex])
+			m.Key = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
@@ -2600,7 +2815,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2622,7 +2837,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				keykey |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2637,7 +2852,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLenmapkey |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2652,7 +2867,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 			if postStringIndexmapkey > l {
 				return io.ErrUnexpectedEOF
 			}
-			mapkey := string(data[iNdEx:postStringIndexmapkey])
+			mapkey := string(dAtA[iNdEx:postStringIndexmapkey])
 			iNdEx = postStringIndexmapkey
 			if m.TheMap == nil {
 				m.TheMap = make(map[string]*IMValue)
@@ -2666,7 +2881,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
-					b := data[iNdEx]
+					b := dAtA[iNdEx]
 					iNdEx++
 					valuekey |= (uint64(b) & 0x7F) << shift
 					if b < 0x80 {
@@ -2681,7 +2896,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 					if iNdEx >= l {
 						return io.ErrUnexpectedEOF
 					}
-					b := data[iNdEx]
+					b := dAtA[iNdEx]
 					iNdEx++
 					mapmsglen |= (int(b) & 0x7F) << shift
 					if b < 0x80 {
@@ -2699,7 +2914,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 					return io.ErrUnexpectedEOF
 				}
 				mapvalue := &IMValue{}
-				if err := mapvalue.Unmarshal(data[iNdEx:postmsgIndex]); err != nil {
+				if err := mapvalue.Unmarshal(dAtA[iNdEx:postmsgIndex]); err != nil {
 					return err
 				}
 				iNdEx = postmsgIndex
@@ -2711,7 +2926,7 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2730,8 +2945,8 @@ func (m *InvertedMap) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *FMapRequest) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *FMapRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2743,7 +2958,7 @@ func (m *FMapRequest) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2771,7 +2986,7 @@ func (m *FMapRequest) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2786,11 +3001,11 @@ func (m *FMapRequest) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Dockey = string(data[iNdEx:postIndex])
+			m.Dockey = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2809,8 +3024,8 @@ func (m *FMapRequest) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *IMapRequest) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *IMapRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2822,7 +3037,7 @@ func (m *IMapRequest) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2850,7 +3065,7 @@ func (m *IMapRequest) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2865,11 +3080,11 @@ func (m *IMapRequest) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Termkey = string(data[iNdEx:postIndex])
+			m.Termkey = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2888,8 +3103,8 @@ func (m *IMapRequest) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *StartSubsystemRequest) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *StartSubsystemRequest) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2901,7 +3116,7 @@ func (m *StartSubsystemRequest) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -2929,7 +3144,7 @@ func (m *StartSubsystemRequest) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -2944,11 +3159,11 @@ func (m *StartSubsystemRequest) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.SubsystemName = string(data[iNdEx:postIndex])
+			m.SubsystemName = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -2967,8 +3182,8 @@ func (m *StartSubsystemRequest) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *StartSubsystemResponse) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *StartSubsystemResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -2980,7 +3195,7 @@ func (m *StartSubsystemResponse) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -3008,7 +3223,7 @@ func (m *StartSubsystemResponse) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -3023,11 +3238,11 @@ func (m *StartSubsystemResponse) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.ResponseCode = string(data[iNdEx:postIndex])
+			m.ResponseCode = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -3046,8 +3261,8 @@ func (m *StartSubsystemResponse) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *SearchQuery) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *SearchQuery) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -3059,7 +3274,7 @@ func (m *SearchQuery) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -3087,7 +3302,7 @@ func (m *SearchQuery) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -3102,11 +3317,11 @@ func (m *SearchQuery) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Query = string(data[iNdEx:postIndex])
+			m.Query = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -3125,8 +3340,8 @@ func (m *SearchQuery) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *SearchResponse) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *SearchResponse) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -3138,7 +3353,7 @@ func (m *SearchResponse) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -3166,7 +3381,7 @@ func (m *SearchResponse) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				msglen |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -3181,13 +3396,13 @@ func (m *SearchResponse) Unmarshal(data []byte) error {
 				return io.ErrUnexpectedEOF
 			}
 			m.Results = append(m.Results, &SearchResult{})
-			if err := m.Results[len(m.Results)-1].Unmarshal(data[iNdEx:postIndex]); err != nil {
+			if err := m.Results[len(m.Results)-1].Unmarshal(dAtA[iNdEx:postIndex]); err != nil {
 				return err
 			}
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -3206,8 +3421,8 @@ func (m *SearchResponse) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func (m *SearchResult) Unmarshal(data []byte) error {
-	l := len(data)
+func (m *SearchResult) Unmarshal(dAtA []byte) error {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		preIndex := iNdEx
@@ -3219,7 +3434,7 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 			if iNdEx >= l {
 				return io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -3247,7 +3462,7 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -3262,7 +3477,7 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Title = string(data[iNdEx:postIndex])
+			m.Title = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 2:
 			if wireType != 2 {
@@ -3276,7 +3491,7 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -3291,7 +3506,7 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Hash = string(data[iNdEx:postIndex])
+			m.Hash = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		case 3:
 			if wireType != 2 {
@@ -3305,7 +3520,7 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 				if iNdEx >= l {
 					return io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				stringLen |= (uint64(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -3320,11 +3535,11 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 			if postIndex > l {
 				return io.ErrUnexpectedEOF
 			}
-			m.Description = string(data[iNdEx:postIndex])
+			m.Description = string(dAtA[iNdEx:postIndex])
 			iNdEx = postIndex
 		default:
 			iNdEx = preIndex
-			skippy, err := skipTrinity(data[iNdEx:])
+			skippy, err := skipTrinity(dAtA[iNdEx:])
 			if err != nil {
 				return err
 			}
@@ -3343,8 +3558,8 @@ func (m *SearchResult) Unmarshal(data []byte) error {
 	}
 	return nil
 }
-func skipTrinity(data []byte) (n int, err error) {
-	l := len(data)
+func skipTrinity(dAtA []byte) (n int, err error) {
+	l := len(dAtA)
 	iNdEx := 0
 	for iNdEx < l {
 		var wire uint64
@@ -3355,7 +3570,7 @@ func skipTrinity(data []byte) (n int, err error) {
 			if iNdEx >= l {
 				return 0, io.ErrUnexpectedEOF
 			}
-			b := data[iNdEx]
+			b := dAtA[iNdEx]
 			iNdEx++
 			wire |= (uint64(b) & 0x7F) << shift
 			if b < 0x80 {
@@ -3373,7 +3588,7 @@ func skipTrinity(data []byte) (n int, err error) {
 					return 0, io.ErrUnexpectedEOF
 				}
 				iNdEx++
-				if data[iNdEx-1] < 0x80 {
+				if dAtA[iNdEx-1] < 0x80 {
 					break
 				}
 			}
@@ -3390,7 +3605,7 @@ func skipTrinity(data []byte) (n int, err error) {
 				if iNdEx >= l {
 					return 0, io.ErrUnexpectedEOF
 				}
-				b := data[iNdEx]
+				b := dAtA[iNdEx]
 				iNdEx++
 				length |= (int(b) & 0x7F) << shift
 				if b < 0x80 {
@@ -3413,7 +3628,7 @@ func skipTrinity(data []byte) (n int, err error) {
 					if iNdEx >= l {
 						return 0, io.ErrUnexpectedEOF
 					}
-					b := data[iNdEx]
+					b := dAtA[iNdEx]
 					iNdEx++
 					innerWire |= (uint64(b) & 0x7F) << shift
 					if b < 0x80 {
@@ -3424,7 +3639,7 @@ func skipTrinity(data []byte) (n int, err error) {
 				if innerWireType == 4 {
 					break
 				}
-				next, err := skipTrinity(data[start:])
+				next, err := skipTrinity(dAtA[start:])
 				if err != nil {
 					return 0, err
 				}
@@ -3452,7 +3667,7 @@ func init() { proto.RegisterFile("trinity.proto", fileDescriptorTrinity) }
 
 var fileDescriptorTrinity = []byte{
 	// 835 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x09, 0x6e, 0x88, 0x02, 0xff, 0xac, 0x55, 0xcd, 0x6e, 0xdb, 0x46,
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xac, 0x55, 0xcd, 0x6e, 0xdb, 0x46,
 	0x10, 0x16, 0x23, 0xc7, 0xb4, 0x86, 0xa6, 0x61, 0x6c, 0x1d, 0x57, 0x15, 0x5a, 0x45, 0x58, 0xd7,
 	0x8d, 0x0f, 0xad, 0x03, 0xa8, 0x7f, 0x49, 0x80, 0x06, 0x70, 0xd3, 0x5a, 0x25, 0x1a, 0x05, 0xee,
 	0x32, 0xc8, 0xa1, 0x17, 0x62, 0x43, 0x6e, 0x2a, 0xa2, 0x12, 0x97, 0x59, 0x2e, 0x15, 0x29, 0xf7,

@@ -1,3 +1,3 @@
 package system
 
-var CommitHead = "8375e620f934989bf6e2f5838b612c4c1c4b02cd"
+var CommitHead = "70254cfb3bdc4ca18ef4c8d495d8046b2ebf2671"
