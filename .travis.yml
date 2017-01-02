@@ -6,6 +6,7 @@ git:
 before_install:
   - sudo apt-get update -qq
   - sudo apt-get install -qq python3
+  - go get google.golang.org/grpc
 
 before_script:
   - pip3 install requests
