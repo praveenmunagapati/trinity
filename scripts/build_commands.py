@@ -13,8 +13,10 @@ def go_command(command, wd, plugin=False,
             the_command = ["go", "build", "-o", binpath]
         else:
             the_command += ["-o", name]
-    p = sp.Popen(the_command, cwd=wd)
-    p.communicate()
+    p = sp.Popen(the_command, cwd=wd, stdout=sp.PIPE, stderr=sp.STDOUT)
+    out, err = p.communicate()
+    if out or err:
+        raise Exception("\n\ngo command failed: \n\n{}".format(out.decode('utf-8')))
     if plugin:
         move_plugin_to_system_root(system_root, wd)
 
