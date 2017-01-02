@@ -1,7 +1,8 @@
 language: go
 
 before_script:
+  - sudo apt-get install zstd
   - pip3 install requests
 
 script:
-  - python3 build.py all
+  - python3 build.py install
