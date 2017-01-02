@@ -4,8 +4,6 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-
-	porterstemmer "github.com/reiver/go-porterstemmer"
 )
 
 var (
@@ -148,8 +146,8 @@ func (list *List) GetWithLength(length int) (List, error) {
 	return result, nil
 }
 
-func (list *List) Stem() {
-	for _, token := range list.Tokens {
-		token.Value = porterstemmer.Stem(token.Value)
-	}
-}
+// func (list *List) Stem() {
+// 	for _, token := range list.Tokens {
+// 		token.Value = porterstemmer.Stem(token.Value)
+// 	}
+// }
