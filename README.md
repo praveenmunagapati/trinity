@@ -1,13 +1,17 @@
 # trinity
 
 <p align="center">
-<img src="http://i.imgur.com/3S2iUbl.png" width="300">
+<img src="http://i.imgur.com/3S2iUbl.png" width="200">
 </p>
 
 <img src="https://img.shields.io/travis/clownpriest/trinity.svg">
 <img src="https://img.shields.io/github/license/mashape/apistatus.svg">
 
+A search engine for IPFS
+
 ## install
+
+Note: this is nowhere near being usable
 
 #### dependencies
 
