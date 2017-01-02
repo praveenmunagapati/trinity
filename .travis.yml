@@ -1,7 +1,13 @@
 language: go
 
+git:
+  depth: 3
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq zstd python3
+
 before_script:
-  - sudo apt-get install zstd
   - pip3 install requests
 
 script:

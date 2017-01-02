@@ -9,8 +9,6 @@ include/logo2.png
 core/intake/htmlintake/test_out
 core/intake/htmlintake/test_data
 core/intake/htmlintake/single_testdata
-core/store/boltstore/test_store
-core/store/boltstore/test_out
 
 core/system/interrupt.go
 
