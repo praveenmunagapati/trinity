@@ -13,12 +13,12 @@
 A lot of the dependencies will be handled by the build.py script, but you need to get a few things yourself (either through ```apt-get``` or ```homebrew```, or ```go get``` or whatever):
 - **go-ipfs**
 - **zstd**
-- **gogoprotobuf**  (special Go implementatiatoon for faster marshaling)
+- **gogoprotobuf**  (only necessary if you're compiling the proto yourself)
  - ```go get github.com/gogo/protobuf/proto```
  - ```go get github.com/gogo/protobuf/protoc-gen-gogo```
  - ```go get github.com/gogo/protobuf/gogoproto```
 - **requests** (python library)
- - `$: pip install -U requests`
+ - `$: pip3 install -U requests`
 
 ##### compilers
 - **Go** (at least 1.8)

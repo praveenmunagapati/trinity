@@ -3,13 +3,14 @@ package main
 import (
 	"fmt"
 	"os"
+	"sync"
 
 	"github.com/clownpriest/trinity/core/commands"
 	"github.com/clownpriest/trinity/core/config"
 )
 
-var iindexConfig *config.IIndexConfig
 var iindex IIndex
+var mainWaitGroup sync.WaitGroup
 
 func main() {
 	if len(os.Args) != 2 {
@@ -28,5 +29,11 @@ func main() {
 	}
 
 	iindex = NewIIndex(store, config)
+
+	mainWaitGroup.Add(1)
+
+	go startIIndexServer(iindex.config.GRPCPort, &mainWaitGroup)
+
+	mainWaitGroup.Wait()
 
 }
