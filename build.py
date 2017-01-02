@@ -12,7 +12,7 @@ from scripts.builder import *
 from scripts.clean_commands import *
 from scripts.install_static import *
 from scripts.version import *
-from scripts.download_static import *
+# from scripts.download_static import *
 
 system_root = os.path.join(os.path.expanduser("~"), ".trinity")
 
@@ -20,6 +20,9 @@ system_root = os.path.join(os.path.expanduser("~"), ".trinity")
 if __name__ == "__main__":
 
     command = handle_cli(sys.argv)
+
+    if command != "travis":
+        from scripts.download_static import *
 
     version_info   = Script(name="version_generate",
                             lang="python", root_func=version_root,
