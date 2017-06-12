@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='trinity.proto',
   package='trinity',
   syntax='proto3',
-  serialized_pb=_b('\n\rtrinity.proto\x12\x07trinity\"}\n\nRootConfig\x12\x10\n\x08NodeRole\x18\x01 \x01(\t\x12%\n\x06\x46Index\x18\x02 \x01(\x0b\x32\x15.trinity.FIndexConfig\x12%\n\x06IIndex\x18\x03 \x01(\x0b\x32\x15.trinity.IIndexConfig\x12\x0f\n\x07\x41PIPort\x18\x04 \x01(\t\"4\n\x0c\x46IndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"4\n\x0cIIndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"\x1d\n\rConfigRequest\x12\x0c\n\x04type\x18\x01 \x01(\t\"\x1c\n\tSetResult\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x1c\n\x07\x46MValue\x12\x11\n\tlocations\x18\x01 \x03(\r\"\xa8\x01\n\nForwardMap\x12\x1a\n\x12\x66index_api_version\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x30\n\x07the_map\x18\x03 \x03(\x0b\x32\x1f.trinity.ForwardMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.FMValue:\x02\x38\x01\")\n\x07\x44ocStat\x12\x0f\n\x07\x64ocname\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\r\")\n\x07IMValue\x12\x1e\n\x04\x64ocs\x18\x01 \x03(\x0b\x32\x10.trinity.DocStat\"\xaa\x01\n\x0bInvertedMap\x12\x1a\n\x12iindex_api_version\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x31\n\x07the_map\x18\x03 \x03(\x0b\x32 .trinity.InvertedMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.IMValue:\x02\x38\x01\"\x1d\n\x0b\x46MapRequest\x12\x0e\n\x06\x64ockey\x18\x01 \x01(\t\"\x1e\n\x0bIMapRequest\x12\x0f\n\x07termkey\x18\x01 \x01(\t\"/\n\x15StartSubsystemRequest\x12\x16\n\x0esubsystem_name\x18\x01 \x01(\t\"/\n\x16StartSubsystemResponse\x12\x15\n\rresponse_code\x18\x01 \x01(\t\"\x1c\n\x0bSearchQuery\x12\r\n\x05query\x18\x01 \x01(\t\"8\n\x0eSearchResponse\x12&\n\x07results\x18\x01 \x03(\x0b\x32\x15.trinity.SearchResult\"@\n\x0cSearchResult\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t2v\n\x06\x46Index\x12\x36\n\x07GetFMap\x12\x14.trinity.FMapRequest\x1a\x13.trinity.ForwardMap\"\x00\x12\x34\n\x07SetFMap\x12\x13.trinity.ForwardMap\x1a\x12.trinity.SetResult\"\x00\x32x\n\x06IIndex\x12\x37\n\x07GetIMap\x12\x14.trinity.IMapRequest\x1a\x14.trinity.InvertedMap\"\x00\x12\x35\n\x07SetIMap\x12\x14.trinity.InvertedMap\x1a\x12.trinity.SetResult\"\x00\x32\x85\x01\n\x07Trinity\x12>\n\rGetRootConfig\x12\x16.trinity.ConfigRequest\x1a\x13.trinity.RootConfig\"\x00\x12:\n\rSetRootConfig\x12\x13.trinity.RootConfig\x1a\x12.trinity.SetResult\"\x00\x32_\n\tSubsystem\x12R\n\rStartMainLoop\x12\x1e.trinity.StartSubsystemRequest\x1a\x1f.trinity.StartSubsystemResponse\"\x00\x32L\n\x07Gateway\x12\x41\n\x0eGetSearchQuery\x12\x14.trinity.SearchQuery\x1a\x17.trinity.SearchResponse\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\rtrinity.proto\x12\x07trinity\"}\n\nRootConfig\x12\x10\n\x08NodeRole\x18\x01 \x01(\t\x12%\n\x06\x46Index\x18\x02 \x01(\x0b\x32\x15.trinity.FIndexConfig\x12%\n\x06IIndex\x18\x03 \x01(\x0b\x32\x15.trinity.IIndexConfig\x12\x0f\n\x07\x41PIPort\x18\x04 \x01(\t\"4\n\x0c\x46IndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"4\n\x0cIIndexConfig\x12\x10\n\x08max_size\x18\x01 \x01(\r\x12\x12\n\nstore_path\x18\x02 \x01(\t\"\x1d\n\rConfigRequest\x12\x0c\n\x04type\x18\x01 \x01(\t\"\x1c\n\tSetResult\x12\x0f\n\x07success\x18\x01 \x01(\x08\"\x1c\n\x07\x46MValue\x12\x11\n\tlocations\x18\x01 \x03(\r\"\xa8\x01\n\nForwardMap\x12\x1a\n\x12\x66index_api_version\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x30\n\x07the_map\x18\x03 \x03(\x0b\x32\x1f.trinity.ForwardMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.FMValue:\x02\x38\x01\")\n\x07\x44ocStat\x12\x0f\n\x07\x64ocname\x18\x01 \x01(\t\x12\r\n\x05\x63ount\x18\x02 \x01(\r\")\n\x07IMValue\x12\x1e\n\x04\x64ocs\x18\x01 \x03(\x0b\x32\x10.trinity.DocStat\"\xaa\x01\n\x0bInvertedMap\x12\x1a\n\x12iindex_api_version\x18\x01 \x01(\r\x12\x0b\n\x03key\x18\x02 \x01(\t\x12\x31\n\x07the_map\x18\x03 \x03(\x0b\x32 .trinity.InvertedMap.TheMapEntry\x1a?\n\x0bTheMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\x1f\n\x05value\x18\x02 \x01(\x0b\x32\x10.trinity.IMValue:\x02\x38\x01\"\x1d\n\x0b\x46MapRequest\x12\x0e\n\x06\x64ockey\x18\x01 \x01(\t\"\x1e\n\x0bIMapRequest\x12\x0f\n\x07termkey\x18\x01 \x01(\t\"/\n\x15StartSubsystemRequest\x12\x16\n\x0esubsystem_name\x18\x01 \x01(\t\"/\n\x16StartSubsystemResponse\x12\x15\n\rresponse_code\x18\x01 \x01(\t\"*\n\rSearchRequest\x12\r\n\x05query\x18\x01 \x01(\t\x12\n\n\x02id\x18\x02 \x01(\x0c\"8\n\x0eSearchResponse\x12&\n\x07results\x18\x01 \x03(\x0b\x32\x15.trinity.SearchResult\"@\n\x0cSearchResult\x12\r\n\x05title\x18\x01 \x01(\t\x12\x0c\n\x04hash\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t2v\n\x06\x46Index\x12\x36\n\x07GetFMap\x12\x14.trinity.FMapRequest\x1a\x13.trinity.ForwardMap\"\x00\x12\x34\n\x07SetFMap\x12\x13.trinity.ForwardMap\x1a\x12.trinity.SetResult\"\x00\x32x\n\x06IIndex\x12\x37\n\x07GetIMap\x12\x14.trinity.IMapRequest\x1a\x14.trinity.InvertedMap\"\x00\x12\x35\n\x07SetIMap\x12\x14.trinity.InvertedMap\x1a\x12.trinity.SetResult\"\x00\x32\x85\x01\n\x07Trinity\x12>\n\rGetRootConfig\x12\x16.trinity.ConfigRequest\x1a\x13.trinity.RootConfig\"\x00\x12:\n\rSetRootConfig\x12\x13.trinity.RootConfig\x1a\x12.trinity.SetResult\"\x00\x32_\n\tSubsystem\x12R\n\rStartMainLoop\x12\x1e.trinity.StartSubsystemRequest\x1a\x1f.trinity.StartSubsystemResponse\"\x00\x32\x46\n\x07Gateway\x12;\n\x06Search\x12\x16.trinity.SearchRequest\x1a\x17.trinity.SearchResponse\"\x00\x62\x06proto3')
 )
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
@@ -604,17 +604,24 @@ _STARTSUBSYSTEMRESPONSE = _descriptor.Descriptor(
 )
 
 
-_SEARCHQUERY = _descriptor.Descriptor(
-  name='SearchQuery',
-  full_name='trinity.SearchQuery',
+_SEARCHREQUEST = _descriptor.Descriptor(
+  name='SearchRequest',
+  full_name='trinity.SearchRequest',
   filename=None,
   file=DESCRIPTOR,
   containing_type=None,
   fields=[
     _descriptor.FieldDescriptor(
-      name='query', full_name='trinity.SearchQuery.query', index=0,
+      name='query', full_name='trinity.SearchRequest.query', index=0,
       number=1, type=9, cpp_type=9, label=1,
       has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='trinity.SearchRequest.id', index=1,
+      number=2, type=12, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b(""),
       message_type=None, enum_type=None, containing_type=None,
       is_extension=False, extension_scope=None,
       options=None),
@@ -631,7 +638,7 @@ _SEARCHQUERY = _descriptor.Descriptor(
   oneofs=[
   ],
   serialized_start=943,
-  serialized_end=971,
+  serialized_end=985,
 )
 
 
@@ -661,8 +668,8 @@ _SEARCHRESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=973,
-  serialized_end=1029,
+  serialized_start=987,
+  serialized_end=1043,
 )
 
 
@@ -706,8 +713,8 @@ _SEARCHRESULT = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=1031,
-  serialized_end=1095,
+  serialized_start=1045,
+  serialized_end=1109,
 )
 
 _ROOTCONFIG.fields_by_name['FIndex'].message_type = _FINDEXCONFIG
@@ -734,7 +741,7 @@ DESCRIPTOR.message_types_by_name['FMapRequest'] = _FMAPREQUEST
 DESCRIPTOR.message_types_by_name['IMapRequest'] = _IMAPREQUEST
 DESCRIPTOR.message_types_by_name['StartSubsystemRequest'] = _STARTSUBSYSTEMREQUEST
 DESCRIPTOR.message_types_by_name['StartSubsystemResponse'] = _STARTSUBSYSTEMRESPONSE
-DESCRIPTOR.message_types_by_name['SearchQuery'] = _SEARCHQUERY
+DESCRIPTOR.message_types_by_name['SearchRequest'] = _SEARCHREQUEST
 DESCRIPTOR.message_types_by_name['SearchResponse'] = _SEARCHRESPONSE
 DESCRIPTOR.message_types_by_name['SearchResult'] = _SEARCHRESULT
 
@@ -852,12 +859,12 @@ StartSubsystemResponse = _reflection.GeneratedProtocolMessageType('StartSubsyste
   ))
 _sym_db.RegisterMessage(StartSubsystemResponse)
 
-SearchQuery = _reflection.GeneratedProtocolMessageType('SearchQuery', (_message.Message,), dict(
-  DESCRIPTOR = _SEARCHQUERY,
+SearchRequest = _reflection.GeneratedProtocolMessageType('SearchRequest', (_message.Message,), dict(
+  DESCRIPTOR = _SEARCHREQUEST,
   __module__ = 'trinity_pb2'
-  # @@protoc_insertion_point(class_scope:trinity.SearchQuery)
+  # @@protoc_insertion_point(class_scope:trinity.SearchRequest)
   ))
-_sym_db.RegisterMessage(SearchQuery)
+_sym_db.RegisterMessage(SearchRequest)
 
 SearchResponse = _reflection.GeneratedProtocolMessageType('SearchResponse', (_message.Message,), dict(
   DESCRIPTOR = _SEARCHRESPONSE,
@@ -878,462 +885,567 @@ _FORWARDMAP_THEMAPENTRY.has_options = True
 _FORWARDMAP_THEMAPENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
 _INVERTEDMAP_THEMAPENTRY.has_options = True
 _INVERTEDMAP_THEMAPENTRY._options = _descriptor._ParseOptions(descriptor_pb2.MessageOptions(), _b('8\001'))
-import grpc
-from grpc.beta import implementations as beta_implementations
-from grpc.beta import interfaces as beta_interfaces
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
-
-
-class FIndexStub(object):
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.GetFMap = channel.unary_unary(
-        '/trinity.FIndex/GetFMap',
-        request_serializer=FMapRequest.SerializeToString,
-        response_deserializer=ForwardMap.FromString,
-        )
-    self.SetFMap = channel.unary_unary(
-        '/trinity.FIndex/SetFMap',
-        request_serializer=ForwardMap.SerializeToString,
-        response_deserializer=SetResult.FromString,
-        )
-
-
-class FIndexServicer(object):
-
-  def GetFMap(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def SetFMap(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-
-def add_FIndexServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'GetFMap': grpc.unary_unary_rpc_method_handler(
-          servicer.GetFMap,
-          request_deserializer=FMapRequest.FromString,
-          response_serializer=ForwardMap.SerializeToString,
-      ),
-      'SetFMap': grpc.unary_unary_rpc_method_handler(
-          servicer.SetFMap,
-          request_deserializer=ForwardMap.FromString,
-          response_serializer=SetResult.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'trinity.FIndex', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
-
-
-class BetaFIndexServicer(object):
-  def GetFMap(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def SetFMap(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-class BetaFIndexStub(object):
-  def GetFMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  GetFMap.future = None
-  def SetFMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  SetFMap.future = None
-
-
-def beta_create_FIndex_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('trinity.FIndex', 'GetFMap'): FMapRequest.FromString,
-    ('trinity.FIndex', 'SetFMap'): ForwardMap.FromString,
-  }
-  response_serializers = {
-    ('trinity.FIndex', 'GetFMap'): ForwardMap.SerializeToString,
-    ('trinity.FIndex', 'SetFMap'): SetResult.SerializeToString,
-  }
-  method_implementations = {
-    ('trinity.FIndex', 'GetFMap'): face_utilities.unary_unary_inline(servicer.GetFMap),
-    ('trinity.FIndex', 'SetFMap'): face_utilities.unary_unary_inline(servicer.SetFMap),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
-
-
-def beta_create_FIndex_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('trinity.FIndex', 'GetFMap'): FMapRequest.SerializeToString,
-    ('trinity.FIndex', 'SetFMap'): ForwardMap.SerializeToString,
-  }
-  response_deserializers = {
-    ('trinity.FIndex', 'GetFMap'): ForwardMap.FromString,
-    ('trinity.FIndex', 'SetFMap'): SetResult.FromString,
-  }
-  cardinalities = {
-    'GetFMap': cardinality.Cardinality.UNARY_UNARY,
-    'SetFMap': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'trinity.FIndex', cardinalities, options=stub_options)
-
-
-class IIndexStub(object):
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.GetIMap = channel.unary_unary(
-        '/trinity.IIndex/GetIMap',
-        request_serializer=IMapRequest.SerializeToString,
-        response_deserializer=InvertedMap.FromString,
-        )
-    self.SetIMap = channel.unary_unary(
-        '/trinity.IIndex/SetIMap',
-        request_serializer=InvertedMap.SerializeToString,
-        response_deserializer=SetResult.FromString,
-        )
-
-
-class IIndexServicer(object):
-
-  def GetIMap(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def SetIMap(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-
-def add_IIndexServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'GetIMap': grpc.unary_unary_rpc_method_handler(
-          servicer.GetIMap,
-          request_deserializer=IMapRequest.FromString,
-          response_serializer=InvertedMap.SerializeToString,
-      ),
-      'SetIMap': grpc.unary_unary_rpc_method_handler(
-          servicer.SetIMap,
-          request_deserializer=InvertedMap.FromString,
-          response_serializer=SetResult.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'trinity.IIndex', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
-
-
-class BetaIIndexServicer(object):
-  def GetIMap(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def SetIMap(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-class BetaIIndexStub(object):
-  def GetIMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  GetIMap.future = None
-  def SetIMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  SetIMap.future = None
-
-
-def beta_create_IIndex_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('trinity.IIndex', 'GetIMap'): IMapRequest.FromString,
-    ('trinity.IIndex', 'SetIMap'): InvertedMap.FromString,
-  }
-  response_serializers = {
-    ('trinity.IIndex', 'GetIMap'): InvertedMap.SerializeToString,
-    ('trinity.IIndex', 'SetIMap'): SetResult.SerializeToString,
-  }
-  method_implementations = {
-    ('trinity.IIndex', 'GetIMap'): face_utilities.unary_unary_inline(servicer.GetIMap),
-    ('trinity.IIndex', 'SetIMap'): face_utilities.unary_unary_inline(servicer.SetIMap),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
-
-
-def beta_create_IIndex_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('trinity.IIndex', 'GetIMap'): IMapRequest.SerializeToString,
-    ('trinity.IIndex', 'SetIMap'): InvertedMap.SerializeToString,
-  }
-  response_deserializers = {
-    ('trinity.IIndex', 'GetIMap'): InvertedMap.FromString,
-    ('trinity.IIndex', 'SetIMap'): SetResult.FromString,
-  }
-  cardinalities = {
-    'GetIMap': cardinality.Cardinality.UNARY_UNARY,
-    'SetIMap': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'trinity.IIndex', cardinalities, options=stub_options)
-
-
-class TrinityStub(object):
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.GetRootConfig = channel.unary_unary(
-        '/trinity.Trinity/GetRootConfig',
-        request_serializer=ConfigRequest.SerializeToString,
-        response_deserializer=RootConfig.FromString,
-        )
-    self.SetRootConfig = channel.unary_unary(
-        '/trinity.Trinity/SetRootConfig',
-        request_serializer=RootConfig.SerializeToString,
-        response_deserializer=SetResult.FromString,
-        )
-
-
-class TrinityServicer(object):
-
-  def GetRootConfig(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def SetRootConfig(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-
-def add_TrinityServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'GetRootConfig': grpc.unary_unary_rpc_method_handler(
-          servicer.GetRootConfig,
-          request_deserializer=ConfigRequest.FromString,
-          response_serializer=RootConfig.SerializeToString,
-      ),
-      'SetRootConfig': grpc.unary_unary_rpc_method_handler(
-          servicer.SetRootConfig,
-          request_deserializer=RootConfig.FromString,
-          response_serializer=SetResult.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'trinity.Trinity', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
-
-
-class BetaTrinityServicer(object):
-  def GetRootConfig(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def SetRootConfig(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-class BetaTrinityStub(object):
-  def GetRootConfig(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  GetRootConfig.future = None
-  def SetRootConfig(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  SetRootConfig.future = None
-
-
-def beta_create_Trinity_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('trinity.Trinity', 'GetRootConfig'): ConfigRequest.FromString,
-    ('trinity.Trinity', 'SetRootConfig'): RootConfig.FromString,
-  }
-  response_serializers = {
-    ('trinity.Trinity', 'GetRootConfig'): RootConfig.SerializeToString,
-    ('trinity.Trinity', 'SetRootConfig'): SetResult.SerializeToString,
-  }
-  method_implementations = {
-    ('trinity.Trinity', 'GetRootConfig'): face_utilities.unary_unary_inline(servicer.GetRootConfig),
-    ('trinity.Trinity', 'SetRootConfig'): face_utilities.unary_unary_inline(servicer.SetRootConfig),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
-
-
-def beta_create_Trinity_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('trinity.Trinity', 'GetRootConfig'): ConfigRequest.SerializeToString,
-    ('trinity.Trinity', 'SetRootConfig'): RootConfig.SerializeToString,
-  }
-  response_deserializers = {
-    ('trinity.Trinity', 'GetRootConfig'): RootConfig.FromString,
-    ('trinity.Trinity', 'SetRootConfig'): SetResult.FromString,
-  }
-  cardinalities = {
-    'GetRootConfig': cardinality.Cardinality.UNARY_UNARY,
-    'SetRootConfig': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'trinity.Trinity', cardinalities, options=stub_options)
-
-
-class SubsystemStub(object):
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.StartMainLoop = channel.unary_unary(
-        '/trinity.Subsystem/StartMainLoop',
-        request_serializer=StartSubsystemRequest.SerializeToString,
-        response_deserializer=StartSubsystemResponse.FromString,
-        )
-
-
-class SubsystemServicer(object):
-
-  def StartMainLoop(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-
-def add_SubsystemServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'StartMainLoop': grpc.unary_unary_rpc_method_handler(
-          servicer.StartMainLoop,
-          request_deserializer=StartSubsystemRequest.FromString,
-          response_serializer=StartSubsystemResponse.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'trinity.Subsystem', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
-
-
-class BetaSubsystemServicer(object):
-  def StartMainLoop(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-class BetaSubsystemStub(object):
-  def StartMainLoop(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  StartMainLoop.future = None
-
-
-def beta_create_Subsystem_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemRequest.FromString,
-  }
-  response_serializers = {
-    ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemResponse.SerializeToString,
-  }
-  method_implementations = {
-    ('trinity.Subsystem', 'StartMainLoop'): face_utilities.unary_unary_inline(servicer.StartMainLoop),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
-
-
-def beta_create_Subsystem_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemRequest.SerializeToString,
-  }
-  response_deserializers = {
-    ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemResponse.FromString,
-  }
-  cardinalities = {
-    'StartMainLoop': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'trinity.Subsystem', cardinalities, options=stub_options)
-
-
-class GatewayStub(object):
-
-  def __init__(self, channel):
-    """Constructor.
-
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.GetSearchQuery = channel.unary_unary(
-        '/trinity.Gateway/GetSearchQuery',
-        request_serializer=SearchQuery.SerializeToString,
-        response_deserializer=SearchResponse.FromString,
-        )
-
-
-class GatewayServicer(object):
-
-  def GetSearchQuery(self, request, context):
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-
-def add_GatewayServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'GetSearchQuery': grpc.unary_unary_rpc_method_handler(
-          servicer.GetSearchQuery,
-          request_deserializer=SearchQuery.FromString,
-          response_serializer=SearchResponse.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'trinity.Gateway', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
-
-
-class BetaGatewayServicer(object):
-  def GetSearchQuery(self, request, context):
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-
-
-class BetaGatewayStub(object):
-  def GetSearchQuery(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    raise NotImplementedError()
-  GetSearchQuery.future = None
-
-
-def beta_create_Gateway_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('trinity.Gateway', 'GetSearchQuery'): SearchQuery.FromString,
-  }
-  response_serializers = {
-    ('trinity.Gateway', 'GetSearchQuery'): SearchResponse.SerializeToString,
-  }
-  method_implementations = {
-    ('trinity.Gateway', 'GetSearchQuery'): face_utilities.unary_unary_inline(servicer.GetSearchQuery),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
-
-
-def beta_create_Gateway_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('trinity.Gateway', 'GetSearchQuery'): SearchQuery.SerializeToString,
-  }
-  response_deserializers = {
-    ('trinity.Gateway', 'GetSearchQuery'): SearchResponse.FromString,
-  }
-  cardinalities = {
-    'GetSearchQuery': cardinality.Cardinality.UNARY_UNARY,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'trinity.Gateway', cardinalities, options=stub_options)
+try:
+  # THESE ELEMENTS WILL BE DEPRECATED.
+  # Please use the generated *_pb2_grpc.py files instead.
+  import grpc
+  from grpc.framework.common import cardinality
+  from grpc.framework.interfaces.face import utilities as face_utilities
+  from grpc.beta import implementations as beta_implementations
+  from grpc.beta import interfaces as beta_interfaces
+
+
+  class FIndexStub(object):
+
+    def __init__(self, channel):
+      """Constructor.
+
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.GetFMap = channel.unary_unary(
+          '/trinity.FIndex/GetFMap',
+          request_serializer=FMapRequest.SerializeToString,
+          response_deserializer=ForwardMap.FromString,
+          )
+      self.SetFMap = channel.unary_unary(
+          '/trinity.FIndex/SetFMap',
+          request_serializer=ForwardMap.SerializeToString,
+          response_deserializer=SetResult.FromString,
+          )
+
+
+  class FIndexServicer(object):
+
+    def GetFMap(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def SetFMap(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_FIndexServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'GetFMap': grpc.unary_unary_rpc_method_handler(
+            servicer.GetFMap,
+            request_deserializer=FMapRequest.FromString,
+            response_serializer=ForwardMap.SerializeToString,
+        ),
+        'SetFMap': grpc.unary_unary_rpc_method_handler(
+            servicer.SetFMap,
+            request_deserializer=ForwardMap.FromString,
+            response_serializer=SetResult.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'trinity.FIndex', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class IIndexStub(object):
+
+    def __init__(self, channel):
+      """Constructor.
+
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.GetIMap = channel.unary_unary(
+          '/trinity.IIndex/GetIMap',
+          request_serializer=IMapRequest.SerializeToString,
+          response_deserializer=InvertedMap.FromString,
+          )
+      self.SetIMap = channel.unary_unary(
+          '/trinity.IIndex/SetIMap',
+          request_serializer=InvertedMap.SerializeToString,
+          response_deserializer=SetResult.FromString,
+          )
+
+
+  class IIndexServicer(object):
+
+    def GetIMap(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def SetIMap(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_IIndexServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'GetIMap': grpc.unary_unary_rpc_method_handler(
+            servicer.GetIMap,
+            request_deserializer=IMapRequest.FromString,
+            response_serializer=InvertedMap.SerializeToString,
+        ),
+        'SetIMap': grpc.unary_unary_rpc_method_handler(
+            servicer.SetIMap,
+            request_deserializer=InvertedMap.FromString,
+            response_serializer=SetResult.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'trinity.IIndex', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class TrinityStub(object):
+
+    def __init__(self, channel):
+      """Constructor.
+
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.GetRootConfig = channel.unary_unary(
+          '/trinity.Trinity/GetRootConfig',
+          request_serializer=ConfigRequest.SerializeToString,
+          response_deserializer=RootConfig.FromString,
+          )
+      self.SetRootConfig = channel.unary_unary(
+          '/trinity.Trinity/SetRootConfig',
+          request_serializer=RootConfig.SerializeToString,
+          response_deserializer=SetResult.FromString,
+          )
+
+
+  class TrinityServicer(object):
+
+    def GetRootConfig(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def SetRootConfig(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_TrinityServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'GetRootConfig': grpc.unary_unary_rpc_method_handler(
+            servicer.GetRootConfig,
+            request_deserializer=ConfigRequest.FromString,
+            response_serializer=RootConfig.SerializeToString,
+        ),
+        'SetRootConfig': grpc.unary_unary_rpc_method_handler(
+            servicer.SetRootConfig,
+            request_deserializer=RootConfig.FromString,
+            response_serializer=SetResult.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'trinity.Trinity', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class SubsystemStub(object):
+
+    def __init__(self, channel):
+      """Constructor.
+
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.StartMainLoop = channel.unary_unary(
+          '/trinity.Subsystem/StartMainLoop',
+          request_serializer=StartSubsystemRequest.SerializeToString,
+          response_deserializer=StartSubsystemResponse.FromString,
+          )
+
+
+  class SubsystemServicer(object):
+
+    def StartMainLoop(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_SubsystemServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'StartMainLoop': grpc.unary_unary_rpc_method_handler(
+            servicer.StartMainLoop,
+            request_deserializer=StartSubsystemRequest.FromString,
+            response_serializer=StartSubsystemResponse.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'trinity.Subsystem', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class GatewayStub(object):
+
+    def __init__(self, channel):
+      """Constructor.
+
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.Search = channel.unary_unary(
+          '/trinity.Gateway/Search',
+          request_serializer=SearchRequest.SerializeToString,
+          response_deserializer=SearchResponse.FromString,
+          )
+
+
+  class GatewayServicer(object):
+
+    def Search(self, request, context):
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+
+  def add_GatewayServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'Search': grpc.unary_unary_rpc_method_handler(
+            servicer.Search,
+            request_deserializer=SearchRequest.FromString,
+            response_serializer=SearchResponse.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'trinity.Gateway', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
+
+
+  class BetaFIndexServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def GetFMap(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def SetFMap(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+  class BetaFIndexStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def GetFMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    GetFMap.future = None
+    def SetFMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    SetFMap.future = None
+
+
+  def beta_create_FIndex_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('trinity.FIndex', 'GetFMap'): FMapRequest.FromString,
+      ('trinity.FIndex', 'SetFMap'): ForwardMap.FromString,
+    }
+    response_serializers = {
+      ('trinity.FIndex', 'GetFMap'): ForwardMap.SerializeToString,
+      ('trinity.FIndex', 'SetFMap'): SetResult.SerializeToString,
+    }
+    method_implementations = {
+      ('trinity.FIndex', 'GetFMap'): face_utilities.unary_unary_inline(servicer.GetFMap),
+      ('trinity.FIndex', 'SetFMap'): face_utilities.unary_unary_inline(servicer.SetFMap),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
+
+
+  def beta_create_FIndex_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('trinity.FIndex', 'GetFMap'): FMapRequest.SerializeToString,
+      ('trinity.FIndex', 'SetFMap'): ForwardMap.SerializeToString,
+    }
+    response_deserializers = {
+      ('trinity.FIndex', 'GetFMap'): ForwardMap.FromString,
+      ('trinity.FIndex', 'SetFMap'): SetResult.FromString,
+    }
+    cardinalities = {
+      'GetFMap': cardinality.Cardinality.UNARY_UNARY,
+      'SetFMap': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'trinity.FIndex', cardinalities, options=stub_options)
+
+
+  class BetaIIndexServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def GetIMap(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def SetIMap(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+  class BetaIIndexStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def GetIMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    GetIMap.future = None
+    def SetIMap(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    SetIMap.future = None
+
+
+  def beta_create_IIndex_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('trinity.IIndex', 'GetIMap'): IMapRequest.FromString,
+      ('trinity.IIndex', 'SetIMap'): InvertedMap.FromString,
+    }
+    response_serializers = {
+      ('trinity.IIndex', 'GetIMap'): InvertedMap.SerializeToString,
+      ('trinity.IIndex', 'SetIMap'): SetResult.SerializeToString,
+    }
+    method_implementations = {
+      ('trinity.IIndex', 'GetIMap'): face_utilities.unary_unary_inline(servicer.GetIMap),
+      ('trinity.IIndex', 'SetIMap'): face_utilities.unary_unary_inline(servicer.SetIMap),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
+
+
+  def beta_create_IIndex_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('trinity.IIndex', 'GetIMap'): IMapRequest.SerializeToString,
+      ('trinity.IIndex', 'SetIMap'): InvertedMap.SerializeToString,
+    }
+    response_deserializers = {
+      ('trinity.IIndex', 'GetIMap'): InvertedMap.FromString,
+      ('trinity.IIndex', 'SetIMap'): SetResult.FromString,
+    }
+    cardinalities = {
+      'GetIMap': cardinality.Cardinality.UNARY_UNARY,
+      'SetIMap': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'trinity.IIndex', cardinalities, options=stub_options)
+
+
+  class BetaTrinityServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def GetRootConfig(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def SetRootConfig(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+  class BetaTrinityStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def GetRootConfig(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    GetRootConfig.future = None
+    def SetRootConfig(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    SetRootConfig.future = None
+
+
+  def beta_create_Trinity_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('trinity.Trinity', 'GetRootConfig'): ConfigRequest.FromString,
+      ('trinity.Trinity', 'SetRootConfig'): RootConfig.FromString,
+    }
+    response_serializers = {
+      ('trinity.Trinity', 'GetRootConfig'): RootConfig.SerializeToString,
+      ('trinity.Trinity', 'SetRootConfig'): SetResult.SerializeToString,
+    }
+    method_implementations = {
+      ('trinity.Trinity', 'GetRootConfig'): face_utilities.unary_unary_inline(servicer.GetRootConfig),
+      ('trinity.Trinity', 'SetRootConfig'): face_utilities.unary_unary_inline(servicer.SetRootConfig),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
+
+
+  def beta_create_Trinity_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('trinity.Trinity', 'GetRootConfig'): ConfigRequest.SerializeToString,
+      ('trinity.Trinity', 'SetRootConfig'): RootConfig.SerializeToString,
+    }
+    response_deserializers = {
+      ('trinity.Trinity', 'GetRootConfig'): RootConfig.FromString,
+      ('trinity.Trinity', 'SetRootConfig'): SetResult.FromString,
+    }
+    cardinalities = {
+      'GetRootConfig': cardinality.Cardinality.UNARY_UNARY,
+      'SetRootConfig': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'trinity.Trinity', cardinalities, options=stub_options)
+
+
+  class BetaSubsystemServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def StartMainLoop(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+  class BetaSubsystemStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def StartMainLoop(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    StartMainLoop.future = None
+
+
+  def beta_create_Subsystem_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemRequest.FromString,
+    }
+    response_serializers = {
+      ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemResponse.SerializeToString,
+    }
+    method_implementations = {
+      ('trinity.Subsystem', 'StartMainLoop'): face_utilities.unary_unary_inline(servicer.StartMainLoop),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
+
+
+  def beta_create_Subsystem_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemRequest.SerializeToString,
+    }
+    response_deserializers = {
+      ('trinity.Subsystem', 'StartMainLoop'): StartSubsystemResponse.FromString,
+    }
+    cardinalities = {
+      'StartMainLoop': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'trinity.Subsystem', cardinalities, options=stub_options)
+
+
+  class BetaGatewayServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def Search(self, request, context):
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+
+
+  class BetaGatewayStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def Search(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      raise NotImplementedError()
+    Search.future = None
+
+
+  def beta_create_Gateway_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('trinity.Gateway', 'Search'): SearchRequest.FromString,
+    }
+    response_serializers = {
+      ('trinity.Gateway', 'Search'): SearchResponse.SerializeToString,
+    }
+    method_implementations = {
+      ('trinity.Gateway', 'Search'): face_utilities.unary_unary_inline(servicer.Search),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
+
+
+  def beta_create_Gateway_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('trinity.Gateway', 'Search'): SearchRequest.SerializeToString,
+    }
+    response_deserializers = {
+      ('trinity.Gateway', 'Search'): SearchResponse.FromString,
+    }
+    cardinalities = {
+      'Search': cardinality.Cardinality.UNARY_UNARY,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'trinity.Gateway', cardinalities, options=stub_options)
+except ImportError:
+  pass
 # @@protoc_insertion_point(module_scope)

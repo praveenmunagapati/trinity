@@ -7,6 +7,7 @@ import (
 	"sync"
 
 	"github.com/clownpriest/trinity/api/trinity"
+	uuid "gx/ipfs/QmcyaFHbyiZfoX5GTpcqqCPYmbjYNAhRDekXSJPFHdYNSV/go.uuid"
 )
 
 /*
@@ -22,7 +23,10 @@ func RunGatewayServer(staticPath string, wg *sync.WaitGroup) {
 	http.ListenAndServe(":8080", nil)
 }
 
-// SearchResult is the type carrying the response from the main trinity node
+/*
+SearchResult is the type carrying the response
+from the main trinity node
+*/
 type SearchResult struct {
 	Query   string
 	Results []*trinity.SearchResult
@@ -37,6 +41,7 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		http.Error(w, err.Error(), 404)
 	}
+
 	searchString := r.URL.Query().Get("q")
 
 	if searchString == "" {
@@ -44,9 +49,11 @@ func searchHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	fmt.Println(searchString)
 
-	query := trinity.SearchQuery{Query: searchString}
+	requestID := uuid.NewV5(uuid.NamespaceDNS, searchString)
 
-	requestResults, err := gatewayClient.GetSearchQuery(context.Background(), &query)
+	req := trinity.SearchRequest{Query: searchString, Id: requestID.Bytes()}
+
+	requestResults, err := gatewayClient.Search(context.Background(), &req)
 
 	results := SearchResult{
 		Query:   searchString,

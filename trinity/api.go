@@ -29,7 +29,7 @@ func startTrinityCoreServer(port int, wg *sync.WaitGroup) {
 type gatewayServer struct {
 }
 
-func (gs *gatewayServer) GetSearchQuery(ctx context.Context, query *trinity.SearchQuery) (*trinity.SearchResponse, error) {
+func (gs *gatewayServer) Search(ctx context.Context, query *trinity.SearchRequest) (*trinity.SearchResponse, error) {
 	fmt.Printf("got a search request: %s\n", query.Query)
 
 	response := subsystem.Search(query)

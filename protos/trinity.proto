@@ -92,11 +92,12 @@ service Subsystem {
 
 
 service Gateway {
-  rpc GetSearchQuery(SearchQuery) returns (SearchResponse) {}
+  rpc Search(SearchRequest) returns (SearchResponse) {}
 }
 
-message SearchQuery {
+message SearchRequest {
   string query = 1;
+  bytes id = 2;
 }
 
 message SearchResponse {

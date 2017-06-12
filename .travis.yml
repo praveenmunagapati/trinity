@@ -6,19 +6,22 @@ dist: trusty
 git:
   depth: 3
 
-cache:
-  directories:
-  - $HOME/gopath
+# cache:
+#   directories:
+#   - $GOPATH/src
+#   - $GOPATH/pkg
 
 before_install:
   - sudo apt-get update -qq
-  - go get google.golang.org/grpc
+  - go get -u github.com/whyrusleeping/gx
+  - go get -u github.com/whyrusleeping/gx-go
 
-install:
-  - go get github.com/DataDog/zstd
-  - go get github.com/ipfs/go-datastore
-  - go get github.com/clownpriest/trinity/core
-  - go get github.com/clownpriest/trinity/core/system
-  - go get github.com/clownpriest/trinity/core/config
+# install:
+#   - go get github.com/DataDog/zstd
+#   - go get github.com/satori/go.uuid
+#   - go get github.com/ipfs/go-datastore
+#   - go get github.com/clownpriest/trinity/core
+#   - go get github.com/clownpriest/trinity/core/system
+#   - go get github.com/clownpriest/trinity/core/config
 
-script: python3 build.py travis
+script: make

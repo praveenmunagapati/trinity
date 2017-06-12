@@ -6,7 +6,7 @@ import "github.com/clownpriest/trinity/api/trinity"
 Search sends a search query to the backend systems that will
 process it and return a search result
 */
-func Search(query *trinity.SearchQuery) *trinity.SearchResponse {
+func Search(query *trinity.SearchRequest) *trinity.SearchResponse {
 	results := SampleSearchResults()
 	response := &trinity.SearchResponse{Results: results}
 	return response
